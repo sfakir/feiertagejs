@@ -13,6 +13,8 @@ Feiertage.js is installable via:
 - [npm](http://npm.io/): `npm install feiertagejs`
 
 
+
+This script works with Node.js, AMD / RequireJS and directly via script tag.
 ## Quick Examples
 
 ```javascript

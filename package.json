@@ -1,6 +1,6 @@
 {
-  "name": "feiertageJs",
-  "version": "1.0.0",
+  "name": "feiertagejs",
+  "version": "0.1.0",
   "description": "A module to calculate German holidays made for node.js",
   "main": "lib/feiertage.js",
   "scripts": {
