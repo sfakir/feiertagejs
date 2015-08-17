@@ -24,7 +24,8 @@ var today = new Date(); // now
 feiertagejs.isHoliday( today, 'BW'); // probably false if you were working ;)
 
 feiertagejs.getHolidays( 2015, 'BW');
-
+// Array [ Date, Date, Date, ... ]
+// [ Fri Apr 03 2015 00:00:00 GMT+0200 (CEST),  Fri Dec 25 2015 00:00:00 GMT+0100 (CET), ...]
 
 ```
 
@@ -50,6 +51,11 @@ The following short forms were used for the regions:
  * 	ST: Sachsen-Anhalt
  * 	SH: Schleswig-Holstein
  * 	TH: Thüringen
+
+# Open todos
+
+* Performance: The engine cacluates all holidays on each call, this will be optimized in the near future.
+
 
 
 # Feedback
