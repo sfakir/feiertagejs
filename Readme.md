@@ -34,22 +34,22 @@ The following short forms were used for the regions:
 
 
  Bundesland:
- * 	BW :Baden-Württemberg
- * 	BY :Bayern
- * 	BE :Berlin
- * 	BB :Brandenburg
- * 	HB :Bremen
- * 	HH :Hamburg
- * 	HE :Hessen
- * 	MV :Mecklenburg-Vorpommern
- * 	NI :Niedersachsen
- * 	NW :Nordrhein-Westfalen
- * 	RP :Rheinland-Pfalz
- * 	SL :Saarland
- * 	SN :Sachsen
- * 	ST :Sachsen-Anhalt
- * 	SH :Schleswig-Holstein
- * 	TH :Thüringen
+ * 	BE: Berlin
+ * 	BW: Baden-Württemberg
+ * 	BY: Bayern
+ * 	BB: Brandenburg
+ * 	HB: Bremen
+ * 	HH: Hamburg
+ * 	HE: Hessen
+ * 	MV: Mecklenburg-Vorpommern
+ * 	NI: Niedersachsen
+ * 	NW: Nordrhein-Westfalen
+ * 	RP: Rheinland-Pfalz
+ * 	SL: Saarland
+ * 	SN: Sachsen
+ * 	ST: Sachsen-Anhalt
+ * 	SH: Schleswig-Holstein
+ * 	TH: Thüringen
 
 
 # Feedback
