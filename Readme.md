@@ -21,9 +21,12 @@ This script works with Node.js, AMD / RequireJS and directly via script tag.
 
 var today = new Date(); // now
 
-feiertagejs.isHoliday( today, 'BW'); // probably false if you were working ;)
+feiertagejs.isHoliday( today, 'BW');
+// probably false, because you are working ;)
+
 
 feiertagejs.getHolidays( 2015, 'BW');
+// returns an array of Holidays as date objects
 // Array [ Date, Date, Date, ... ]
 // [ Fri Apr 03 2015 00:00:00 GMT+0200 (CEST),  Fri Dec 25 2015 00:00:00 GMT+0100 (CET), ...]
 
