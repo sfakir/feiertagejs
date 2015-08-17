@@ -1,0 +1,25 @@
+{
+  "name": "feiertageJs",
+  "version": "1.0.0",
+  "description": "A module to calculate German holidays made for node.js",
+  "main": "lib/feiertage.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sfakir/feiertagejs"
+  },
+  "keywords": [
+    "node",
+    "holidays",
+    "feiertage",
+    "javascript"
+  ],
+  "author": "Simon Fakir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sfakir/feiertagejs/issues"
+  },
+  "homepage": "https://github.com/sfakir/feiertagejs"
+}
