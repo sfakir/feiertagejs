@@ -58,8 +58,7 @@ The following short forms were used for the regions:
 # Open todos
 
 * Performance: The engine cacluates all holidays on each call, this will be optimized in the near future.
-
-
+* noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
 
 # Feedback
 
