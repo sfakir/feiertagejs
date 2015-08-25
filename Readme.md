@@ -54,6 +54,7 @@ The following short forms were used for the regions:
  * 	ST: Sachsen-Anhalt
  * 	SH: Schleswig-Holstein
  * 	TH: Thüringen
+ *  BUND: German wide holidays*
 
 # Open todos
 
