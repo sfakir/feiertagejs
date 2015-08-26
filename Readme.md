@@ -32,6 +32,14 @@ feiertagejs.getHolidays( 2015, 'BW');
 
 ```
 
+# Feedback and Questions
+
+You have two options two give feedback:
+
+* Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
+* Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunatly in German.
+
+
 # Regions
 
 The following short forms were used for the regions:
@@ -58,8 +66,8 @@ The following short forms were used for the regions:
 
 # Open todos
 
-* Performance: The engine cacluates all holidays on each call, this will be optimized in the near future.
 * noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
+
 
 # Feedback
 

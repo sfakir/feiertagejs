@@ -1,0 +1,17 @@
+{
+  "name": "feiertagejs",
+  "version": "0.1.3",
+  "main": "lib/feiertage.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "build",
+    "*.md"
+  ],
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "keywords": [
+    "javascript", "feiertage", "holidays", "germany"
+  ]
+}

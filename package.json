@@ -1,10 +1,10 @@
 {
   "name": "feiertagejs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A module to calculate German holidays made for node.js",
   "main": "lib/feiertage.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha spec/*"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/sfakir/feiertagejs/issues"
   },
-  "homepage": "https://github.com/sfakir/feiertagejs"
+  "homepage": "https://github.com/sfakir/feiertagejs",
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
 }
