@@ -1,6 +1,7 @@
 # Feiertage.js
 
 [![NPM version](http://img.shields.io/npm/v/async.svg)](https://www.npmjs.org/package/feiertagejs)
+[![Build Status](https://travis-ci.org/sfakir/feiertagejs.svg?branch=master)](https://travis-ci.org/sfakir/feiertagejs)
 
 
 Feiertage.js is a small npm module to calculate German holidays for each Bundesland.
