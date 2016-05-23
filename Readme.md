@@ -26,12 +26,36 @@ feiertagejs.isHoliday( today, 'BW');
 // probably false, because you are working ;)
 
 
-feiertagejs.getHolidays( 2015, 'BW');
-// returns an array of Holidays as date objects
-// Array [ Date, Date, Date, ... ]
-// [ Fri Apr 03 2015 00:00:00 GMT+0200 (CEST),  Fri Dec 25 2015 00:00:00 GMT+0100 (CET), ...]
+ <!--feiertagejs.getHolidays( 2015, 'BW');-->
+<!--// returns an array of Holidays as date objects-->
+<!--// Array [ Date, Date, Date, ... ]-->
+<!--// [ Fri Apr 03 2015 00:00:00 GMT+0200 (CEST),  Fri Dec 25 2015 00:00:00 GMT+0100 (CET), ...]-->
+
+
+// check if a day is a specific holiday:
+var bool = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
+
+
+
+// get all holiday for a year:
+
+// returns an array of objects
+var holidays2016 = feiertagejs.getHolidays('2016','BUND');
+
+holidays2016[0].date // = Date("2016-01-01");
+holidays2016[0].name // 'NEUJAHRSTAG' (constant)
+holidays2016[0].trans() // German translation: Neujahrstag
+
+
 
 ```
+
+# Changelog
+
+* Version 1.2.0 // 23rd May 2016
+getHolidays(2016,'BW') => Does not return an Date array anymore, but an Object array.
+
+
 
 # Feedback and Questions
 
@@ -63,11 +87,115 @@ The following short forms were used for the regions:
  * 	ST: Sachsen-Anhalt
  * 	SH: Schleswig-Holstein
  * 	TH: Thüringen
- *  BUND: German wide holidays*
+ *  BUND: Nation wide holidays*
+ *  ALL: This adds all holidays to the list, even if they are only valid in one single region
+
+* Nation wide are the ones which are not region depended and are also available in each single region.
+ 
+# Holidays
+Available like this:
+
+
+# Interfaces
+
+## isHoliday
+check is specific date is holiday
+
+
+*Parameter*:
+
+date: Date Object
+
+region: String two digit region code (see regions)
+
+*Example*:
+```javascript 
+isHoliday(date,region); 
+isHoliday(new Date(), 'BY'); 
+``` 
+
+### isSpecificHoliday
+
+*Parameter*:
+
+date: Date Object
+
+holidayName: String
+  
+region: String (optional) two digit region code (see regions)
+
+*Example*:
+```javascript 
+isSpecificHoliday(date, holidayName, region)
+feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
+```
+
+
+## getHolidays
+
+list of all holidays
+Returns array of objects
+
+*Parameter*:
+
+year: Integer
+
+region: String two digit region code (see regions)
+
+*Example*:
+```javascript 
+getHolidays(year, region)
+var holidays2016 = feiertagejs.getHolidays(2016, 'BW')
+
+holidays2016[0].date // = Date("2016-01-01");
+holidays2016[0].name // 'NEUJAHRSTAG' (constant)
+holidays2016[0].trans() // German translation: Neujahrstag
+
+
+```
+
+
+## isSunOrHoliday
+        
+checks if a specific date is sunday or holiday.
+Returns Boolean
+
+*Parameter*:
+
+date: Date
+
+region: String two digit region code (see regions)
+
+
+*Example*:
+```javascript 
+isSunOrHoliday(date, region)
+feiertagejs.isSunOrHoliday(new Date(), 'BW')
+```
+
+
+
+
+
 
 # Open todos
 
 * noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
+* documentation with jsdoc
+
+
+# Run the tests
+
+You are able to run the tests just by typing the following command.
+
+```javascript 
+npm test
+```
+
+
+
+
+
 
 
 # Feedback

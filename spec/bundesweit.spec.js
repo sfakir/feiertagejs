@@ -15,6 +15,7 @@ describe("Holidays 2015 in Germany:", function () {
     it("New Year should be a holiday", function () {
         var day = new Date(2015,0,1);
         var result = feiertagejs.isHoliday(day,'BUND');
+
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
@@ -79,7 +80,8 @@ describe("Holidays 2015 in Germany:", function () {
         var result = feiertagejs.getCache();
         expect(result).to.be.an('object');
         //expect(result['BUND']).to.be.an('object');
-        expect(result[today.getFullYear()]['BUND']).to.have.length(9);
+        expect(result[today.getFullYear()]['BUND'].integers).to.have.length(9);
+        expect(result[today.getFullYear()]['BUND'].objects).to.have.length(9);
 
     });
 

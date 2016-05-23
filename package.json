@@ -4,7 +4,7 @@
   "description": "A module to calculate German holidays made for node.js",
   "main": "lib/feiertage.js",
   "scripts": {
-    "test": "mocha spec/*"
+    "test": "env TZ='Europe/Berlin' mocha spec/*"
   },
   "repository": {
     "type": "git",
