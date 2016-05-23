@@ -26,26 +26,18 @@ feiertagejs.isHoliday( today, 'BW');
 // probably false, because you are working ;)
 
 
- <!--feiertagejs.getHolidays( 2015, 'BW');-->
-<!--// returns an array of Holidays as date objects-->
-<!--// Array [ Date, Date, Date, ... ]-->
-<!--// [ Fri Apr 03 2015 00:00:00 GMT+0200 (CEST),  Fri Dec 25 2015 00:00:00 GMT+0100 (CET), ...]-->
-
-
 // check if a day is a specific holiday:
-var bool = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
+feiertagejs.isSpecificHoliday(today, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
 
 
+// get all holiday for a single year: getHolidays()
+// returns an array of objects [ {name: '', date: ''} ,...]
 
-// get all holiday for a year:
-
-// returns an array of objects
 var holidays2016 = feiertagejs.getHolidays('2016','BUND');
 
 holidays2016[0].date // = Date("2016-01-01");
 holidays2016[0].name // 'NEUJAHRSTAG' (constant)
 holidays2016[0].trans() // German translation: Neujahrstag
-
 
 
 ```
@@ -177,14 +169,10 @@ feiertagejs.isSunOrHoliday(new Date(), 'BW')
 
 
 
-
-
-
 # Open todos
 
 * documentation with jsdoc
 * noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
-
 
 
 # Run the tests
