@@ -46,12 +46,14 @@ holidays2016[0].trans() // German translation: Neujahrstag
 
 Version 1.1.0 // 23rd May 2016
 
-* getHolidays(2016,'BW') => Does not return an Date array anymore, but an Object array.
+*  *interface change:* getHolidays(2016,'BW') => Does not return an Date array anymore, but an Object array.
+
 * rewrote internal logic, added names and text translation
 * added getHolidays()
 * added getSpecificHolidays
 * addded constants for every holiday
 * improved interal cache
+* added all as region
 
 
 
@@ -173,20 +175,6 @@ feiertagejs.isSunOrHoliday(new Date(), 'BW')
 
 * documentation with jsdoc
 * noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
-
-
-# Run the tests
-
-You are able to run the tests just by typing the following command.
-
-```javascript 
-npm test
-```
-
-
-
-
-
 
 
 # Feedback
