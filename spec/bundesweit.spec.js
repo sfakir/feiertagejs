@@ -9,6 +9,7 @@ describe("Holidays 2015 in Germany:", function () {
         var result = feiertagejs.getHolidays(2015,'BUND');
         expect(result).to.be.an('array');
         expect(result).to.have.length(9);
+        expect(result[0]).to.be.an('object');
     });
 
     //

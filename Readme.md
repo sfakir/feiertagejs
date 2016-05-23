@@ -52,8 +52,14 @@ holidays2016[0].trans() // German translation: Neujahrstag
 
 # Changelog
 
-* Version 1.2.0 // 23rd May 2016
-getHolidays(2016,'BW') => Does not return an Date array anymore, but an Object array.
+Version 1.1.0 // 23rd May 2016
+
+* getHolidays(2016,'BW') => Does not return an Date array anymore, but an Object array.
+* rewrote internal logic, added names and text translation
+* added getHolidays()
+* added getSpecificHolidays
+* addded constants for every holiday
+* improved interal cache
 
 
 
@@ -98,17 +104,17 @@ Available like this:
 
 # Interfaces
 
-## isHoliday
+### isHoliday
 check is specific date is holiday
 
 
-*Parameter*:
+**Parameter**:
 
 date: Date Object
 
 region: String two digit region code (see regions)
 
-*Example*:
+**Example**:
 ```javascript 
 isHoliday(date,region); 
 isHoliday(new Date(), 'BY'); 
@@ -116,12 +122,10 @@ isHoliday(new Date(), 'BY');
 
 ### isSpecificHoliday
 
-*Parameter*:
+**Parameter**:
 
 date: Date Object
-
 holidayName: String
-  
 region: String (optional) two digit region code (see regions)
 
 *Example*:
@@ -131,15 +135,14 @@ feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT)
 ```
 
 
-## getHolidays
+### getHolidays
 
 list of all holidays
 Returns array of objects
 
-*Parameter*:
+**Parameter**:
 
 year: Integer
-
 region: String two digit region code (see regions)
 
 *Example*:
@@ -155,15 +158,14 @@ holidays2016[0].trans() // German translation: Neujahrstag
 ```
 
 
-## isSunOrHoliday
+### isSunOrHoliday
         
 checks if a specific date is sunday or holiday.
 Returns Boolean
 
-*Parameter*:
+**Parameter**:
 
 date: Date
-
 region: String two digit region code (see regions)
 
 
@@ -180,8 +182,9 @@ feiertagejs.isSunOrHoliday(new Date(), 'BW')
 
 # Open todos
 
-* noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
 * documentation with jsdoc
+* noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
+
 
 
 # Run the tests
