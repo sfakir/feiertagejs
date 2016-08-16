@@ -43,6 +43,12 @@ holidays2016[0].trans() // German translation: Neujahrstag
 ```
 
 # Changelog
+Version 1.1.1 // 16th August 2016
+
+* added Translation functionality, so you can add your own labels/language.
+* added language fallback to German
+
+
 
 Version 1.1.0 // 23rd May 2016
 
@@ -171,10 +177,48 @@ feiertagejs.isSunOrHoliday(new Date(), 'BW')
 
 
 
+### Languagemethods: addTranslation
+
+adds a translation for the holidays (e.g. english). This also allows to override the German names.
+hint: Interpolates German for missing translations
+
+**Parameter**:
+
+isoCode: String
+object: Key-Value Pairs for the translation
+
+*Example*:
+```javascript 
+var translation = {
+    NEUJAHRSTAG: "New Years Eve",
+    HEILIGEDREIKOENIGE: "Holy Three Kings",
+   ...
+    }
+feiertagejs.addTranslation('en', translation);
+feiertagejs.setLanguage('en');
+```
+
+
+### Languagemethods: .trans() with language
+
+
+**Parameter**:
+
+isoCode: String
+
+
+*Example*:
+```javascript 
+var holidays2016 = feiertagejs.getHolidays(2016, 'BW')
+holidays2016[0].trans('en') \\ if you added a translation, this is the english translation
+```
+
+
+
 # Open todos
 
 * documentation with jsdoc
-* noticed a similar module: todo: compare results https://github.com/wtfuii/german-holiday/blob/master/german-holiday.js
+* maybe add some more langauges
 
 
 # Feedback

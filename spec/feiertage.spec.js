@@ -49,7 +49,6 @@ describe("Holidays 2015 in Bavaria:", function () {
         expect(result).to.equal(true);
 
         var christmas2 = new Date(2015, 11, 26);
-        console.log('christmas',christmas2);
         result = feiertagejs.isHoliday(christmas2, 'BY');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
