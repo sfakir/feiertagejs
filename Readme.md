@@ -38,11 +38,19 @@ var holidays2016 = feiertagejs.getHolidays('2016','BUND');
 holidays2016[0].date // = Date("2016-01-01");
 holidays2016[0].name // 'NEUJAHRSTAG' (constant)
 holidays2016[0].trans() // German translation: Neujahrstag
+holidays2016[0].equals(date) // Compare days only (ignore time)
 
 
 ```
 
 # Changelog
+
+Version 1.1.4 // 29th August 2016
+
+* Reformationstag 2017 is a national holiday + Unittests
+* Added .equals() method to compare date.
+
+
 Version 1.1.1 // 16th August 2016
 
 * added Translation functionality, so you can add your own labels/language.
