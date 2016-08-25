@@ -1,5 +1,6 @@
 var feiertagejs = require('../lib/feiertage.js');
 var expect = require('chai').expect;
+var _ = require('lodash');
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
 var isHolidayToday = feiertagejs.isHoliday(new Date(), 'BW');
@@ -68,7 +69,39 @@ describe("Holidays 2015 in Bavaria:", function () {
 
 
 });
+describe("Holidays 2016 in BW:", function () {
+    it("BW should have 12 holidays", function () {
+        var result = feiertagejs.getHolidays(2016, 'BW');
+        
+        expect(result).to.be.an('array');
+        expect(result).to.have.length(12)
+    });
+
+});
+
+describe("Holidays 2016 in NW:", function () {
 
 
+    it("Heilige Drei Könige should not be available", function () {
+
+        var result = feiertagejs.getHolidays(2016, 'NW');
+        var hkoenige = _.find(result,function(f){ return f.name == 'HEILIGEDREIKOENIGE'});
+        expect(hkoenige).to.equal(undefined);
+    });
+ it("TAg der Arbeit should be on first may", function () {
+
+        var result = feiertagejs.getHolidays(2016, 'NW');
+        var firstMay = _.find(result,function(f){ return f.name == 'TAG_DER_ARBEIT'});
+
+        expect(firstMay).to.be.an('object');
+        var realDate = new Date(2016,4, 1);
+
+        var isTrue = firstMay.equals(realDate);
+        expect(isTrue).to.equal(true);
+    });
+
+
+
+});
 
 

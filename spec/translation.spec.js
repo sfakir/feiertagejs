@@ -45,58 +45,14 @@ describe("set Custom Translations", function () {
             NEUJAHRSTAG: "New Years Eve"
         });
         feiertagejs.setLanguage('en');
-
         var holidays = feiertagejs.getHolidays('2016','BUND');
+
         var threeKings = holidays[3];
 
         // fallback
-        expect(threeKings.trans()).to.equal("Heilige Drei Könige");
-
-
-
+        expect(threeKings.trans()).to.equal("Tag der Arbeit");
 
     });
-    // it("check ChristiHimmelfahrt 2016: check right date", function () {
-    //     // 5.5.2016
-    //     var somedate = new Date(2016, 4, 5);
-    //     var result = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
-    //     expect(result).to.be.an('boolean');
-    //     expect(result).to.equal(true);
-    //
-    // });
-    //
-    // it("check Erster Weihnachtsfeiertag 2016: check right date", function () {
-    //     // 25.12.2016
-    //     var somedate = new Date(2016, 11, 25);
-    //     var result = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.ERSTERWEIHNACHTSFEIERTAG);
-    //     expect(result).to.be.an('boolean');
-    //     expect(result).to.equal(true);
-    //
-    // });
-    //
-    // it("check Erster Weihnachtsfeiertag 2016: check wrong date", function () {
-    //
-    //     // 5.5.2016
-    //     var somedate = new Date(2016, 11, 29);
-    //     var result = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.ERSTERWEIHNACHTSFEIERTAG);
-    //     expect(result).to.be.an('boolean');
-    //     expect(result).to.equal(false);
-    //
-    // });
-    // it("every holiday should have a translation", function () {
-    //
-    //
-    //     var somedate = new Date(2016, 5, 5);
-    //     var holidays = feiertagejs.getHolidays(somedate.getFullYear(), 'ALL');
-    //
-    //     for (var i in holidays) {
-    //         if (holidays.hasOwnProperty(i)) {
-    //             var translation = holidays[i].trans();
-    //             expect(translation).to.be.an('string');
-    //         }
-    //     }
-    //
-    // });
 
 
 });

@@ -214,6 +214,21 @@ holidays2016[0].trans('en') \\ if you added a translation, this is the english t
 ```
 
 
+### Languagemethods: .equals(date)
+
+
+**Parameter**:
+
+date: String
+
+
+*Example*:
+```javascript 
+var holidays2016 = feiertagejs.getHolidays(2016, 'BW')
+holidays2016[0].equals(new Date()) \\ false, because today is not the first holiday :)
+```
+
+
 
 # Open todos
 
