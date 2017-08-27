@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1be4b29b-84a9-4012-b916-3ed426551bec" name="Default" comment="Buss- und Bett">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/feiertage2017.spec.js" />
+    <list default="true" id="1be4b29b-84a9-4012-b916-3ed426551bec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/feiertage.js" afterPath="$PROJECT_DIR$/lib/feiertage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/npm.md" afterPath="$PROJECT_DIR$/npm.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/bundesweit.spec.js" afterPath="$PROJECT_DIR$/spec/bundesweit.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/feiertage.spec.js" afterPath="$PROJECT_DIR$/spec/feiertage.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/feiertageNames.spec.js" afterPath="$PROJECT_DIR$/spec/feiertageNames.spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="feiertageJs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +45,8 @@
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="148">
-                <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <first_editor relative-caret-position="298">
+                <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -58,6 +54,42 @@
           </provider>
           <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="npm.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/npm.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="15">
+                <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -134,15 +166,15 @@
         <option value="$PROJECT_DIR$/component.json" />
         <option value="$PROJECT_DIR$/spec/timezoneTest.spec.js" />
         <option value="$PROJECT_DIR$/spec/translation.spec.js" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/npm.md" />
         <option value="$PROJECT_DIR$/spec/feiertageNames.spec.js" />
         <option value="$PROJECT_DIR$/spec/bundesweit.spec.js" />
         <option value="$PROJECT_DIR$/spec/feiertage.spec.js" />
         <option value="$PROJECT_DIR$/spec/feiertage2017.spec.js" />
         <option value="$PROJECT_DIR$/lib/feiertage.js" />
         <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/npm.md" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -471,7 +503,7 @@
       <workItem from="1473839953386" duration="1072000" />
       <workItem from="1503846088531" duration="3695000" />
       <workItem from="1503850219670" duration="828000" />
-      <workItem from="1503851095182" duration="1062000" />
+      <workItem from="1503851095182" duration="1160000" />
     </task>
     <task id="LOCAL-00001" summary="component.json added, readme updated">
       <created>1439827076009</created>
@@ -557,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463985400566</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Version 1.1.5 // 27th August 2017&#10;&#10;* Compatibility issues with DateJS solved&#10;* Buss- und Betttag cacluation replaced&#10;* New Unit tests for 2017&#10;* Deprecated isMariaHimmelfahrt removed; please use feiertagejs.isSpecificHoliday();&#10;* Added timezone independent 'dateString' attribute of Feiertag Object; replaced equals method">
+      <created>1503852164901</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1503852164901</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -593,7 +632,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17576000" />
+    <option name="totallyTimeSpent" value="17674000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -617,7 +656,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24954791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -627,7 +665,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.4954792" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.4954792" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -689,7 +727,8 @@
     <MESSAGE value="tests updated, version 1.1.0" />
     <MESSAGE value="Removed deprecated functions/variables, updated comments, tests. Release 1.1.0" />
     <MESSAGE value="cleaned documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned documentation" />
+    <MESSAGE value="Version 1.1.5 // 27th August 2017&#10;&#10;* Compatibility issues with DateJS solved&#10;* Buss- und Betttag cacluation replaced&#10;* New Unit tests for 2017&#10;* Deprecated isMariaHimmelfahrt removed; please use feiertagejs.isSpecificHoliday();&#10;* Added timezone independent 'dateString' attribute of Feiertag Object; replaced equals method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1.1.5 // 27th August 2017&#10;&#10;* Compatibility issues with DateJS solved&#10;* Buss- und Betttag cacluation replaced&#10;* New Unit tests for 2017&#10;* Deprecated isMariaHimmelfahrt removed; please use feiertagejs.isSpecificHoliday();&#10;* Added timezone independent 'dateString' attribute of Feiertag Object; replaced equals method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1049,20 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/timezoneTest.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1083,19 +1108,6 @@
         <state relative-caret-position="244">
           <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/npm.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/bundesweit.spec.js">
@@ -1135,6 +1147,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/npm.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="15">
+            <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1143,8 +1185,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="148">
-            <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <first_editor relative-caret-position="298">
+            <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
             <folding />
           </first_editor>
           <second_editor />
