@@ -45,6 +45,16 @@ holidays2016[0].equals(date) // Compare days only (ignore time)
 
 # Changelog
 
+Version 1.1.5 // 27th August 2017
+
+* Compatibility issues with DateJS solved
+* Buss- und Betttag cacluation replaced
+* New Unit tests for 2017
+* Deprecated isMariaHimmelfahrt removed; please use feiertagejs.isSpecificHoliday();
+* Added timezone independent 'dateString' attribute of Feiertag Object; replaced equals method
+
+
+
 Version 1.1.4 // 29th August 2016
 
 * Reformationstag 2017 is a national holiday + Unittests
@@ -159,6 +169,7 @@ getHolidays(year, region)
 var holidays2016 = feiertagejs.getHolidays(2016, 'BW')
 
 holidays2016[0].date // = Date("2016-01-01");
+holidays2016[0].dateString // = '2016-01-01';
 holidays2016[0].name // 'NEUJAHRSTAG' (constant)
 holidays2016[0].trans() // German translation: Neujahrstag
 

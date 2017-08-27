@@ -19,7 +19,7 @@ describe("Check Feiertage by Name", function () {
     it("check ChristiHimmelfahrt 2016: check right date", function () {
         // 5.5.2016
         var somedate = new Date(2016, 4, 5);
-        var result = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
+        var result = feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT); // und Vatertag
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
 

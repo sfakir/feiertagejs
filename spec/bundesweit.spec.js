@@ -37,8 +37,9 @@ describe("Holidays 2015 in Germany:", function () {
         expect(result).to.equal(false);
     });
     it("Eastermonday should be a holiday", function () {
-        var heiligeDreiKoenige = new Date(2015, 3, 6); //6. april
-        var result = feiertagejs.isHoliday(heiligeDreiKoenige, 'BUND');
+        var ostermontag = new Date(2015, 3, 6); //6. april
+        var result = feiertagejs.isHoliday(ostermontag, 'BUND');
+
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
@@ -74,7 +75,7 @@ describe("Holidays 2015 in Germany:", function () {
 
     it("cache should be an object", function () {
         //build cache
-        var today = new Date();
+        var today = new Date(2015);
         feiertagejs.isHoliday(today, 'BUND');
 
         // getcache()
@@ -90,8 +91,6 @@ describe("Holidays 2015 in Germany:", function () {
     it("in 2017 we have REFORMATIONSTAG in whole Germany", function () {
         //build cache
         var result = feiertagejs.getHolidays(2017, 'BUND');
-        console.log(result, result.length);
-
 
         expect(result).to.be.an('array');
         expect(result).to.have.length(10);

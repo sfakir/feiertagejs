@@ -57,11 +57,12 @@ describe("Holidays 2015 in Bavaria:", function () {
     });
 
     it("cache should be an object", function () {
-        var today = new Date();
+        var today = new Date(2016,1,1);
 
         feiertagejs.isHoliday(today, 'BY');
         var result = feiertagejs.getCache();
         expect(result).to.be.an('object');
+
         expect(result[today.getFullYear()]['BY'].integers).to.have.length(12);
         expect(result[today.getFullYear()]['BY'].objects).to.have.length(12);
 
