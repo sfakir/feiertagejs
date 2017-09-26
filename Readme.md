@@ -45,6 +45,11 @@ holidays2016[0].equals(date) // Compare days only (ignore time)
 
 # Changelog
 
+Version 1.1.7 // 25th September 2017
+
+* added getHolidayByDate(date, region) method
+
+
 Version 1.1.5 // 27th August 2017
 
 * Compatibility issues with DateJS solved
@@ -152,6 +157,31 @@ isSpecificHoliday(date, holidayName, region)
 feiertagejs.isSpecificHoliday(somedate, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
 ```
 
+
+### getHolidayByDate
+
+Finds a specfic holiday by date or null if the date is no holiday.
+
+Return Holiday Object | null
+
+**Parameter**:
+
+date: Date
+region (optional): String two digit region code (see regions)
+
+*Example*:
+```javascript 
+getHolidays(date, region)
+var heiligeDreiKoenige = new Date(2015, 0, 6);
+var holiday = feiertagejs.getHolidayByDate(heiligeDreiKoenige, 'BY');
+
+holiday.date // = Date("2015-01-06");
+holiday.dateString // = '2015-01-06';
+holiday.name // 'HEILIGEDREIKOENIGE' (constant)
+holiday.trans() // German translation
+
+
+```
 
 ### getHolidays
 

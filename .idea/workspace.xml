@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1be4b29b-84a9-4012-b916-3ed426551bec" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/feiertage.js" afterPath="$PROJECT_DIR$/lib/feiertage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/feiertage2017.spec.js" afterPath="$PROJECT_DIR$/spec/feiertage2017.spec.js" />
     </list>
     <ignored path="feiertageJs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,14 +29,14 @@
       <file leaf-file-name="feiertage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/feiertage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2850">
-              <caret line="222" column="9" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
+            <state relative-caret-position="-3575">
+              <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#3863#4608#0" expanded="false" />
-                <element signature="e#4731#5118#0" expanded="false" />
-                <element signature="e#5222#5273#0" expanded="false" />
-                <element signature="e#5438#5510#0" expanded="false" />
+                <element signature="e#3929#4674#0" expanded="false" />
+                <element signature="e#4797#5184#0" expanded="false" />
+                <element signature="e#5288#5339#0" expanded="false" />
+                <element signature="e#5504#5576#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -42,8 +46,8 @@
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="30">
-                <caret line="2" column="96" lean-forward="false" selection-start-line="2" selection-start-column="96" selection-end-line="2" selection-end-column="96" />
+              <first_editor relative-caret-position="470">
+                <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -51,16 +55,6 @@
           </provider>
           <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -103,8 +97,8 @@
       <file leaf-file-name="feiertage2017.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/feiertage2017.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="295">
+              <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -113,8 +107,8 @@
       <file leaf-file-name="feiertage.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/feiertage.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="333">
+              <caret line="33" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -124,11 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Heil</find>
-      <find>SN</find>
-      <find>ALLERHEILIGEN</find>
-      <find>BUBETAG</find>
-      <find>isSpecifi</find>
       <find>isSpecificHoliday</find>
       <find>Holidays:</find>
       <find>Holidays.</find>
@@ -154,10 +143,15 @@
       <find>co</find>
       <find>console.log(</find>
       <find>allerheil</find>
+      <find>getHolida</find>
+      <find>getHolidays</find>
+      <find>_getHolidaysObjectRepresentation</find>
+      <find>getholidaybda</find>
+      <find>changelog</find>
     </findStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/spec</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/spec</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -175,11 +169,11 @@
         <option value="$PROJECT_DIR$/spec/feiertageNames.spec.js" />
         <option value="$PROJECT_DIR$/spec/bundesweit.spec.js" />
         <option value="$PROJECT_DIR$/spec/feiertage.spec.js" />
-        <option value="$PROJECT_DIR$/spec/feiertage2017.spec.js" />
-        <option value="$PROJECT_DIR$/lib/feiertage.js" />
         <option value="$PROJECT_DIR$/npm.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/lib/feiertage.js" />
+        <option value="$PROJECT_DIR$/spec/feiertage2017.spec.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Readme.md" />
       </list>
@@ -195,6 +189,9 @@
   </component>
   <component name="NodeJsMochaPackageDirSetting">
     <data>/usr/local/lib/node_modules/mocha</data>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -217,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,7 +258,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,23 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.spec/*.spec.js">
-    <configuration default="false" name="Check Feiertage by Name.check ChristiHimmelfahrt 2016: check right date" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/spec/feiertageNames.spec.js</test-file>
-      <test-names>
-        <name value="Check Feiertage by Name" />
-        <name value="check ChristiHimmelfahrt 2016: check right date" />
-      </test-names>
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Mocha.get Specific holiday:.find BUBE-TAG 2016">
     <configuration default="false" name="spec/feiertage2017.spec.js" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>/usr/local/bin/node</node-interpreter>
       <node-options />
@@ -367,6 +348,22 @@
       <test-names>
         <name value="Holidays 2017 in Saxony:" />
         <name value="BUBE-TAG 2017" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="get Specific holiday:.find BUBE-TAG 2016" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>/usr/local/bin/node</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/spec/feiertage2017.spec.js</test-file>
+      <test-names>
+        <name value="get Specific holiday:" />
+        <name value="find BUBE-TAG 2016" />
       </test-names>
       <method />
     </configuration>
@@ -468,19 +465,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Node.js.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="Mocha.spec/*.spec.js" />
-      <item index="2" class="java.lang.String" itemvalue="Mocha.Check Feiertage by Name.check ChristiHimmelfahrt 2016: check right date" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.spec/feiertage2017.spec.js" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2016" />
-      <item index="5" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.cache should be an object" />
-      <item index="6" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2017" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.spec/feiertage2017.spec.js" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2016" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.cache should be an object" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2017" />
+      <item index="6" class="java.lang.String" itemvalue="Mocha.get Specific holiday:.find BUBE-TAG 2016" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Mocha.spec/feiertage2017.spec.js" />
-        <item index="1" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2017" />
-        <item index="2" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.cache should be an object" />
-        <item index="3" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2016" />
-        <item index="4" class="java.lang.String" itemvalue="Mocha.Check Feiertage by Name.check ChristiHimmelfahrt 2016: check right date" />
+        <item index="0" class="java.lang.String" itemvalue="Mocha.get Specific holiday:.find BUBE-TAG 2016" />
+        <item index="1" class="java.lang.String" itemvalue="Mocha.spec/feiertage2017.spec.js" />
+        <item index="2" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2017" />
+        <item index="3" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.cache should be an object" />
+        <item index="4" class="java.lang.String" itemvalue="Mocha.Holidays 2017 in Saxony:.BUBE-TAG 2016" />
       </list>
     </recent_temporary>
   </component>
@@ -509,7 +506,8 @@
       <workItem from="1503846088531" duration="3695000" />
       <workItem from="1503850219670" duration="828000" />
       <workItem from="1503851095182" duration="1230000" />
-      <workItem from="1506446580278" duration="15000" />
+      <workItem from="1506446580278" duration="238000" />
+      <workItem from="1506447865513" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="component.json added, readme updated">
       <created>1439827076009</created>
@@ -606,11 +604,11 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="spec___spec_js - 2017.08.27 at 18h 41m 25s.xml">
-      <configuration name="spec/*.spec.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="get_Specific_holiday__find_BUBE-TAG_2016 - 2017.09.26 at 19h 49m 25s.xml">
+      <configuration name="get Specific holiday:.find BUBE-TAG 2016" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="spec_feiertage2017_spec_js - 2017.08.27 at 18h 33m 17s.xml">
-      <configuration name="spec/feiertage2017.spec.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="get_Specific_holiday__find_BUBE-TAG_2016 - 2017.09.26 at 19h 51m 25s.xml">
+      <configuration name="get Specific holiday:.find BUBE-TAG 2016" configurationId="mocha-javascript-test-runner" />
     </history-entry>
     <history-entry file="spec_feiertage2017_spec_js - 2017.08.27 at 18h 33m 34s.xml">
       <configuration name="spec/feiertage2017.spec.js" configurationId="mocha-javascript-test-runner" />
@@ -638,7 +636,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17759000" />
+    <option name="totallyTimeSpent" value="18798000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -666,12 +664,13 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24954791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.5069319" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867885" sideWeight="0.4978903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.51416516" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867885" sideWeight="0.4930681" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.4930681" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37379164" sideWeight="0.48583484" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -682,7 +681,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -739,13 +737,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/lib/feiertage.js</url>
-          <line>148</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
@@ -820,10 +811,10 @@
           <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -897,10 +888,10 @@
           <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -967,10 +958,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1017,10 +1008,10 @@
           <caret line="156" column="44" lean-forward="false" selection-start-line="156" selection-start-column="44" selection-end-line="156" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1066,10 +1057,10 @@
           <caret line="60" column="7" lean-forward="false" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1116,33 +1107,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/feiertage2017.spec.js">
+    <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/feiertage.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="333">
+          <caret line="33" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/feiertage.js">
+    <entry file="file://$PROJECT_DIR$/spec/feiertage2017.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="222" column="9" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3863#4608#0" expanded="false" />
-            <element signature="e#4731#5118#0" expanded="false" />
-            <element signature="e#5222#5273#0" expanded="false" />
-            <element signature="e#5438#5510#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="295">
+          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,27 +1153,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/feiertage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3575">
+          <caret line="206" column="0" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#3929#4674#0" expanded="false" />
+            <element signature="e#4797#5184#0" expanded="false" />
+            <element signature="e#5288#5339#0" expanded="false" />
+            <element signature="e#5504#5576#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1192,8 +1183,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="96" lean-forward="false" selection-start-line="2" selection-start-column="96" selection-end-line="2" selection-end-column="96" />
+          <first_editor relative-caret-position="470">
+            <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
