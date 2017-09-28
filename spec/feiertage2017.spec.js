@@ -1,29 +1,29 @@
-var feiertagejs = require('../lib/feiertage.js');
-var expect = require('chai').expect;
-var _ = require('lodash');
+const feiertagejs = require('../lib/feiertage.js');
+const expect = require('chai').expect;
+const _ = require('lodash');
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
-var isHolidayToday = feiertagejs.isHoliday(new Date(2017,1,1), 'BW');
+const isHolidayToday = feiertagejs.isHoliday(new Date(2017, 1, 1), 'BW');
 
-describe("get Specific holiday by Date", function () {
-    it("find BUBE-TAG 2016", function () {
-        var bubebtag = new Date(2016, 10, 16);
-        var result = feiertagejs.getHolidayByDate(bubebtag, 'SN');
+describe("get Specific holiday by Date", () => {
+    it("find BUBE-TAG 2016", () => {
+        const bubebtag = new Date(2016, 10, 16);
+        const result = feiertagejs.getHolidayByDate(bubebtag, 'SN');
         expect(result).to.be.an('object');
         expect(result.name).to.equal('BUBETAG');
     });
 
-    it("find heiligeDreiKoenige 2015", function () {
+    it("find heiligeDreiKoenige 2015", () => {
 
-        var heiligeDreiKoenige = new Date(2015, 0, 6);
-        var result = feiertagejs.getHolidayByDate(heiligeDreiKoenige, 'BY');
+        const heiligeDreiKoenige = new Date(2015, 0, 6);
+        const result = feiertagejs.getHolidayByDate(heiligeDreiKoenige, 'BY');
         expect(result).to.be.an('object');
         expect(result.name).to.equal('HEILIGEDREIKOENIGE');
     });
 
-    it("Maria Himmelfahrt not be a holiday", function () {
-        var mariaHimemlfahrt = new Date(2015, 9, 15);
-        var result = feiertagejs.getHolidayByDate(mariaHimemlfahrt, 'BY');
+    it("Maria Himmelfahrt not be a holiday", () => {
+        const mariaHimemlfahrt = new Date(2015, 9, 15);
+        const result = feiertagejs.getHolidayByDate(mariaHimemlfahrt, 'BY');
         expect(result).to.equal(null);
     });
 
@@ -36,34 +36,34 @@ describe("get Specific holiday by Date", function () {
  * we added a unit test for Buß und Betttag
  *
  */
-describe("Holidays 2017 in Saxony:", function () {
-    it("BUBE-TAG 2016", function () {
-        var bubebtag = new Date(2016, 10, 16);
-        var result = feiertagejs.isHoliday(bubebtag, 'SN');
+describe("Holidays 2017 in Saxony:", () => {
+    it("BUBE-TAG 2016", () => {
+        const bubebtag = new Date(2016, 10, 16);
+        const result = feiertagejs.isHoliday(bubebtag, 'SN');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
-    it("BUBE-TAG 2017", function () {
-        var bubebtag = new Date(2017, 10, 22);
-        var result = feiertagejs.isHoliday(bubebtag, 'SN');
+    it("BUBE-TAG 2017", () => {
+        const bubebtag = new Date(2017, 10, 22);
+        const result = feiertagejs.isHoliday(bubebtag, 'SN');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
-    it("2017/11/22 is BUBE TAG", function () {
-        var bubebtag = new Date(2017, 10, 22);
-        var result = feiertagejs.isSpecificHoliday(bubebtag, feiertagejs.Holidays.BUBETAG ,'SN');
+    it("2017/11/22 is BUBE TAG", () => {
+        const bubebtag = new Date(2017, 10, 22);
+        const result = feiertagejs.isSpecificHoliday(bubebtag, feiertagejs.Holidays.BUBETAG, 'SN');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
-    it("BUBE-TAG 2018", function () {
-        var bubebtag = new Date(2018, 10, 21);
-        var result = feiertagejs.isHoliday(bubebtag, 'SN');
+    it("BUBE-TAG 2018", () => {
+        const bubebtag = new Date(2018, 10, 21);
+        const result = feiertagejs.isHoliday(bubebtag, 'SN');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(true);
     });
-    it("BUBE-TAG 2018 in BY/BW", function () {
-        var bubebtag = new Date(2018, 10, 21);
-        var result = feiertagejs.isHoliday(bubebtag, 'BY');
+    it("BUBE-TAG 2018 in BY/BW", () => {
+        const bubebtag = new Date(2018, 10, 21);
+        let result = feiertagejs.isHoliday(bubebtag, 'BY');
         expect(result).to.be.an('boolean');
         expect(result).to.equal(false);
 
@@ -74,11 +74,11 @@ describe("Holidays 2017 in Saxony:", function () {
 
 
 
-    it("cache should be an object", function () {
-        var today = new Date(2017,1,1);
+    it("cache should be an object", () => {
+        const today = new Date(2017, 1, 1);
 
         feiertagejs.isHoliday(today, 'SN');
-        var result = feiertagejs.getCache();
+        const result = feiertagejs.getCache();
 
         expect(result).to.be.an('object');
         expect(result[today.getFullYear()]['SN'].integers).to.have.length(11);

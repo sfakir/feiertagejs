@@ -1,20 +1,18 @@
-var feiertagejs = require('../lib/feiertage.js');
-var expect = require('chai').expect;
+const feiertagejs = require('../lib/feiertage.js');
+const expect = require('chai').expect;
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
 
-describe("set Custom Translations", function () {
+describe("set Custom Translations", () => {
 
-    it("dont allow missing language", function () {
+    it("dont allow missing language", () => {
         feiertagejs.setLanguage('de');
         expect(feiertagejs.getLanguage()).to.equal('de');
         feiertagejs.setLanguage('it');
         expect(feiertagejs.getLanguage()).to.equal('de');
     });
-    
-    it("setAndGetLanguage", function () {
-        
 
+    it("setAndGetLanguage", () => {
         expect(feiertagejs.getLanguage()).to.equal('de');
 
         feiertagejs.addTranslation('en',{});
@@ -24,39 +22,33 @@ describe("set Custom Translations", function () {
         expect(feiertagejs.getLanguage()).to.equal('en');
 
     });
-    it("setEnglish", function () {
 
+    it("setEnglish", () => {
         feiertagejs.addTranslation('en',{
             NEUJAHRSTAG: "New Years Eve",
             HEILIGEDREIKOENIGE: "Holy Three Kings"
         });
         feiertagejs.setLanguage('en');
-        var holidays = feiertagejs.getHolidays('2016','BUND');
-        var newYearsEve = holidays[0];
+        const holidays = feiertagejs.getHolidays('2016', 'BUND');
+        const newYearsEve = holidays[0];
 
         expect(newYearsEve.trans()).to.equal("New Years Eve");
         expect(newYearsEve.trans('en')).to.equal("New Years Eve");
         expect(newYearsEve.trans('de')).to.equal("Neujahrstag");
 
     });
-    it("German Fallback for missing translations", function () {
 
+    it("German Fallback for missing translations", () => {
         feiertagejs.addTranslation('en',{
             NEUJAHRSTAG: "New Years Eve"
         });
         feiertagejs.setLanguage('en');
-        var holidays = feiertagejs.getHolidays('2016','BUND');
+        const holidays = feiertagejs.getHolidays('2016', 'BUND');
 
-        var threeKings = holidays[3];
+        const threeKings = holidays[3];
 
         // fallback
         expect(threeKings.trans()).to.equal("Tag der Arbeit");
-
     });
-
-
 });
-
-
-
 
