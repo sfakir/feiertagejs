@@ -6,6 +6,9 @@ const _ = require('lodash');
 const isHolidayToday = feiertagejs.isHoliday(new Date(2017, 1, 1), 'BW');
 
 describe("get Specific holiday by Date", () => {
+    // use strict is required by node 4
+    'use strict';
+
     it("find BUBE-TAG 2016", () => {
         const bubebtag = new Date(2016, 10, 16);
         const result = feiertagejs.getHolidayByDate(bubebtag, 'SN');
@@ -37,6 +40,9 @@ describe("get Specific holiday by Date", () => {
  *
  */
 describe("Holidays 2017 in Saxony:", () => {
+    // use strict is required by node 4
+    'use strict';
+
     it("BUBE-TAG 2016", () => {
         const bubebtag = new Date(2016, 10, 16);
         const result = feiertagejs.isHoliday(bubebtag, 'SN');

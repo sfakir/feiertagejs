@@ -4,6 +4,9 @@ const expect = require('chai').expect;
 
 
 describe("Check Feiertage by Name", () => {
+    // use strict is required by node 4
+    'use strict';
+
     it("check ChristiHimmelfahrt 2016: check wrong dates", () => {
         // source: http://www.schulferien.org/Feiertage/2016/feiertage_2016.html
         let result = feiertagejs.isSpecificHoliday(new Date(2016, 9, 15), feiertagejs.Holidays.CHRISTIHIMMELFAHRT);

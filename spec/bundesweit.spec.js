@@ -4,6 +4,8 @@ const _ = require('lodash');
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
 describe("Holidays 2015 in Germany:", () => {
+    // use strict is required by node 4
+    'use strict';
 
     it("should be an array", () => {
         const result = feiertagejs.getHolidays(2015, 'BUND');

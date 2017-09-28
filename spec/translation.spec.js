@@ -4,6 +4,8 @@ const expect = require('chai').expect;
 
 
 describe("set Custom Translations", () => {
+    // use strict is required by node 4
+    'use strict';
 
     it("dont allow missing language", () => {
         feiertagejs.setLanguage('de');

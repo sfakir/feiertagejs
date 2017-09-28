@@ -7,6 +7,9 @@ const isHolidayToday = feiertagejs.isHoliday(new Date(), 'BW');
 
 
 describe("Holidays 2015 in Bavaria:", () => {
+    // use strict is required by node 4
+    'use strict';
+
     it("should be an array", () => {
         const result = feiertagejs.getHolidays(2015, 'BY');
         expect(result).to.be.an('array');
@@ -71,6 +74,9 @@ describe("Holidays 2015 in Bavaria:", () => {
 
 });
 describe("Holidays 2016 in BW:", () => {
+    // use strict is required by node 4
+    'use strict';
+
     it("BW should have 12 holidays", () => {
         const result = feiertagejs.getHolidays(2016, 'BW');
 
@@ -81,7 +87,8 @@ describe("Holidays 2016 in BW:", () => {
 });
 
 describe("Holidays 2016 in NW:", () => {
-
+    // use strict is required by node 4
+    'use strict';
 
     it("Heilige Drei Könige should not be available", () => {
 
