@@ -96,7 +96,7 @@ describe("Holidays 2015 in Germany:", () => {
         expect(result).to.have.length(10);
         expect(result[0]).to.be.an('object');
 
-        const reftag = _.find(result, r => r.name == feiertagejs.Holidays.REFORMATIONSTAG);
+        const reftag = _.find(result, r => r.name === feiertagejs.Holidays.REFORMATIONSTAG);
         expect(reftag).to.be.an('object');
 
 
@@ -110,7 +110,7 @@ describe("Holidays 2015 in Germany:", () => {
         expect(result).to.have.length(9);
         expect(result[0]).to.be.an('object');
 
-        const ref = _.find(result, r => r.name == feiertagejs.Holidays.REFORMATIONSTAG);
+        const ref = _.find(result, r => r.name === feiertagejs.Holidays.REFORMATIONSTAG);
         expect(typeof(ref)).to.be.equal('undefined');
     });
 

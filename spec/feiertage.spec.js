@@ -86,13 +86,13 @@ describe("Holidays 2016 in NW:", () => {
     it("Heilige Drei Könige should not be available", () => {
 
         const result = feiertagejs.getHolidays(2016, 'NW');
-        const hkoenige = _.find(result, f => f.name == 'HEILIGEDREIKOENIGE');
+        const hkoenige = _.find(result, f => f.name === 'HEILIGEDREIKOENIGE');
         expect(hkoenige).to.equal(undefined);
     });
  it("TAg der Arbeit should be on first may", () => {
 
      const result = feiertagejs.getHolidays(2016, 'NW');
-     const firstMay = _.find(result, f => f.name == 'TAG_DER_ARBEIT');
+     const firstMay = _.find(result, f => f.name === 'TAG_DER_ARBEIT');
 
      expect(firstMay).to.be.an('object');
      const realDate = new Date(2016, 4, 1);
