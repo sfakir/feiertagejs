@@ -279,10 +279,11 @@ holidays2016[0].equals(new Date()) \\ false, because today is not the first holi
 
 
 
-# Open todos
+# Contributors
 
-* documentation with jsdoc
-* maybe add some more langauges
+Thank you for contributing:
+
+* thetric
 
 
 # Feedback
