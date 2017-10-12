@@ -3,15 +3,9 @@
   "version": "1.1.8",
   "main": "lib/feiertage.js",
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "build",
-    "*.md"
-  ],
+  "ignore": ["**/.*", "build", "*.md"],
   "devDependencies": {
     "mocha": "^2.2.5"
   },
-  "keywords": [
-    "javascript", "feiertage", "holidays", "germany"
-  ]
+  "keywords": ["javascript", "feiertage", "holidays", "germany"]
 }
