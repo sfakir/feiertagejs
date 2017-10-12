@@ -5,7 +5,8 @@
   "main": "lib/feiertage.js",
   "scripts": {
     "test": "NODE_ENV=test env TZ='Europe/Berlin' mocha spec/*",
-    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'"
+    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
