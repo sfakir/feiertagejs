@@ -5,14 +5,18 @@
   "main": "lib/feiertage.js",
   "scripts": {
     "test": "NODE_ENV=test env TZ='Europe/Berlin' mocha spec/*",
-    "format":
-      "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'"
+    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfakir/feiertagejs"
   },
-  "keywords": ["node", "holidays", "feiertage", "javascript"],
+  "keywords": [
+    "node",
+    "holidays",
+    "feiertage",
+    "javascript"
+  ],
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
@@ -21,6 +25,7 @@
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
     "chai": "^4.1.2",
+    "flow-bin": "^0.56.0",
     "lodash": "^4.15.0",
     "mocha": "^4.0.1",
     "prettier": "^1.7.4"
