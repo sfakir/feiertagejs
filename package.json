@@ -7,15 +7,19 @@
     "test": "jest",
     "test:ci": "jest --run-in-band",
     "test:w": "jest --watch",
-    "format":
-      "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
+    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
     "flow": "flow"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfakir/feiertagejs"
   },
-  "keywords": ["node", "holidays", "feiertage", "javascript"],
+  "keywords": [
+    "node",
+    "holidays",
+    "feiertage",
+    "javascript"
+  ],
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
@@ -27,6 +31,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "chai": "^4.1.2",
+    "documentation": "^5.3.3",
     "eslint": "^4.8.0",
     "eslint-plugin-flowtype": "^2.39.1",
     "flow-bin": "^0.56.0",
@@ -40,8 +45,12 @@
         "env",
         {
           "targets": {
-            "browsers": ["> 1%"],
-            "node": ["4"]
+            "browsers": [
+              "> 1%"
+            ],
+            "node": [
+              "4"
+            ]
           }
         }
       ],
@@ -50,6 +59,10 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html", "text", "lcov"]
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov"
+    ]
   }
 }
