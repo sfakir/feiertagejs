@@ -11,6 +11,7 @@
     "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
     "flow": "flow",
     "build": "rollup -c",
+    "build:doc": "documentation build src/**.js -f md -o docs.md --document-exported",
     "build:flow": "flow-copy-source src build",
     "prepublish": "npm test && npm run build && npm run build:flow"
   },
