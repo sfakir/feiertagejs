@@ -6,7 +6,7 @@
   "module": "build/feiertage.js",
   "scripts": {
     "test": "jest",
-    "test:ci": "jest --run-in-band",
+    "test:ci": "jest --runInBand",
     "test:w": "jest --watch",
     "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
     "flow": "flow",
