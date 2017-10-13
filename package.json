@@ -25,7 +25,10 @@
   },
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
     "chai": "^4.1.2",
+    "eslint": "^4.8.0",
+    "eslint-plugin-flowtype": "^2.39.1",
     "flow-bin": "^0.56.0",
     "lodash": "^4.15.0",
     "mocha": "^4.0.1",
