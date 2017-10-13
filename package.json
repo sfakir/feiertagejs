@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
