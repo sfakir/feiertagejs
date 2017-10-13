@@ -4,7 +4,9 @@
   "description": "A module to calculate German holidays made for node.js",
   "main": "lib/feiertage.js",
   "scripts": {
-    "test": "NODE_ENV=test env TZ='Europe/Berlin' mocha spec/*",
+    "test": "jest",
+    "test:ci": "jest --run-in-band",
+    "test:w": "jest --watch",
     "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'",
     "flow": "flow"
   },
@@ -32,8 +34,8 @@
     "eslint": "^4.8.0",
     "eslint-plugin-flowtype": "^2.39.1",
     "flow-bin": "^0.56.0",
+    "jest": "20",
     "lodash": "^4.15.0",
-    "mocha": "^4.0.1",
     "prettier": "^1.7.4"
   },
   "babel": {
@@ -42,12 +44,24 @@
         "env",
         {
           "targets": {
-            "browsers": ["> 1%"],
-            "node": ["4"]
+            "browsers": [
+              "> 1%"
+            ],
+            "node": [
+              "4"
+            ]
           }
         }
       ],
       "flow"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov"
     ]
   }
 }
