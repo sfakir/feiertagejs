@@ -7,7 +7,7 @@
     "test": "jest",
     "test:ci": "jest --run-in-band",
     "test:w": "jest --watch",
-    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**'",
+    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
     "flow": "flow"
   },
   "repository": {
