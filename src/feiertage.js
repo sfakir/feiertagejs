@@ -16,13 +16,85 @@
 //
 
 import type { Region } from './regions';
-import type { HolidayType } from './holiday-type';
-import type { Holiday } from './holiday';
 import { allRegions } from './regions';
+import type { HolidayType } from './holiday-type';
 import { allHolidays } from './holiday-type';
+import type { Holiday } from './holiday';
 import { germanTranslations } from './german-translations';
 
 var env = 'prod'; // (process && process.env && process.env.NODE_ENV && process.env.NODE_ENV == 'test' ? 'test' : 'prod');
+
+// translations
+
+var defaultLanguage = 'de';
+var currentLanguage = defaultLanguage;
+
+export type TranslationTable = {
+  [key: HolidayType]: string,
+};
+
+var translations: { [key: string]: TranslationTable } = {
+  de: germanTranslations,
+};
+
+/**
+ * Add new translation
+ * @param {string} isoCode of the new language
+ * @param {TranslationTable} newTranslation  map of {HolidayType} to translation stringg
+ */
+export function addTranslation(
+  isoCode: string,
+  newTranslation: TranslationTable,
+) {
+  isoCode = isoCode.toLowerCase();
+  var defaultTranslation = translations[defaultLanguage];
+  var missingFields = false;
+
+  // fill new Translation with default Language
+  for (var prop in defaultTranslation) {
+    if (!defaultTranslation.hasOwnProperty(prop)) continue;
+    if (!newTranslation[prop]) {
+      missingFields = true;
+      newTranslation[prop] = defaultTranslation[prop];
+    }
+  }
+  if (missingFields) {
+    console.warn(
+      '[feiertagejs] addTranslation: you did not add all holidays in your translation! Took German as fallback',
+    );
+  }
+
+  translations[isoCode] = newTranslation;
+}
+
+/**
+ * Set a language to default language
+ * @param {string} isoCode
+ */
+export function setLanguage(isoCode: string) {
+  isoCode = isoCode.toLowerCase();
+  if (!translations[isoCode]) {
+    if (env !== 'test') {
+      console.error(
+        '[feiertagejs] tried to set language to ',
+        isoCode,
+        ' but the translation is missing. Please use addTranslation(isoCode,object) first',
+      );
+    }
+    return;
+  }
+  currentLanguage = isoCode;
+}
+
+/**
+ * Get currently set language
+ * @returns {string}
+ */
+export function getLanguage(): string {
+  return currentLanguage;
+}
+
+// holidays api
 
 export function isSunOrHoliday(date: Date, region: Region): boolean {
   checkRegion(region);
@@ -42,7 +114,7 @@ export function isHoliday(date: Date, region: Region): boolean {
 
 export function getHolidayByDate(
   date: Date,
-  region: Region = 'ALL'
+  region: Region = 'ALL',
 ): Holiday | null {
   checkRegion(region);
   var holidays = _getHolidaysObjectRepresentation(date.getFullYear(), region);
@@ -54,22 +126,36 @@ export function getHolidayByDate(
   return null;
 }
 
-// additional runtime check
-function checkRegion(region: Region) {
+// additional runtime checks
+
+/**
+ * Checks if the given region is a valid {@link Region}.
+ *
+ * @param region {@link Region} to check
+ * @throws {Error}
+ * @private
+ */
+function checkRegion(region: ?Region) {
   if (allRegions.indexOf(region) === -1) {
     throw new Error(
-      'Invalid region: ' + region + '! Must be one of ' + allRegions.toString()
+      'Invalid region: ' + region + '! Must be one of ' + allRegions.toString(),
     );
   }
 }
 
-function checkHolidayType(holidayName: HolidayType) {
+/**
+ * Checks if the given holidayName is a valid {@link HolidayType}.
+ * @param holidayName {@link HolidayType} to check
+ * @throws {Error}
+ * @private
+ */
+function checkHolidayType(holidayName: ?HolidayType) {
   if (allHolidays.indexOf(holidayName) === -1) {
     throw new Error(
-      'feiertage.js: invalid holiday type ' +
+      'feiertage.js: invalid holiday type "' +
         holidayName +
-        '! Must be one of ' +
-        allHolidays.toString()
+        '"! Must be one of ' +
+        allHolidays.toString(),
     );
   }
 }
@@ -77,7 +163,7 @@ function checkHolidayType(holidayName: HolidayType) {
 export function isSpecificHoliday(
   date: Date,
   holidayName: HolidayType,
-  region: Region = 'ALL'
+  region: Region = 'ALL',
 ): boolean {
   checkRegion(region);
   checkHolidayType(holidayName);
@@ -95,23 +181,44 @@ export function getHolidays(year: number, region: Region) {
   return _getHolidaysObjectRepresentation(year, region);
 }
 
+/**
+ *
+ * @param year
+ * @param region
+ * @returns {*}
+ * @private
+ */
 function _getHolidaysIntegerRepresentation(year: number, region: Region) {
   var holidays = _getHolidaysOfYear(year, region);
   return holidays.integers;
 }
 
+/**
+ *
+ * @param year
+ * @param region
+ * @returns {Array.<Holiday>}
+ * @private
+ */
 function _getHolidaysObjectRepresentation(year: number, region: Region) {
   var holidays = _getHolidaysOfYear(year, region);
   return holidays.objects;
 }
 
+/**
+ *
+ * @param year
+ * @param region
+ * @returns {{objects: Array.<Holiday>, integers}}
+ * @private
+ */
 function _getHolidaysOfYear(year: number, region: Region) {
   var feiertageObjects: Array<Holiday> = [
     _newHoliday('NEUJAHRSTAG', _makeDate(year, 1, 1)),
     _newHoliday('TAG_DER_ARBEIT', _makeDate(year, 5, 1)),
     _newHoliday('DEUTSCHEEINHEIT', _makeDate(year, 10, 3)),
     _newHoliday('ERSTERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 25)),
-    _newHoliday('ZWEITERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 26))
+    _newHoliday('ZWEITERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 26)),
   ];
 
   var easter_date = getEasterDate(year);
@@ -140,7 +247,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
     region === 'ALL'
   ) {
     feiertageObjects.push(
-      _newHoliday('HEILIGEDREIKOENIGE', _makeDate(year, 1, 6))
+      _newHoliday('HEILIGEDREIKOENIGE', _makeDate(year, 1, 6)),
     );
   }
   if (region === 'BB' || region === 'ALL') {
@@ -165,7 +272,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
   // Maria Himmelfahrt
   if (region === 'SL' || region === 'ALL') {
     feiertageObjects.push(
-      _newHoliday('MARIAHIMMELFAHRT', _makeDate(year, 8, 15))
+      _newHoliday('MARIAHIMMELFAHRT', _makeDate(year, 8, 15)),
     );
   }
   // Reformationstag
@@ -180,7 +287,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
     region === 'ALL'
   ) {
     feiertageObjects.push(
-      _newHoliday('REFORMATIONSTAG', _makeDate(year, 10, 31))
+      _newHoliday('REFORMATIONSTAG', _makeDate(year, 10, 31)),
     );
   }
 
@@ -206,9 +313,9 @@ function _getHolidaysOfYear(year: number, region: Region) {
         _makeDate(
           bussbettag.getUTCFullYear(),
           bussbettag.getUTCMonth() + 1,
-          bussbettag.getUTCDate()
-        )
-      )
+          bussbettag.getUTCDate(),
+        ),
+      ),
     );
   }
 
@@ -218,17 +325,28 @@ function _getHolidaysOfYear(year: number, region: Region) {
 
   return {
     objects: feiertageObjects,
-    integers: generateIntegerRepresentation(feiertageObjects)
+    integers: generateIntegerRepresentation(feiertageObjects),
   };
 }
 
+/**
+ *
+ * @param objects
+ * @returns {Array}
+ * @private
+ */
 function generateIntegerRepresentation(objects: Array<Holiday>) {
   return objects.map(function(holiday) {
     return toUtcTimestamp(holiday.date);
   });
 }
 
-// Magic Gauss, irgendwo gefunden, hoffe, es stimmt.
+/**
+ * Calculates the Easter date of a given year.
+ * @param year {number}
+ * @returns {Date} Easter date
+ * @private
+ */
 function getEasterDate(year: number): Date {
   var C = Math.floor(year / 100);
   var N = year - 19 * Math.floor(year / 19);
@@ -249,6 +367,12 @@ function getEasterDate(year: number): Date {
   return new Date(year, M - 1, D);
 }
 
+/**
+ * Computes the "Buss- und Bettag"'s date.
+ * @param jahr {number}
+ * @returns {Date} the year's "Buss- und Bettag" date
+ * @private
+ */
 function getBussBettag(jahr: number): Date {
   var weihnachten = new Date(jahr, 11, 25, 12, 0, 0);
   var ersterAdventOffset = 32;
@@ -264,15 +388,37 @@ function getBussBettag(jahr: number): Date {
   return bbtag;
 }
 
+/**
+ * Adds {@code days} days to the given {@link Date}.
+ * @param date
+ * @param days
+ * @returns {Date}
+ * @private
+ */
 function addDays(date: Date, days: number): Date {
   date.setDate(date.getDate() + days);
   return date;
 }
 
+/**
+ * Creates a new {@link Date}.
+ * @param year
+ * @param naturalMonth month (1-12)
+ * @param day
+ * @returns {Date}
+ * @private
+ */
 function _makeDate(year: number, naturalMonth: number, day: number): Date {
   return new Date(year, naturalMonth - 1, day);
 }
 
+/**
+ *
+ * @param name
+ * @param date
+ * @returns {Holiday}
+ * @private
+ */
 function _newHoliday(name: HolidayType, date: Date): Holiday {
   return {
     name: name,
@@ -288,78 +434,28 @@ function _newHoliday(name: HolidayType, date: Date): Holiday {
     equals: function(date) {
       var string = _localeDateObjectToDateString(date);
       return this.dateString === string;
-    }
+    },
   };
 }
 
+/**
+ *
+ * @param date
+ * @returns {string}
+ * @private
+ */
 function _localeDateObjectToDateString(date) {
   date = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
   date.setUTCHours(0, 0, 0, 0);
   return date.toISOString().slice(0, 10);
 }
 
+/**
+ * Returns the UTC timestamp of the given date with hours, minutes, seconds, and milliseconds set to zero.
+ * @param date
+ * @returns {number} UTC timestamp
+ */
 function toUtcTimestamp(date: Date): number {
   date.setHours(0, 0, 0, 0);
   return date.getTime();
-}
-
-// translations
-
-var defaultLanguage = 'de';
-var currentLanguage = defaultLanguage;
-
-export type TranslationTable = {
-  [key: HolidayType]: string
-};
-
-var translations: { [key: string]: TranslationTable } = {
-  de: germanTranslations
-};
-
-export function addTranslation(
-  isoCode: string,
-  newTranslation: TranslationTable
-) {
-  isoCode = isoCode.toLowerCase();
-  var defaultTranslation = translations[defaultLanguage];
-  var missingFields = false;
-
-  // fill new Translation with default Language
-  for (var prop in defaultTranslation) {
-    if (!defaultTranslation.hasOwnProperty(prop)) continue;
-    if (!newTranslation[prop]) {
-      missingFields = true;
-      newTranslation[prop] = defaultTranslation[prop];
-    }
-  }
-  if (missingFields) {
-    console.warn(
-      '[feiertagejs] addTranslation: you did not add all holidays in your translation! Took German as fallback'
-    );
-  }
-
-  translations[isoCode] = newTranslation;
-}
-
-export function setLanguage(isoCode: string) {
-  isoCode = isoCode.toLowerCase();
-  if (!translations[isoCode]) {
-    if (env !== 'test') {
-      console.error(
-        '[feiertagejs] tried to set language to ',
-        isoCode,
-        ' but the translation is missing. Please use addTranslation(isoCode,object) first'
-      );
-    }
-    return;
-  }
-  currentLanguage = isoCode;
-}
-
-/**
- * get currently set language
- * @returns {string}
- */
-export function getLanguage(): string {
-  return currentLanguage;
 }
