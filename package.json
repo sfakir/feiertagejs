@@ -13,7 +13,7 @@
     "build": "rollup -c",
     "build:doc": "documentation build src/**.js -f md -o docs.md --document-exported",
     "build:flow": "flow-copy-source src build",
-    "prepublish": "npm test && npm run build && npm run build:flow && npm run build:doc"
+    "prepublishOnly": "npm test && npm run build && npm run build:flow && npm run build:doc"
   },
   "repository": {
     "type": "git",
