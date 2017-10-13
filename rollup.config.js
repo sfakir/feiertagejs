@@ -6,11 +6,11 @@ export default [
     input: 'src/feiertage.js',
     output: {
       file: 'build/feiertage.js',
-      format: 'es',
+      format: 'es'
     },
     plugins: [babel()],
     noConflict: true,
-    sourcemap: true,
+    sourcemap: true
   },
 
   // ... and umd for the rest (node, browser)
@@ -18,11 +18,11 @@ export default [
     input: 'src/feiertage.js',
     output: {
       file: 'build/feiertage.umd.js',
-      format: 'umd',
+      format: 'umd'
     },
     name: 'feiertagejs',
     plugins: [babel()],
     noConflict: true,
-    sourcemap: true,
-  },
+    sourcemap: true
+  }
 ];
