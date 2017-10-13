@@ -2,7 +2,8 @@
   "name": "feiertagejs",
   "version": "1.1.8",
   "description": "A module to calculate German holidays made for node.js",
-  "main": "lib/feiertage.js",
+  "main": "build/feiertage.umd.js",
+  "module": "build/feiertage.js",
   "scripts": {
     "test": "jest",
     "test:ci": "jest --run-in-band",
