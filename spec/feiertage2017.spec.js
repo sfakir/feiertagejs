@@ -10,9 +10,6 @@ import {
 import { expect } from 'chai';
 
 describe('get Specific holiday by Date', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('find BUBE-TAG 2016', () => {
     const bubebtag = new Date(2016, 10, 16);
     const result = getHolidayByDate(bubebtag, 'SN');
@@ -30,7 +27,7 @@ describe('get Specific holiday by Date', () => {
   it('Maria Himmelfahrt not be a holiday', () => {
     const mariaHimmelfahrt = new Date(2015, 9, 15);
     const result = getHolidayByDate(mariaHimmelfahrt, 'BY');
-    expect(result).to.equal(null);
+    expect(result).to.be.undefined;
   });
 });
 
@@ -40,9 +37,6 @@ describe('get Specific holiday by Date', () => {
  *
  */
 describe('Holidays 2017 in Saxony:', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('BUBE-TAG 2016', () => {
     const bubebtag = new Date(2016, 10, 16);
     const result = isHoliday(bubebtag, 'SN');

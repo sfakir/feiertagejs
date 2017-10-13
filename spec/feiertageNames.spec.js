@@ -5,9 +5,6 @@ import { expect } from 'chai';
 import type { Holiday } from '../src/holiday';
 
 describe('Check Feiertage by Name', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('check ChristiHimmelfahrt 2016: check wrong dates', () => {
     // source: http://www.schulferien.org/Feiertage/2016/feiertage_2016.html
     let result = isSpecificHoliday(new Date(2016, 9, 15), 'CHRISTIHIMMELFAHRT');

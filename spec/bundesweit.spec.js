@@ -4,9 +4,6 @@ import { expect } from 'chai';
 import { getHolidays, isHoliday } from '../src/feiertage';
 
 describe('Holidays 2015 in Germany:', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('should be an array', () => {
     const result = getHolidays(2015, 'BUND');
     expect(result).to.be.an('array');

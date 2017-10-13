@@ -4,9 +4,6 @@ import { expect } from 'chai';
 import { getHolidays, isHoliday } from '../src/feiertage';
 
 describe('Holidays 2015 in Bavaria:', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('should be an array', () => {
     const result = getHolidays(2015, 'BY');
     expect(result).to.be.an('array');
@@ -55,9 +52,6 @@ describe('Holidays 2015 in Bavaria:', () => {
 });
 
 describe('Holidays 2016 in BW:', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('BW should have 12 holidays', () => {
     const result = getHolidays(2016, 'BW');
 
@@ -67,9 +61,6 @@ describe('Holidays 2016 in BW:', () => {
 });
 
 describe('Holidays 2016 in NW:', () => {
-  // use strict is required by node 4
-  'use strict';
-
   it('Heilige Drei Könige should not be available', () => {
     const result = getHolidays(2016, 'NW');
     const hkoenige = result.find(f => f.name === 'HEILIGEDREIKOENIGE');
