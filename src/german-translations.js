@@ -2,6 +2,9 @@
 
 import type { TranslationTable } from './feiertage';
 
+/**
+ * @private
+ */
 export const germanTranslations: TranslationTable = {
   NEUJAHRSTAG: 'Neujahrstag',
   HEILIGEDREIKOENIGE: 'Heilige Drei Könige',

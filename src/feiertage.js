@@ -29,6 +29,9 @@ var env = 'prod'; // (process && process.env && process.env.NODE_ENV && process.
 var defaultLanguage = 'de';
 var currentLanguage = defaultLanguage;
 
+/**
+ * Map of {@link HolidayType} to translation string.
+ */
 export type TranslationTable = {
   [key: HolidayType]: string,
 };
@@ -38,7 +41,9 @@ var translations: { [key: string]: TranslationTable } = {
 };
 
 /**
- * Add new translation
+ * adds a translation for the holidays (e.g. english).
+ * This also allows to override the German names.
+ * Hint: Interpolates German for missing translations
  * @param {string} isoCode of the new language
  * @param {TranslationTable} newTranslation  map of {HolidayType} to translation stringg
  */
@@ -96,11 +101,23 @@ export function getLanguage(): string {
 
 // holidays api
 
+/**
+ * Checks if a specific date is sunday or holiday.
+ * @param date
+ * @param region
+ * @returns {boolean}
+ */
 export function isSunOrHoliday(date: Date, region: Region): boolean {
   checkRegion(region);
   return date.getDay() === 0 || isHoliday(date, region);
 }
 
+/**
+ * Check is specific date is holiday.
+ * @param date
+ * @param {Region} region two character {@link Region} code
+ * @returns {boolean}
+ */
 export function isHoliday(date: Date, region: Region): boolean {
   checkRegion(region);
   date = new Date(date);
@@ -150,7 +167,11 @@ function checkRegion(region: ?Region) {
  * @private
  */
 function checkHolidayType(holidayName: ?HolidayType) {
-  if (allHolidays.indexOf(holidayName) === -1) {
+  if (
+    holidayName === null ||
+    holidayName === undefined ||
+    allHolidays.indexOf(holidayName) === -1
+  ) {
     throw new Error(
       'feiertage.js: invalid holiday type "' +
         holidayName +
@@ -176,6 +197,12 @@ export function isSpecificHoliday(
   return false;
 }
 
+/**
+ * Returns all holidays of a year in a {@link Region}.
+ * @param year
+ * @param region
+ * @returns {Array.<Holiday>}
+ */
 export function getHolidays(year: number, region: Region) {
   checkRegion(region);
   return _getHolidaysObjectRepresentation(year, region);
