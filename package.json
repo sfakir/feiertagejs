@@ -8,7 +8,8 @@
     "test:ci": "jest --run-in-band",
     "test:w": "jest --watch",
     "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
-    "flow": "flow"
+    "flow": "flow",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,9 @@
     "flow-bin": "^0.56.0",
     "jest": "20",
     "lodash": "^4.15.0",
-    "prettier": "^1.7.4"
+    "prettier": "^1.7.4",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2"
   },
   "babel": {
     "presets": [
@@ -51,7 +54,8 @@
             "node": [
               "4"
             ]
-          }
+          },
+          "modules": false
         }
       ],
       "flow"
