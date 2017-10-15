@@ -17,7 +17,7 @@ export const germanTranslations: TranslationTable = {
   PFINGSTMONTAG: 'Pfingstmontag',
   FRONLEICHNAM: 'Fronleichnam',
   MARIAHIMMELFAHRT: 'Mariä Himmelfahrt',
-  DEUTSCHEEINHEIT: 'Tag der deutschen Einheit',
+  DEUTSCHEEINHEIT: 'Tag der Deutschen Einheit',
   REFORMATIONSTAG: 'Reformationstag',
   ALLERHEILIGEN: 'Allerheiligen',
   BUBETAG: 'Buß- und Bettag',

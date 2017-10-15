@@ -3,7 +3,7 @@
 /*!
  * feiertage.js
  * @repository https://github.com/sfakir/feiertagejs
- * @docs
+ * @docs https://github.com/sfakir/feiertagejs/blob/master/docs.md
  *
  * Copyright 2015-2017 Simon Fakir
  * Released under the MIT license
