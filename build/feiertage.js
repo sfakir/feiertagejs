@@ -17,7 +17,7 @@ var germanTranslations = {
   PFINGSTMONTAG: 'Pfingstmontag',
   FRONLEICHNAM: 'Fronleichnam',
   MARIAHIMMELFAHRT: 'Mariä Himmelfahrt',
-  DEUTSCHEEINHEIT: 'Tag der deutschen Einheit',
+  DEUTSCHEEINHEIT: 'Tag der Deutschen Einheit',
   REFORMATIONSTAG: 'Reformationstag',
   ALLERHEILIGEN: 'Allerheiligen',
   BUBETAG: 'Buß- und Bettag',
@@ -28,7 +28,7 @@ var germanTranslations = {
 /*!
  * feiertage.js
  * @repository https://github.com/sfakir/feiertagejs
- * @docs
+ * @docs https://github.com/sfakir/feiertagejs/blob/master/docs.md
  *
  * Copyright 2015-2017 Simon Fakir
  * Released under the MIT license
