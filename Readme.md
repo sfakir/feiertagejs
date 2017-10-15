@@ -33,12 +33,12 @@ feiertagejs.isSpecificHoliday(today, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
 // get all holiday for a single year: getHolidays()
 // returns an array of objects [ {name: '', date: ''} ,...]
 
-var holidays2016 = feiertagejs.getHolidays('2016','BUND');
+var holidays2018 = feiertagejs.getHolidays('2018','BUND');
 
-holidays2016[0].date // = Date("2016-01-01");
-holidays2016[0].name // 'NEUJAHRSTAG' (constant)
-holidays2016[0].trans() // German translation: Neujahrstag
-holidays2016[0].equals(date) // Compare days only (ignore time)
+holidays2018[0].date // = Date("2016-01-01");
+holidays2018[0].name // 'NEUJAHRSTAG' (constant)
+holidays2018[0].trans() // German translation: Neujahrstag
+holidays2018[0].equals(date) // Compare days only (ignore time)
 
 
 ```
@@ -48,6 +48,7 @@ holidays2016[0].equals(date) // Compare days only (ignore time)
 Version 1.2.0 // 14th October 2017
 
 * Breaking: Dropped support for Node 0.12.x (!)
+* 100% Code Coverage for testing
 * Migrates the source code to Flow
 * creates UMD (for browsers, Node) and additional ES Modules (for bundlers like rollup, webpack)
 * adds a script to generate an API doc

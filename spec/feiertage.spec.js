@@ -1,7 +1,7 @@
 // @flow
 
 import { expect } from 'chai';
-import { getHolidays, isHoliday } from '../src/feiertage';
+import { getHolidays, isSunOrHoliday, isHoliday } from '../src/feiertage';
 
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {
@@ -38,6 +38,23 @@ describe('Holidays 2015 in Bavaria:', () => {
     expect(result).to.equal(true);
   });
 
+  it('check is Sun Or Holiday Method', () => {
+
+    const sunday = new Date(2015, 0, 6);
+    sunday.setDate(sunday.getDate() + (7 - sunday.getDay()) % 7);
+
+    let result = isSunOrHoliday(sunday, 'BY');
+    expect(result).to.be.an('boolean');
+    expect(result).to.equal(true);
+
+    sunday.setDate(sunday.getDate() + (1 + 7 - sunday.getDay()) % 7);
+    result = isSunOrHoliday(sunday, 'BY');
+    expect(result).to.be.an('boolean');
+    expect(result).to.equal(false);
+
+
+  });
+
   it('Christmas  to be a holiday', () => {
     const christmas1 = new Date(2015, 11, 25);
     let result = isHoliday(christmas1, 'BY');
@@ -57,6 +74,10 @@ describe('Holidays 2016 in BW:', () => {
 
     expect(result).to.be.an('array');
     expect(result).to.have.length(12);
+
+    // test normalized date. Shoudl only be used internally.
+    expect(result[0].getNormalizedDate()).to.equal(1451602800000);
+
   });
 });
 
