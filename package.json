@@ -2,20 +2,27 @@
   "name": "feiertagejs",
   "version": "1.1.8",
   "description": "A module to calculate German holidays made for node.js",
-  "main": "lib/feiertage.js",
+  "main": "build/feiertage.umd.js",
+  "module": "build/feiertage.js",
   "scripts": {
-    "test": "NODE_ENV=test env TZ='Europe/Berlin' mocha spec/*"
+    "test": "jest",
+    "test:ci": "jest --runInBand",
+    "test:w": "jest --watch",
+    "format":
+      "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
+    "flow": "flow",
+    "build": "rollup -c",
+    "build:doc":
+      "documentation build src/**.js -f md -o docs.md --document-exported",
+    "build:flow": "flow-copy-source src build",
+    "prepublishOnly":
+      "npm test && npm run build && npm run build:flow && npm run build:doc"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfakir/feiertagejs"
   },
-  "keywords": [
-    "node",
-    "holidays",
-    "feiertage",
-    "javascript"
-  ],
+  "keywords": ["node", "holidays", "feiertage", "javascript"],
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
@@ -23,8 +30,51 @@
   },
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
     "chai": "^4.1.2",
+    "documentation": "^5.3.3",
+    "eslint": "^4.8.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "flow-bin": "^0.56.0",
+    "flow-copy-source": "^1.2.1",
+    "jest": "20",
     "lodash": "^4.15.0",
-    "mocha": "^3.5.3"
+    "prettier": "^1.7.4",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": ["> 1%"],
+            "node": ["4"]
+          },
+          "modules": false
+        }
+      ],
+      "flow"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "commonjs"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["html", "text", "lcov"]
   }
 }
