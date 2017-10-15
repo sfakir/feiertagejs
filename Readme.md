@@ -45,6 +45,17 @@ holidays2016[0].equals(date) // Compare days only (ignore time)
 
 # Changelog
 
+Version 1.2.0 // 14th October 2017
+
+* Breaking: Dropped support for Node 0.12.x (!)
+* Migrates the source code to Flow
+* creates UMD (for browsers, Node) and additional ES Modules (for bundlers like rollup, webpack)
+* adds a script to generate an API doc
+* code coverage (text-summary in the console, html reports)
+* adds EsLint
+* adds prettier - a code formatter.
+
+
 Version 1.1.7 // 25th September 2017
 
 * added getHolidayByDate(date, region) method
@@ -91,7 +102,7 @@ Version 1.1.0 // 23rd May 2016
 You have two options two give feedback:
 
 * Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
-* Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunatly in German.
+* Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunately in German.
 
 
 # Regions
