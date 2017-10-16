@@ -37,7 +37,7 @@ console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 
 const holidays2018 = getHolidays('2018','BUND');
 
-console.log('date', holidays2018[0].date); // = Date("2016-01-01");
+console.log('date', holidays2018[0].date); // = Date("2018-01-01");
 console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
 console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
 console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
@@ -61,7 +61,7 @@ console.log(feiertagejs.isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 
 var holidays2018 = feiertagejs.getHolidays('2018', 'BUND');
 
-console.log('date', holidays2018[0].date); // = Date("2016-01-01");
+console.log('date', holidays2018[0].date); // = Date("2018-01-01");
 console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
 console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
 console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
