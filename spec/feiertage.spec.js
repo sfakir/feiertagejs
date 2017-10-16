@@ -39,7 +39,6 @@ describe('Holidays 2015 in Bavaria:', () => {
   });
 
   it('check is Sun Or Holiday Method', () => {
-
     const sunday = new Date(2015, 0, 6);
     sunday.setDate(sunday.getDate() + (7 - sunday.getDay()) % 7);
 
@@ -51,8 +50,6 @@ describe('Holidays 2015 in Bavaria:', () => {
     result = isSunOrHoliday(sunday, 'BY');
     expect(result).to.be.an('boolean');
     expect(result).to.equal(false);
-
-
   });
 
   it('Christmas  to be a holiday', () => {
@@ -77,7 +74,6 @@ describe('Holidays 2016 in BW:', () => {
 
     // test normalized date. Shoudl only be used internally.
     expect(result[0].getNormalizedDate()).to.be.a('number');
-
   });
 });
 

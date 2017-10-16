@@ -1,21 +1,20 @@
 // @flow
 
-import {expect} from 'chai';
-import {getHolidays, isSpecificHoliday, isHoliday} from '../src/feiertage';
+import { expect } from 'chai';
+import { getHolidays, isSpecificHoliday, isHoliday } from '../src/feiertage';
 
 describe('Throw errors:', () => {
   it('should throw an invalid region error', () => {
-    let badFn = function () {
+    let badFn = function() {
       isHoliday(new Date(), 'SWISS');
     };
     expect(badFn).to.throw(Error);
   });
   it('should throw an invalid holiday error', () => {
-    let badFn = function () {
+    let badFn = function() {
       isSpecificHoliday(new Date(), 'RANDOM');
     };
     expect(badFn).to.throw(Error);
-
   });
 
   //
