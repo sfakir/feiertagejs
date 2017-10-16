@@ -5,42 +5,66 @@
 
 
 Feiertage.js is a small npm module to calculate German holidays for each Bundesland.
-Use with [Node.js](http://nodejs.org) and installable via `npm install feiertagejs`,
-it can also be used directly in the browser.
 
-Feiertage.js is installable via:
+## Installation
 
-- [bower](http://bower.io/): `bower install feiertagejs`
-- [npm](http://npm.io/): `npm install feiertagejs`
+- [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
+- [npm](https://www.npmjs.com/): `npm install feiertagejs`
+- [bower](https://bower.io/): `bower install feiertagejs`
 
+This package provides two bundles:
 
+* an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
+* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup) with additional [Flow](https://github.com/facebook/flow) definitions 
 
-This script works with Node.js, AMD / RequireJS and directly via script tag.
 ## Quick Examples
 
+### ES Modules
+
 ```javascript
+import { getHolidays, isHoliday, isSpecificHoliday } from 'feiertagejs';
 
-var today = new Date(); // now
+const today = new Date();
 
-feiertagejs.isHoliday( today, 'BW');
+console.log(isHoliday(today, 'BW'));
 // probably false, because you are working ;)
 
-
 // check if a day is a specific holiday:
-feiertagejs.isSpecificHoliday(today, feiertagejs.Holidays.CHRISTIHIMMELFAHRT);
-
+console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 
 // get all holiday for a single year: getHolidays()
 // returns an array of objects [ {name: '', date: ''} ,...]
 
-var holidays2018 = feiertagejs.getHolidays('2018','BUND');
+const holidays2018 = getHolidays('2018','BUND');
 
-holidays2018[0].date // = Date("2016-01-01");
-holidays2018[0].name // 'NEUJAHRSTAG' (constant)
-holidays2018[0].trans() // German translation: Neujahrstag
-holidays2018[0].equals(date) // Compare days only (ignore time)
+console.log('date', holidays2018[0].date); // = Date("2016-01-01");
+console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
+console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
+console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
+```
 
+### Usage in Node.js
 
+```javascript
+var feiertagejs = require('feiertagejs');
+
+var today = new Date();
+
+console.log(feiertagejs.isHoliday(today, 'BW'));
+// probably false, because you are working ;)
+
+// check if a day is a specific holiday:
+console.log(feiertagejs.isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
+
+// get all holiday for a single year: getHolidays()
+// returns an array of objects [ {name: '', date: ''} ,...]
+
+var holidays2018 = feiertagejs.getHolidays('2018', 'BUND');
+
+console.log('date', holidays2018[0].date); // = Date("2016-01-01");
+console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
+console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
+console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
 ```
 
 # Changelog
