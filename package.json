@@ -15,7 +15,7 @@
     "build:doc":
       "documentation build src/**.js -f md -o docs.md --document-exported",
     "build:flow": "flow-copy-source src build",
-    "prepublishOnly":
+    "prepare":
       "npm test && npm run build && npm run build:flow && npm run build:doc"
   },
   "repository": {
