@@ -67,12 +67,12 @@ console.log('translation', holidays2018[0].trans()); // German translation: Neuj
 console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
 ```
 
-# API doc
+## API doc
 
 The full API doc can be found [here](docs.md).
 Note that although the documentation uses custom Flow types (e.g. `HolidayType`) you are _not_ required to use Flow in your code (see "Usage in Node.js").
 
-# Feedback and Questions
+## Feedback and Questions
 
 You have two options two give feedback:
 
@@ -80,13 +80,13 @@ You have two options two give feedback:
 * Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunately in German.
 
 
-# Contributors
+## Contributors
 
 Thank you for contributing:
 
 * thetric
 
 
-# Feedback
+## Feedback
 
 If you have any questions, feel free to open an issue.
