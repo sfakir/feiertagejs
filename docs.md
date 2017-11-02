@@ -105,7 +105,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 -   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
 -   `region` **[Region](#region)**  (optional, default `'ALL'`)
 
-Returns **([Holiday](#holiday) | null)** 
+Returns **([Holiday](#holiday) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined))** 
 
 ## isSpecificHoliday
 
