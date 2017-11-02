@@ -8,21 +8,24 @@
     "test": "jest",
     "test:ci": "jest --runInBand",
     "test:w": "jest --watch",
-    "format":
-      "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**'",
+    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**' '!build/**'",
     "flow": "flow",
     "build": "rollup -c",
-    "build:doc":
-      "documentation build src/**.js -f md -o docs.md --document-exported",
+    "build:doc": "documentation build src/**.js -f md -o docs.md --document-exported",
     "build:flow": "flow-copy-source src build",
-    "prepare":
-      "npm test && npm run build && npm run build:flow && npm run build:doc"
+    "prepublishOnly": "npm test && npm run build && npm run build:flow && npm run build:doc",
+    "prepare": "npm test && npm run build && npm run build:flow && npm run build:doc"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfakir/feiertagejs"
   },
-  "keywords": ["node", "holidays", "feiertage", "javascript"],
+  "keywords": [
+    "node",
+    "holidays",
+    "feiertage",
+    "javascript"
+  ],
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
@@ -38,7 +41,7 @@
     "documentation": "^5.3.3",
     "eslint": "^4.8.0",
     "eslint-plugin-flowtype": "^2.39.1",
-    "flow-bin": "^0.56.0",
+    "flow-bin": "^0.57.2",
     "flow-copy-source": "^1.2.1",
     "jest": "20",
     "lodash": "^4.15.0",
@@ -52,8 +55,12 @@
         "env",
         {
           "targets": {
-            "browsers": ["> 1%"],
-            "node": ["4"]
+            "browsers": [
+              "> 1%"
+            ],
+            "node": [
+              "4"
+            ]
           },
           "modules": false
         }
@@ -75,6 +82,15 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html", "text", "lcov"]
-  }
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov"
+    ]
+  },
+  "files": [
+    "build",
+    "docs.md",
+    "Readme.md"
+  ]
 }

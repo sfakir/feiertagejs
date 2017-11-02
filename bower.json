@@ -1,7 +1,7 @@
 {
   "name": "feiertagejs",
   "version": "1.2.1",
-  "main": "lib/feiertage.js",
+  "main": "build/feiertage.umd.js",
   "license": "MIT",
   "ignore": ["**/.*", "build", "*.md"],
   "devDependencies": {

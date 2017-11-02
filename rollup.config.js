@@ -9,7 +9,6 @@ export default [
       format: 'es'
     },
     plugins: [babel()],
-    noConflict: true,
     sourcemap: true
   },
 

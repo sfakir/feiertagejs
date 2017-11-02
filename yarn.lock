@@ -1737,8 +1737,8 @@ eslint-scope@^3.7.1:
     estraverse "^4.1.1"
 
 eslint@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.8.0.tgz#229ef0e354e0e61d837c7a80fdfba825e199815e"
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.9.0.tgz#76879d274068261b191fe0f2f56c74c2f4208e8b"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -1996,9 +1996,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.56.0:
-  version "0.56.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.56.0.tgz#ce43092203a344ba9bf63c0cabe95d95145f6cad"
+flow-bin@^0.57.2:
+  version "0.57.2"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.57.2.tgz#0b5ed4dd38a1991047e9bee71d62a763ae61b6b7"
 
 flow-copy-source@^1.2.1:
   version "1.2.1"
