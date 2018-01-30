@@ -391,7 +391,7 @@ function getBussBettag(jahr: number): Date {
 
   if (wochenTagOffset === 0) wochenTagOffset = 7;
 
-  let tageVorWeihnachten = wochenTagOffset + ersterAdventOffset;
+  const tageVorWeihnachten = wochenTagOffset + ersterAdventOffset;
 
   let bbtag = new Date(weihnachten.getTime());
   bbtag = addDays(bbtag, -tageVorWeihnachten);
