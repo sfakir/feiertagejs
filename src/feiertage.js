@@ -15,12 +15,12 @@
 // - the right javascript date: http://stackoverflow.com/questions/10286204/the-right-json-date-format
 //
 
-import type { Region } from './regions';
-import { allRegions } from './regions';
+import { germanTranslations } from './german-translations';
+import type { Holiday } from './holiday';
 import type { HolidayType } from './holiday-type';
 import { allHolidays } from './holiday-type';
-import type { Holiday } from './holiday';
-import { germanTranslations } from './german-translations';
+import type { Region } from './regions';
+import { allRegions } from './regions';
 
 const env = 'prod'; // (process && process.env && process.env.NODE_ENV && process.env.NODE_ENV == 'test' ? 'test' : 'prod');
 
@@ -56,11 +56,10 @@ export function addTranslation(
   let missingFields = false;
 
   // fill new Translation with default Language
-  for (let prop in defaultTranslation) {
-    if (!defaultTranslation.hasOwnProperty(prop)) continue;
-    if (!newTranslation[prop]) {
+  for (const holiday of allHolidays) {
+    if (!newTranslation[holiday]) {
       missingFields = true;
-      newTranslation[prop] = defaultTranslation[prop];
+      newTranslation[holiday] = defaultTranslation[holiday];
     }
   }
   if (missingFields) {
