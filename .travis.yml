@@ -4,3 +4,6 @@ node_js:
     - "8"
     - "6"
 cache: yarn
+script:
+- yarn flow
+- yarn test
