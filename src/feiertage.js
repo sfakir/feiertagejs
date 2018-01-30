@@ -129,7 +129,7 @@ export function isHoliday(date: Date, region: Region): boolean {
 export function getHolidayByDate(
   date: Date,
   region: Region = 'ALL'
-): Holiday | undefined {
+): Holiday | void {
   checkRegion(region);
   const holidays = _getHolidaysObjectRepresentation(date.getFullYear(), region);
   return holidays.find(holiday => holiday.equals(date));
@@ -145,6 +145,9 @@ export function getHolidayByDate(
  * @private
  */
 function checkRegion(region: ?Region) {
+  if (region === null || region === undefined) {
+    throw new Error(`Region must not be undefined or null`);
+  }
   if (allRegions.indexOf(region) === -1) {
     throw new Error(
       `Invalid region: ${region}! Must be one of ${allRegions.toString()}`
@@ -159,11 +162,10 @@ function checkRegion(region: ?Region) {
  * @private
  */
 function checkHolidayType(holidayName: ?HolidayType) {
-  if (
-    holidayName === null ||
-    holidayName === undefined ||
-    allHolidays.indexOf(holidayName) === -1
-  ) {
+  if (holidayName === null || holidayName === undefined) {
+    throw new TypeError('holidayName must not be null or undefined');
+  }
+  if (allHolidays.indexOf(holidayName) === -1) {
     throw new Error(
       `feiertage.js: invalid holiday type "${holidayName}"! Must be one of ${allHolidays.toString()}`
     );
@@ -434,7 +436,9 @@ function _newHoliday(name: HolidayType, date: Date): Holiday {
     date,
     dateString: _localeDateObjectToDateString(date),
     trans(lang = currentLanguage) {
-      return translations[lang][this.name];
+      return lang === undefined || lang === null
+        ? 'NULL'
+        : translations[lang][this.name];
     },
     getNormalizedDate() {
       return toUtcTimestamp(this.date);
