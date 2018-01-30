@@ -22,5 +22,5 @@ export const germanTranslations: TranslationTable = {
   ALLERHEILIGEN: 'Allerheiligen',
   BUBETAG: 'Buß- und Bettag',
   ERSTERWEIHNACHTSFEIERTAG: '1. Weihnachtstag',
-  ZWEITERWEIHNACHTSFEIERTAG: '2. Weihnachtstag'
+  ZWEITERWEIHNACHTSFEIERTAG: '2. Weihnachtstag',
 };

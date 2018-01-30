@@ -6,5 +6,5 @@ export type Holiday = {
   date: Date,
   trans: (lang: ?string) => string,
   dateString: string,
-  equals: (date: Date) => boolean
+  equals: (date: Date) => boolean,
 };

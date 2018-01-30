@@ -33,11 +33,11 @@ let currentLanguage = defaultLanguage;
  * Map of {@link HolidayType} to translation string.
  */
 export type TranslationTable = {
-  [key: HolidayType]: string
+  [key: HolidayType]: string,
 };
 
 const translations: { [key: string]: TranslationTable } = {
-  de: germanTranslations
+  de: germanTranslations,
 };
 
 /**
@@ -49,7 +49,7 @@ const translations: { [key: string]: TranslationTable } = {
  */
 export function addTranslation(
   isoCode: string,
-  newTranslation: TranslationTable
+  newTranslation: TranslationTable,
 ) {
   isoCode = isoCode.toLowerCase();
   const defaultTranslation = translations[defaultLanguage];
@@ -64,7 +64,7 @@ export function addTranslation(
   }
   if (missingFields) {
     console.warn(
-      '[feiertagejs] addTranslation: you did not add all holidays in your translation! Took German as fallback'
+      '[feiertagejs] addTranslation: you did not add all holidays in your translation! Took German as fallback',
     );
   }
 
@@ -80,7 +80,7 @@ export function setLanguage(isoCode: string) {
   if (!translations[isoCode]) {
     if (env !== 'test') {
       console.error(
-        `[feiertagejs] tried to set language to ${isoCode} but the translation is missing. Please use addTranslation(isoCode,object) first`
+        `[feiertagejs] tried to set language to ${isoCode} but the translation is missing. Please use addTranslation(isoCode,object) first`,
       );
     }
     return;
@@ -128,7 +128,7 @@ export function isHoliday(date: Date, region: Region): boolean {
 
 export function getHolidayByDate(
   date: Date,
-  region: Region = 'ALL'
+  region: Region = 'ALL',
 ): Holiday | void {
   checkRegion(region);
   const holidays = _getHolidaysObjectRepresentation(date.getFullYear(), region);
@@ -150,7 +150,7 @@ function checkRegion(region: ?Region) {
   }
   if (allRegions.indexOf(region) === -1) {
     throw new Error(
-      `Invalid region: ${region}! Must be one of ${allRegions.toString()}`
+      `Invalid region: ${region}! Must be one of ${allRegions.toString()}`,
     );
   }
 }
@@ -167,7 +167,7 @@ function checkHolidayType(holidayName: ?HolidayType) {
   }
   if (allHolidays.indexOf(holidayName) === -1) {
     throw new Error(
-      `feiertage.js: invalid holiday type "${holidayName}"! Must be one of ${allHolidays.toString()}`
+      `feiertage.js: invalid holiday type "${holidayName}"! Must be one of ${allHolidays.toString()}`,
     );
   }
 }
@@ -175,7 +175,7 @@ function checkHolidayType(holidayName: ?HolidayType) {
 export function isSpecificHoliday(
   date: Date,
   holidayName: HolidayType,
-  region: Region = 'ALL'
+  region: Region = 'ALL',
 ): boolean {
   checkRegion(region);
   checkHolidayType(holidayName);
@@ -231,7 +231,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
     _newHoliday('TAG_DER_ARBEIT', _makeDate(year, 5, 1)),
     _newHoliday('DEUTSCHEEINHEIT', _makeDate(year, 10, 3)),
     _newHoliday('ERSTERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 25)),
-    _newHoliday('ZWEITERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 26))
+    _newHoliday('ZWEITERWEIHNACHTSFEIERTAG', _makeDate(year, 12, 26)),
   ];
 
   const easter_date = getEasterDate(year);
@@ -260,7 +260,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
     region === 'ALL'
   ) {
     feiertageObjects.push(
-      _newHoliday('HEILIGEDREIKOENIGE', _makeDate(year, 1, 6))
+      _newHoliday('HEILIGEDREIKOENIGE', _makeDate(year, 1, 6)),
     );
   }
   if (region === 'BB' || region === 'ALL') {
@@ -285,7 +285,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
   // Maria Himmelfahrt
   if (region === 'SL' || region === 'ALL') {
     feiertageObjects.push(
-      _newHoliday('MARIAHIMMELFAHRT', _makeDate(year, 8, 15))
+      _newHoliday('MARIAHIMMELFAHRT', _makeDate(year, 8, 15)),
     );
   }
   // Reformationstag
@@ -300,7 +300,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
     region === 'ALL'
   ) {
     feiertageObjects.push(
-      _newHoliday('REFORMATIONSTAG', _makeDate(year, 10, 31))
+      _newHoliday('REFORMATIONSTAG', _makeDate(year, 10, 31)),
     );
   }
 
@@ -326,19 +326,19 @@ function _getHolidaysOfYear(year: number, region: Region) {
         _makeDate(
           bussbettag.getUTCFullYear(),
           bussbettag.getUTCMonth() + 1,
-          bussbettag.getUTCDate()
-        )
-      )
+          bussbettag.getUTCDate(),
+        ),
+      ),
     );
   }
 
   feiertageObjects.sort(
-    (a: Holiday, b: Holiday) => a.date.getTime() - b.date.getTime()
+    (a: Holiday, b: Holiday) => a.date.getTime() - b.date.getTime(),
   );
 
   return {
     objects: feiertageObjects,
-    integers: generateIntegerRepresentation(feiertageObjects)
+    integers: generateIntegerRepresentation(feiertageObjects),
   };
 }
 
@@ -446,7 +446,7 @@ function _newHoliday(name: HolidayType, date: Date): Holiday {
     equals(date) {
       const string = _localeDateObjectToDateString(date);
       return this.dateString === string;
-    }
+    },
   };
 }
 
