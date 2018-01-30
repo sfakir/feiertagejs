@@ -1,6 +1,9 @@
 # exclude intellij idea
 .idea
 
+# exclude vscode
+.vscode
+
 # Logs
 logs
 *.log
