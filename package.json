@@ -5,7 +5,7 @@
   "main": "build/feiertage.umd.js",
   "module": "build/feiertage.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:ci": "jest --runInBand",
     "test:w": "jest --watch",
     "format":
