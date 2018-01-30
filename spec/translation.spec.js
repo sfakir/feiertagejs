@@ -1,48 +1,47 @@
 // @flow
 
-import { expect } from 'chai';
 import {
+  addTranslation,
   getHolidays,
-  setLanguage,
   getLanguage,
-  addTranslation
+  setLanguage,
 } from '../src/feiertage';
 
 describe('set Custom Translations', () => {
   it('dont allow missing language', () => {
     setLanguage('de');
-    expect(getLanguage()).to.equal('de');
+    expect(getLanguage()).toEqual('de');
     setLanguage('it');
-    expect(getLanguage()).to.equal('de');
+    expect(getLanguage()).toEqual('de');
   });
 
   it('setAndGetLanguage', () => {
-    expect(getLanguage()).to.equal('de');
+    expect(getLanguage()).toEqual('de');
 
     addTranslation('en', {});
-    expect(getLanguage()).to.equal('de');
+    expect(getLanguage()).toEqual('de');
 
     setLanguage('en');
-    expect(getLanguage()).to.equal('en');
+    expect(getLanguage()).toEqual('en');
   });
 
   it('setEnglish', () => {
     addTranslation('en', {
       NEUJAHRSTAG: 'New Years Eve',
-      HEILIGEDREIKOENIGE: 'Holy Three Kings'
+      HEILIGEDREIKOENIGE: 'Holy Three Kings',
     });
     setLanguage('en');
     const holidays = getHolidays(2016, 'BUND');
     const newYearsEve = holidays[0];
 
-    expect(newYearsEve.trans()).to.equal('New Years Eve');
-    expect(newYearsEve.trans('en')).to.equal('New Years Eve');
-    expect(newYearsEve.trans('de')).to.equal('Neujahrstag');
+    expect(newYearsEve.trans()).toEqual('New Years Eve');
+    expect(newYearsEve.trans('en')).toEqual('New Years Eve');
+    expect(newYearsEve.trans('de')).toEqual('Neujahrstag');
   });
 
   it('German Fallback for missing translations', () => {
     addTranslation('en', {
-      NEUJAHRSTAG: 'New Years Eve'
+      NEUJAHRSTAG: 'New Years Eve',
     });
     setLanguage('en');
     const holidays = getHolidays(2016, 'BUND');
@@ -50,6 +49,6 @@ describe('set Custom Translations', () => {
     const threeKings = holidays[3];
 
     // fallback
-    expect(threeKings.trans()).to.equal('Tag der Arbeit');
+    expect(threeKings.trans()).toEqual('Tag der Arbeit');
   });
 });
