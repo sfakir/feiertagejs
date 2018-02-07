@@ -1,5 +1,11 @@
 # Changelog
 
+Version 1.2.2 // 7th February 2018
+
+* fix: Maria Himmelfahrt BY and SL
+* Refactoring (thetric)
+* devDepency updates (thetric)
+
 Version 1.2.0 // 14th October 2017
 
 * Breaking: Dropped support for Node 0.12.x (!)

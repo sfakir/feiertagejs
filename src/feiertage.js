@@ -5,7 +5,7 @@
  * @repository https://github.com/sfakir/feiertagejs
  * @docs https://github.com/sfakir/feiertagejs/blob/master/docs.md
  *
- * Copyright 2015-2017 Simon Fakir
+ * Copyright 2015-2018 Simon Fakir
  * Released under the MIT license
  */
 
@@ -190,6 +190,8 @@ export function isSpecificHoliday(
  * @returns {Array.<Holiday>}
  */
 export function getHolidays(year: number, region: Region) {
+  year = parseInt(year);
+
   checkRegion(region);
   return _getHolidaysObjectRepresentation(year, region);
 }
@@ -283,7 +285,7 @@ function _getHolidaysOfYear(year: number, region: Region) {
   }
 
   // Maria Himmelfahrt
-  if (region === 'SL' || region === 'ALL') {
+  if (region === 'SL' || region === 'BY') {
     feiertageObjects.push(
       _newHoliday('MARIAHIMMELFAHRT', _makeDate(year, 8, 15)),
     );

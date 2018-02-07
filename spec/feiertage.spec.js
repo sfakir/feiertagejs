@@ -5,7 +5,7 @@ import type { Holiday } from '../src/holiday';
 
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {
-    expect(getHolidays(2015, 'BY')).toHaveLength(12);
+    expect(getHolidays(2015, 'BY')).toHaveLength(13);
   });
 
   it('Maria Himmelfahrt not be a holiday', () => {
@@ -72,3 +72,4 @@ describe('Holidays 2016 in NW:', () => {
     }
   });
 });
+
