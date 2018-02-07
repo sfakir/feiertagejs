@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "test:w": "jest --watch",
-    "format": "prettier --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**' '!build/**'",
+    "format": "prettier --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**' '!build/**' '!package.json'",
     "flow": "flow",
     "build": "rollup -c",
     "build:doc": "documentation build src/**.js -f md -o docs.md --document-exported",

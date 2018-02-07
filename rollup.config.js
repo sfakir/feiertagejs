@@ -7,9 +7,9 @@ export default [
     output: {
       file: 'build/feiertage.js',
       format: 'es',
+      sourcemap: true,
     },
     plugins: [babel()],
-    sourcemap: true,
   },
 
   // ... and umd for the rest (node, browser)
