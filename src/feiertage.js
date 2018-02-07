@@ -189,7 +189,7 @@ export function isSpecificHoliday(
  * @param region
  * @returns {Array.<Holiday>}
  */
-export function getHolidays(year: number, region: Region) {
+export function getHolidays(year: number | string, region: Region) {
   year = parseInt(year);
 
   checkRegion(region);
