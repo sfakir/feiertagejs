@@ -38,5 +38,5 @@ export const allRegions: Array<Region> = [
   'SH',
   'TH',
   'BUND',
-  'ALL'
+  'ALL',
 ];

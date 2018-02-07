@@ -5,27 +5,21 @@
   "main": "build/feiertage.umd.js",
   "module": "build/feiertage.js",
   "scripts": {
-    "test": "jest",
-    "test:ci": "jest --runInBand",
+    "test": "jest --runInBand",
     "test:w": "jest --watch",
-    "format": "prettier --single-quote --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**' '!build/**'",
+    "format":
+      "prettier --write '{**/*,*}.{js,json}' '!coverage/**' '!flow-typed/**' '!build/**'",
     "flow": "flow",
     "build": "rollup -c",
-    "build:doc": "documentation build src/**.js -f md -o docs.md --document-exported",
-    "build:flow": "flow-copy-source src build",
-    "prepublishOnly": "npm test && npm run build && npm run build:flow && npm run build:doc",
-    "prepare": "npm test && npm run build && npm run build:flow && npm run build:doc"
+    "build:doc":
+      "documentation build src/**.js -f md -o docs.md --document-exported",
+    "build:flow": "flow-copy-source src build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfakir/feiertagejs"
   },
-  "keywords": [
-    "node",
-    "holidays",
-    "feiertage",
-    "javascript"
-  ],
+  "keywords": ["node", "holidays", "feiertage", "javascript"],
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
@@ -37,16 +31,14 @@
     "babel-eslint": "^8.0.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
-    "chai": "^4.1.2",
     "documentation": "^5.3.3",
     "eslint": "^4.8.0",
     "eslint-plugin-flowtype": "^2.39.1",
-    "flow-bin": "^0.57.2",
+    "flow-bin": "^0.64.0",
     "flow-copy-source": "^1.2.1",
-    "jest": "20",
-    "lodash": "^4.15.0",
+    "jest": "22.1.4",
     "prettier": "^1.7.4",
-    "rollup": "^0.50.0",
+    "rollup": "^0.55.1",
     "rollup-plugin-babel": "^3.0.2"
   },
   "babel": {
@@ -55,12 +47,8 @@
         "env",
         {
           "targets": {
-            "browsers": [
-              "> 1%"
-            ],
-            "node": [
-              "4"
-            ]
+            "browsers": ["> 1%"],
+            "node": ["4"]
           },
           "modules": false
         }
@@ -82,15 +70,7 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": [
-      "html",
-      "text",
-      "lcov"
-    ]
+    "coverageReporters": ["html", "text", "lcov"]
   },
-  "files": [
-    "build",
-    "docs.md",
-    "Readme.md"
-  ]
+  "files": ["build", "docs.md", "Readme.md"]
 }

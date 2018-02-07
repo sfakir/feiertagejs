@@ -1,4 +1,9 @@
 [ignore]
+<PROJECT_ROOT>/.idea/.*
+<PROJECT_ROOT>/.vscode/.*
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/coverage/.*
+<PROJECT_ROOT>/build/.*
 
 [include]
 
