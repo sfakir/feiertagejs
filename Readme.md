@@ -11,7 +11,8 @@ Feiertage.js is a small npm module to calculate German holidays for each Bundesl
 - [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
 - [bower](https://bower.io/): `bower install feiertagejs`
-- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download  
+- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download (v1.2.2)
+
 
 This package provides two bundles:
 
