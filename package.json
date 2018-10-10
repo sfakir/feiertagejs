@@ -32,19 +32,19 @@
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-preset-env": "^1.6.0",
+    "babel-eslint": "^8.2.6",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "documentation": "^5.3.3",
     "eslint": "^4.8.0",
-    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-flowtype": "^2.50.3",
     "flow-bin": "^0.64.0",
     "flow-copy-source": "^1.2.1",
     "jest": "22.1.4",
-    "prettier": "^1.7.4",
+    "prettier": "^1.14.3",
     "rollup": "^0.55.1",
-    "rollup-plugin-babel": "^3.0.2",
-    "typescript": "^2.7.1"
+    "rollup-plugin-babel": "^3.0.7",
+    "typescript": "^2.9.2"
   },
   "babel": {
     "presets": [
