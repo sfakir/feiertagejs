@@ -1,7 +1,5 @@
-// @flow
-
 import { getHolidays, isHoliday, isSunOrHoliday } from '../src/feiertage';
-import type { Holiday } from '../src/holiday';
+import { Holiday } from '../src/holiday';
 
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {

@@ -1,5 +1,3 @@
-// @flow
-
 import { getHolidays, isHoliday } from '../src/feiertage';
 
 describe('Holidays 2015 in Germany:', () => {

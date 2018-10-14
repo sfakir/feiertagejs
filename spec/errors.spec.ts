@@ -1,15 +1,15 @@
-// @flow
-
 import { getHolidays, isHoliday, isSpecificHoliday } from '../src/feiertage';
 
 describe('Throw errors:', () => {
   it('should throw an invalid region error', () => {
     // $FlowFixMe: test wrong region arg
-    expect(() => isHoliday(new Date(), 'SWISS')).toThrowError();
+    expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrowError();
   });
   it('should throw an invalid holiday error', () => {
     // $FlowFixMe: test wrong holiday arg
-    expect(() => isSpecificHoliday(new Date(), 'RANDOM')).toThrowError(Error);
+    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrowError(
+      Error,
+    );
   });
 
   it('New Year should be a holiday', () => {

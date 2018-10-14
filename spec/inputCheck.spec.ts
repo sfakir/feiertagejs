@@ -1,5 +1,3 @@
-// @flow
-
 import { getHolidays } from '../src/feiertage';
 
 describe('Wrong Inputs', () => {
