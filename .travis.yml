@@ -3,7 +3,7 @@ node_js:
     - "10"
     - "8"
     - "6"
-cache: yarn
-script:
-- yarn flow
-- yarn test
+# keep the npm cache around to speed up installs
+cache:
+  directories:
+  - "$HOME/.npm"
