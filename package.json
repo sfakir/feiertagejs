@@ -30,7 +30,6 @@
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
     "@types/jest": "^23.3.5",
-    "documentation": "^5.5.0",
     "jest": "^23.6.0",
     "prettier": "^1.14.3",
     "rollup": "^0.66.6",
