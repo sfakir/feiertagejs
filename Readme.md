@@ -17,7 +17,7 @@ Feiertage.js is a small npm module to calculate German holidays for each Bundesl
 This package provides two bundles:
 
 * an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
-* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup) with additional [Flow](https://github.com/facebook/flow) definitions 
+* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup)
 
 ## Quick Examples
 

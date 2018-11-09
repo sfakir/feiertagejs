@@ -1,5 +1,3 @@
-// @flow
-
 import {
   addTranslation,
   getHolidays,
@@ -11,7 +9,7 @@ describe('set Custom Translations', () => {
   it('dont allow missing language', () => {
     setLanguage('de');
     expect(getLanguage()).toEqual('de');
-    setLanguage('it');
+    expect(() => setLanguage('it')).toThrowError(TypeError);
     expect(getLanguage()).toEqual('de');
   });
 
