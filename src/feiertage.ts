@@ -231,6 +231,7 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
   addReformationstag(year, region, holidays);
   addAllerheiligen(year, region, holidays);
   addBussUndBetttag(year, region, holidays);
+  addWeltkindertag(year, region, holidays);
 
   return holidays.sort(
     (a: Holiday, b: Holiday) => a.date.getTime() - b.date.getTime(),
@@ -361,6 +362,16 @@ function addBussUndBetttag(
         ),
       ),
     );
+  }
+}
+
+function addWeltkindertag(
+  year: number,
+  region: Region,
+  holidays: Holiday[],
+): void {
+  if (year >= 2019 && (region === 'TH' || region === 'ALL')) {
+    holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20)));
   }
 }
 
