@@ -18,4 +18,5 @@ export const germanTranslations: TranslationTable = {
   BUBETAG: 'Buß- und Bettag',
   ERSTERWEIHNACHTSFEIERTAG: '1. Weihnachtstag',
   ZWEITERWEIHNACHTSFEIERTAG: '2. Weihnachtstag',
+  WELTKINDERTAG: 'Weltkindertag',
 };
