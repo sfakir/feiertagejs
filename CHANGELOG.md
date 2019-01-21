@@ -1,5 +1,13 @@
 # Changelog
 
+
+Version 1.2.3 // 21st January 2019
+
+* fix: Maria Himmelfahrt BY and SL
+* Refactoring (thetric)
+* devDepency updates (thetric)
+
+
 Version 1.2.2 // 7th February 2018
 
 * fix: Maria Himmelfahrt BY and SL

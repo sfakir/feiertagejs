@@ -87,6 +87,7 @@ You have two options two give feedback:
 Thank you for contributing:
 
 * thetric
+* SteveOswald
 
 
 ## Feedback
