@@ -232,6 +232,7 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
   addAllerheiligen(year, region, holidays);
   addBussUndBetttag(year, region, holidays);
   addWeltkindertag(year, region, holidays);
+  addWeltfrauenTag(year, region, holidays);
 
   return holidays.sort(
     (a: Holiday, b: Holiday) => a.date.getTime() - b.date.getTime(),
@@ -375,6 +376,24 @@ function addWeltkindertag(
   }
 }
 
+
+function addWeltfrauenTag(
+  year: number,
+  region: Region,
+  feiertageObjects: Holiday[],
+): void {
+  if (region !== 'BE') {
+    return;
+  }
+  if (year < 2018) {
+    return;
+  }
+  feiertageObjects.push(
+    newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)),
+  );
+}
+
+
 /**
  * Calculates the Easter date of a given year.
  * @param year {number}
@@ -393,8 +412,8 @@ function getEasterDate(year: number): Date {
     Math.floor(I / 28) *
     (1 -
       Math.floor(I / 28) *
-        Math.floor(29 / (I + 1)) *
-        Math.floor((21 - N) / 11));
+      Math.floor(29 / (I + 1)) *
+      Math.floor((21 - N) / 11));
   let J = year + Math.floor(year / 4) + I + 2 - C + Math.floor(C / 4);
   J -= 7 * Math.floor(J / 7);
   const L = I - J;

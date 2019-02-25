@@ -16,7 +16,8 @@ export type HolidayType =
   | 'BUBETAG'
   | 'ERSTERWEIHNACHTSFEIERTAG'
   | 'ZWEITERWEIHNACHTSFEIERTAG'
-  | 'WELTKINDERTAG';
+  | 'WELTKINDERTAG'
+  | 'WELTFRAUENTAG';
 
 export const allHolidays: HolidayType[] = [
   'NEUJAHRSTAG',
@@ -37,4 +38,5 @@ export const allHolidays: HolidayType[] = [
   'ERSTERWEIHNACHTSFEIERTAG',
   'ZWEITERWEIHNACHTSFEIERTAG',
   'WELTKINDERTAG',
+  'WELTFRAUENTAG',
 ];

@@ -16,4 +16,18 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
+
+  it('find Weltfrauentag >2019 8th or March in Berlin', () => {
+    const WELTFRAUENTAG = new Date(2020, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'BE')).toEqual(
+      expect.objectContaining({
+        name: 'WELTFRAUENTAG',
+      }),
+    );
+  });it('find Weltfrauentag <2019 8th or March in Berlin', () => {
+    const WELTFRAUENTAG = new Date(2016, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'BE')).toEqual(
+      undefined
+    );
+  });
 });
