@@ -24,9 +24,20 @@ describe('get Specific holiday by Date', () => {
         name: 'WELTFRAUENTAG',
       }),
     );
-  });it('find Weltfrauentag <2019 8th or March in Berlin', () => {
+  });
+  it('find Weltfrauentag >2019 8th or March should not be a holiday in BY', () => {
+    const WELTFRAUENTAG = new Date(2020, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'BY')).toEqual(undefined );
+  });
+  it('find Weltfrauentag <2019 should not be a holiday in Berlin', () => {
     const WELTFRAUENTAG = new Date(2016, 2, 8);
     expect(getHolidayByDate(WELTFRAUENTAG, 'BE')).toEqual(
+      undefined
+    );
+  });
+  it('find Weltfrauentag <2019 should not be a holiday in BW', () => {
+    const WELTFRAUENTAG = new Date(2016, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'BW')).toEqual(
       undefined
     );
   });

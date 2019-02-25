@@ -1,5 +1,9 @@
 # Changelog
 
+Version 1.2.4 // 25th Feburary 2019
+
+* added Weltfrauentag to Berlin
+
 
 Version 1.2.3 // 21st January 2019
 
