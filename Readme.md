@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/sfakir/feiertagejs.svg?branch=master)](https://travis-ci.org/sfakir/feiertagejs)
 
 
-Feiertage.js is a small npm module to calculate German holidays for each Bundesland.
+Feiertage.js is a small npm module without dependencies to calculate German holidays for each Bundesland.
 
 ## Installation
 
