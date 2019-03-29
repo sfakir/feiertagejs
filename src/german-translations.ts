@@ -1,10 +1,5 @@
-// @flow
+import { TranslationTable } from './feiertage';
 
-import type { TranslationTable } from './feiertage';
-
-/**
- * @private
- */
 export const germanTranslations: TranslationTable = {
   NEUJAHRSTAG: 'Neujahrstag',
   HEILIGEDREIKOENIGE: 'Heilige Drei Könige',
@@ -23,4 +18,6 @@ export const germanTranslations: TranslationTable = {
   BUBETAG: 'Buß- und Bettag',
   ERSTERWEIHNACHTSFEIERTAG: '1. Weihnachtstag',
   ZWEITERWEIHNACHTSFEIERTAG: '2. Weihnachtstag',
+  WELTKINDERTAG: 'Weltkindertag',
+  WELTFRAUENTAG: 'Weltfrauentag'
 };

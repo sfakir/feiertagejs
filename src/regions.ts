@@ -1,5 +1,3 @@
-// @flow
-
 export type Region =
   | 'BW' // Baden-Württemberg
   | 'BY' // Bayern
@@ -20,7 +18,7 @@ export type Region =
   | 'BUND' // Gesamt-Deutschland
   | 'ALL';
 
-export const allRegions: Array<Region> = [
+export const allRegions: Region[] = [
   'BW',
   'BY',
   'BE',

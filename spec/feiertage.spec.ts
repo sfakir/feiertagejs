@@ -1,7 +1,5 @@
-// @flow
-
 import { getHolidays, isHoliday, isSunOrHoliday } from '../src/feiertage';
-import type { Holiday } from '../src/holiday';
+import { Holiday } from '../src/holiday';
 
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {
@@ -29,11 +27,11 @@ describe('Holidays 2015 in Bavaria:', () => {
 
   it('check is Sun Or Holiday Method', () => {
     const sunday = new Date(2015, 0, 6);
-    sunday.setDate(sunday.getDate() + (7 - sunday.getDay()) % 7);
+    sunday.setDate(sunday.getDate() + ((7 - sunday.getDay()) % 7));
 
     expect(isSunOrHoliday(sunday, 'BY')).toBe(true);
 
-    sunday.setDate(sunday.getDate() + (1 + 7 - sunday.getDay()) % 7);
+    sunday.setDate(sunday.getDate() + ((1 + 7 - sunday.getDay()) % 7));
     expect(isSunOrHoliday(sunday, 'BY')).toBe(false);
   });
 
@@ -72,4 +70,3 @@ describe('Holidays 2016 in NW:', () => {
     }
   });
 });
-

@@ -1,5 +1,25 @@
 # Changelog
 
+Version 1.2.6. // 27th March 2019
+
+* issue #28: made toUtcTimestamp immutable;
+
+Version 1.2.5. // 16th March 2019 
+
+* updated all devdependencies
+
+Version 1.2.4 // 25th Feburary 2019
+
+* added Weltfrauentag to Berlin
+
+
+Version 1.2.3 // 21st January 2019
+
+* fix: Maria Himmelfahrt BY and SL
+* Refactoring (thetric)
+* devDepency updates (thetric)
+
+
 Version 1.2.2 // 7th February 2018
 
 * fix: Maria Himmelfahrt BY and SL

@@ -1,5 +1,3 @@
-// @flow
-
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
 import {

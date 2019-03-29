@@ -1,7 +1,5 @@
-// @flow
-
 import { getHolidays, isSpecificHoliday } from '../src/feiertage';
-import type { Holiday } from '../src/holiday';
+import { Holiday } from '../src/holiday';
 
 describe('Check Feiertage by Name', () => {
   it('check ChristiHimmelfahrt 2016: check wrong dates', () => {
@@ -36,9 +34,9 @@ describe('Check Feiertage by Name', () => {
   });
   it('every holiday should have a translation', () => {
     const somedate = new Date(2016, 5, 5);
-    const holidays: Array<Holiday> = getHolidays(somedate.getFullYear(), 'ALL');
+    const holidays: Holiday[] = getHolidays(somedate.getFullYear(), 'ALL');
 
-    for (let holiday of holidays) {
+    for (const holiday of holidays) {
       const translation = holiday.trans();
       expect(translation).toBeTruthy();
     }

@@ -1,5 +1,3 @@
-// @flow
-
 export type HolidayType =
   | 'NEUJAHRSTAG'
   | 'HEILIGEDREIKOENIGE'
@@ -17,9 +15,11 @@ export type HolidayType =
   | 'ALLERHEILIGEN'
   | 'BUBETAG'
   | 'ERSTERWEIHNACHTSFEIERTAG'
-  | 'ZWEITERWEIHNACHTSFEIERTAG';
+  | 'ZWEITERWEIHNACHTSFEIERTAG'
+  | 'WELTKINDERTAG'
+  | 'WELTFRAUENTAG';
 
-export const allHolidays: Array<HolidayType> = [
+export const allHolidays: HolidayType[] = [
   'NEUJAHRSTAG',
   'HEILIGEDREIKOENIGE',
   'KARFREITAG',
@@ -37,4 +37,6 @@ export const allHolidays: Array<HolidayType> = [
   'BUBETAG',
   'ERSTERWEIHNACHTSFEIERTAG',
   'ZWEITERWEIHNACHTSFEIERTAG',
+  'WELTKINDERTAG',
+  'WELTFRAUENTAG',
 ];

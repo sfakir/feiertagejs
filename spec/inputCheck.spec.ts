@@ -1,7 +1,4 @@
-// @flow
-
 import { getHolidays } from '../src/feiertage';
-
 
 describe('Wrong Inputs', () => {
   it('Year should be the same as integer and string', () => {
@@ -15,5 +12,4 @@ describe('Wrong Inputs', () => {
     const result2 = getHolidays('2017', 'BUND');
     expect(result.length).toEqual(result2.length);
   });
-
 });

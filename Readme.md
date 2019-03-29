@@ -4,20 +4,20 @@
 [![Build Status](https://travis-ci.org/sfakir/feiertagejs.svg?branch=master)](https://travis-ci.org/sfakir/feiertagejs)
 
 
-Feiertage.js is a small npm module to calculate German holidays for each Bundesland.
+Feiertage.js is a small npm module without dependencies to calculate German holidays for each Bundesland.
 
 ## Installation
 
 - [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
 - [bower](https://bower.io/): `bower install feiertagejs`
-- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download (v1.2.2)
+- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download (v1.2.2) - not recommended
 
 
 This package provides two bundles:
 
 * an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
-* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup) with additional [Flow](https://github.com/facebook/flow) definitions 
+* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup)
 
 ## Quick Examples
 
@@ -40,7 +40,7 @@ console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 const holidays2018 = getHolidays('2018','BUND');
 
 console.log('date', holidays2018[0].date); // = Date("2018-01-01");
-console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
+console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant) 
 console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
 console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
 ```
@@ -87,6 +87,7 @@ You have two options two give feedback:
 Thank you for contributing:
 
 * thetric
+* SteveOswald
 
 
 ## Feedback
