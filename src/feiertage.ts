@@ -454,8 +454,9 @@ function getBussBettag(jahr: number): Date {
  * @private
  */
 function addDays(date: Date, days: number): Date {
-  date.setDate(date.getDate() + days);
-  return date;
+  const changedDate = new Date(date);
+  changedDate.setDate(date.getDate() + days);
+  return changedDate;
 }
 
 /**
@@ -517,6 +518,7 @@ function localeDateObjectToDateString(date: Date): string {
  * @returns {number} UTC timestamp
  */
 function toUtcTimestamp(date: Date): number {
-  date.setHours(0, 0, 0, 0);
-  return date.getTime();
+  const internalDate = new Date(date);
+  internalDate.setHours(0, 0, 0, 0);
+  return internalDate.getTime();
 }
