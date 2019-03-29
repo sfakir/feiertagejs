@@ -1,6 +1,10 @@
 # Changelog
 
-Versio 1.2.5. // 16th March 2019 
+Version 1.2.6. // 27th March 2019
+
+* issue #28: made toUtcTimestamp immutable;
+
+Version 1.2.5. // 16th March 2019 
 
 * updated all devdependencies
 
