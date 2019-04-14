@@ -377,7 +377,6 @@ function addWeltkindertag(
   }
 }
 
-
 function addWeltfrauenTag(
   year: number,
   region: Region,
@@ -389,11 +388,8 @@ function addWeltfrauenTag(
   if (year < 2018) {
     return;
   }
-  feiertageObjects.push(
-    newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)),
-  );
+  feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
 }
-
 
 /**
  * Calculates the Easter date of a given year.
@@ -413,8 +409,8 @@ function getEasterDate(year: number): Date {
     Math.floor(I / 28) *
     (1 -
       Math.floor(I / 28) *
-      Math.floor(29 / (I + 1)) *
-      Math.floor((21 - N) / 11));
+        Math.floor(29 / (I + 1)) *
+        Math.floor((21 - N) / 11));
   let J = year + Math.floor(year / 4) + I + 2 - C + Math.floor(C / 4);
   J -= 7 * Math.floor(J / 7);
   const L = I - J;
