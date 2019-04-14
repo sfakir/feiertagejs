@@ -11,7 +11,7 @@ Feiertage.js is a small npm module without dependencies to calculate German holi
 - [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
 - [bower](https://bower.io/): `bower install feiertagejs`
-- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download (v1.2.2) - not recommended
+- [Plain old Javascript](https://unpkg.com/feiertagejs@1.2.6/build/feiertage.umd.js) as a download (v1.2.6) - not recommended
 
 
 This package provides two bundles:
