@@ -2,6 +2,7 @@
 
 import {
   getHolidayByDate,
+  getHolidays,
 } from '../src/feiertage';
 
 /**
@@ -25,20 +26,44 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
+
+  // because: https://github.com/sfakir/feiertagejs/issues/33
+  it('find Fronleichname in 2019 8th or March in Berlin', () => {
+    const FRONLEICHNAM = new Date(2020, 5, 20); // 20.5.2019
+
+    const holidays = getHolidays(FRONLEICHNAM.getFullYear(), 'BY');
+
+    expect(getHolidayByDate(FRONLEICHNAM, 'BY')).toEqual(
+      expect.objectContaining({
+        name: 'FRONLEICHNAM',
+      }),
+    );
+  });
   it('find Weltfrauentag >2019 8th or March should not be a holiday in BY', () => {
     const WELTFRAUENTAG = new Date(2020, 2, 8);
-    expect(getHolidayByDate(WELTFRAUENTAG, 'BY')).toEqual(undefined );
+    expect(getHolidayByDate(WELTFRAUENTAG, 'BY')).toEqual(undefined);
   });
   it('find Weltfrauentag <2019 should not be a holiday in Berlin', () => {
     const WELTFRAUENTAG = new Date(2016, 2, 8);
     expect(getHolidayByDate(WELTFRAUENTAG, 'BE')).toEqual(
-      undefined
+      undefined,
     );
   });
   it('find Weltfrauentag <2019 should not be a holiday in BW', () => {
     const WELTFRAUENTAG = new Date(2016, 2, 8);
     expect(getHolidayByDate(WELTFRAUENTAG, 'BW')).toEqual(
-      undefined
+      undefined,
+    );
+  });
+
+  it('find Frohenleichnam in 2019 in BY', () => {
+    const FROHENLEICHNAM = new Date(2019, 6 - 1, 20);
+    expect(getHolidayByDate(FROHENLEICHNAM, 'BY')).toEqual(
+      expect.objectContaining({
+        name: 'FRONLEICHNAM',
+      }),
     );
   });
 });
+
+//
