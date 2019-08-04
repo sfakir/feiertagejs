@@ -31,8 +31,6 @@ describe('get Specific holiday by Date', () => {
   it('find Fronleichname in 2019 8th or March in Berlin', () => {
     const FRONLEICHNAM = new Date(2020, 5, 20); // 20.5.2019
 
-    const holidays = getHolidays(FRONLEICHNAM.getFullYear(), 'BY');
-
     expect(getHolidayByDate(FRONLEICHNAM, 'BY')).toEqual(
       expect.objectContaining({
         name: 'FRONLEICHNAM',
