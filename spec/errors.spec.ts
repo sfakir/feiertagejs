@@ -5,11 +5,23 @@ describe('Throw errors:', () => {
     // $FlowFixMe: test wrong region arg
     expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrowError();
   });
+  it('should throw an undefined Region error', () => {
+    expect(() => isHoliday(new Date(), undefined as any)).toThrowError();
+  });
+  it('should throw an null Region error', () => {
+    expect(() => isHoliday(new Date(), null as any)).toThrowError();
+  });
   it('should throw an invalid holiday error', () => {
     // $FlowFixMe: test wrong holiday arg
-    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrowError(
-      Error,
-    );
+    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrowError();
+  });
+  it('should throw an undefined Holiday error', () => {
+    expect(() =>
+      isSpecificHoliday(new Date(), undefined as any),
+    ).toThrowError();
+  });
+  it('should throw an null Holiday error', () => {
+    expect(() => isSpecificHoliday(new Date(), null as any)).toThrowError();
   });
 
   it('New Year should be a holiday', () => {
