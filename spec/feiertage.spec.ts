@@ -35,7 +35,7 @@ describe('Holidays 2015 in Bavaria:', () => {
     expect(isSunOrHoliday(sunday, 'BY')).toBe(false);
   });
 
-  it('Christmas  to be a holiday', () => {
+  it('Christmas to be a holiday', () => {
     const christmas1 = new Date(2015, 11, 25);
     expect(isHoliday(christmas1, 'BY')).toEqual(true);
 
