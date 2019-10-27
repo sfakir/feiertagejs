@@ -37,8 +37,8 @@ describe('get Specific holiday by Date', () => {
   });
 
   // because: https://github.com/sfakir/feiertagejs/issues/33
-  it('find Fronleichname in 2019 8th or March in Berlin', () => {
-    const FRONLEICHNAM = new Date(2020, 5, 20); // 20.5.2019
+  it('find Fronleichname in 2019 8th or March in Bacvaria', () => {
+    const FRONLEICHNAM = new Date(2019, 5, 20); // 20.6.2019
 
     expect(getHolidayByDate(FRONLEICHNAM, 'BY')).toEqual(
       expect.objectContaining({
