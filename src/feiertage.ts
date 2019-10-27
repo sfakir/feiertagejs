@@ -317,7 +317,10 @@ function addReformationstag(
 ): void {
   if (
     year === 2017 ||
+    region === 'NI' ||
     region === 'BB' ||
+    region === 'HB' ||
+    region === 'HH' ||
     region === 'MV' ||
     region === 'SN' ||
     region === 'ST' ||
