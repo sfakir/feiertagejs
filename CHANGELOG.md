@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.2.7 // 27th October 2019
+
+* issue #33 added  'Reformationstag' for Hamburg and Bremen.
+
+
 Version 1.2.6. // 27th March 2019
 
 * issue #28: made toUtcTimestamp immutable;
