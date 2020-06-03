@@ -22,6 +22,9 @@
     "feiertage",
     "javascript"
   ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "author": "Simon Fakir",
   "license": "MIT",
   "bugs": {
