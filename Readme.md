@@ -37,7 +37,7 @@ console.log(isHoliday(today, 'BW'));
 // probably false, because you are working ;)
 
 // check if a day is a specific holiday:
-console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
+console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT','ALL'));
 
 // get all holiday for a single year: getHolidays()
 // returns an array of "Holiday" Objects. Please see the docs.md for all properties.
@@ -46,7 +46,7 @@ const holidays2018 = getHolidays('2018','BUND');
 
 console.log('date', holidays2018[0].date); // = Date("2018-01-01");
 console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant) 
-console.log('translation', holidays2018[0].trans()); // German translation: Neujahrstag
+console.log('translation', holidays2018[0].trans('de')); // German translation: Neujahrstag
 console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
 ```
 
