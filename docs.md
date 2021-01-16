@@ -2,20 +2,24 @@
 
 ### Table of Contents
 
+*Types*
 -   [HolidayType](#holidaytype)
 -   [Region](#region)
 -   [Holiday](#holiday)
 -   [allHolidays](#allholidays)
 -   [allRegions](#allregions)
 -   [TranslationTable](#translationtable)
--   [addTranslation](#addtranslation)
--   [setLanguage](#setlanguage)
--   [getLanguage](#getlanguage)
--   [isSunOrHoliday](#issunorholiday)
--   [isHoliday](#isholiday)
--   [getHolidayByDate](#getholidaybydate)
--   [isSpecificHoliday](#isspecificholiday)
--   [getHolidays](#getholidays)
+
+*API*
+-   [isHoliday(date, region)](#isholiday)
+-   [getHolidayByDate(date, region)](#getholidaybydate)
+-   [getHolidays(year, region)](#getholidays)
+-   [isSunOrHoliday(date, region)](#issunorholiday)
+-   [isSpecificHoliday(date, name, region)](#isspecificholiday)
+-   [addTranslation(isoCode, translation)](#addtranslation)
+-   [setLanguage(lng)](#setlanguage)
+-   [getLanguage()](#getlanguage)
+
 
 
 ## Types
