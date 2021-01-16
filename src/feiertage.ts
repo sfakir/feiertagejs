@@ -3,7 +3,7 @@
  * @repository https://github.com/sfakir/feiertagejs
  * @docs https://github.com/sfakir/feiertagejs/blob/master/docs.md
  *
- * Copyright 2015-2018 Simon Fakir
+ * Copyright 2015-2021 Simon Fakir
  * Released under the MIT license
  */
 
@@ -487,6 +487,10 @@ function newHoliday(name: HolidayType, date: Date): Holiday {
     date,
     dateString: localeDateObjectToDateString(date),
     trans(lang: string = currentLanguage): string | undefined {
+      console.warn('FeiertageJs: You are using "Holiday.trans() method. This will be replaced in the next major version with translate()"');
+      return this.translate(lang)
+    },
+    translate(lang: string = currentLanguage): string | undefined {
       return lang === undefined || lang === null
         ? undefined
         : translations[lang][this.name];

@@ -11,17 +11,20 @@ Feiertage.js is a small npm module without dependencies to calculate German holi
 - [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
 - [bower](https://bower.io/): `bower install feiertagejs`
-- [Plain old Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) as a download (v1.2.2) - not recommended
+- [Plain Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) *outdated!*
 
 
 This package provides two bundles:
 
+* **Typescript** This is the prefered why!
 * an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
 * **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup)
 
 ## Quick Examples
 
-### ES Modules
+### ES Modules (Typescript/Javasript)
+
+The prefered whay is to directly import the typescript module. However, you can also use .js.
 
 ```javascript
 import { getHolidays, isHoliday, isSpecificHoliday } from 'feiertagejs';
@@ -35,9 +38,9 @@ console.log(isHoliday(today, 'BW'));
 console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 
 // get all holiday for a single year: getHolidays()
-// returns an array of objects [ {name: '', date: ''} ,...]
-
+// returns an array of "Holiday" Objects. Please see the docs.md for all properties.
 const holidays2018 = getHolidays('2018','BUND');
+
 
 console.log('date', holidays2018[0].date); // = Date("2018-01-01");
 console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant) 
@@ -59,7 +62,7 @@ console.log(feiertagejs.isHoliday(today, 'BW'));
 console.log(feiertagejs.isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 
 // get all holiday for a single year: getHolidays()
-// returns an array of objects [ {name: '', date: ''} ,...]
+// returns an array of "Holiday" Objects. Please see the docs.md for all properties.
 
 var holidays2018 = feiertagejs.getHolidays('2018', 'BUND');
 
