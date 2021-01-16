@@ -16,7 +16,7 @@ Feiertage.js is a small npm module without dependencies to calculate German holi
 
 This package provides two bundles:
 
-* **Typescript** This is the prefered why!
+* **Typescript** This is the prefered way!
 * an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
 * **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup)
 
