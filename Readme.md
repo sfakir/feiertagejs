@@ -25,6 +25,7 @@ This package provides two bundles:
 ### ES Modules (Typescript/Javasript)
 
 The prefered whay is to directly import the typescript module. However, you can also use .js.
+Please find here some examples and full api [here](docs.md).
 
 
 ```javascript
