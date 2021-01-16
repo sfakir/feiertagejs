@@ -2,8 +2,9 @@
 
 Version 1.3.0 // 16th January 2021
 
-* Typescript first
-* Test for Augsburgfeiertag added
+* Typescript first implementation
+* Docs updated
+* Region/Test for Augsburgfeiertag added
 
 
 
