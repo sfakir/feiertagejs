@@ -269,6 +269,7 @@ function addHeiligeDreiKoenige(
   if (
     region === 'BW' ||
     region === 'BY' ||
+    region === 'AUGSBURG' ||
     region === 'ST' ||
     region === 'ALL'
   ) {
@@ -301,6 +302,7 @@ function addFronleichnam(
   if (
     region === 'BW' ||
     region === 'BY' ||
+    region === 'AUGSBURG' ||
     region === 'HE' ||
     region === 'NW' ||
     region === 'RP' ||
@@ -317,7 +319,7 @@ function addMariaeHimmelfahrt(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (region === 'SL' || region === 'BY') {
+  if (region === 'SL' || region === 'BY' || region === 'AUGSBURG') {
     holidays.push(newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15)));
   }
 }
@@ -351,6 +353,7 @@ function addAllerheiligen(
   if (
     region === 'BW' ||
     region === 'BY' ||
+    region === 'AUGSBURG' ||
     region === 'NW' ||
     region === 'RP' ||
     region === 'SL' ||
