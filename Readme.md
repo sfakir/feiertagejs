@@ -26,6 +26,7 @@ This package provides two bundles:
 
 The prefered whay is to directly import the typescript module. However, you can also use .js.
 
+
 ```javascript
 import { getHolidays, isHoliday, isSpecificHoliday } from 'feiertagejs';
 
@@ -75,7 +76,7 @@ console.log('equals?', holidays2018[0].equals(date)); // Compare days only (igno
 ## API doc
 
 The full API doc can be found [here](docs.md).
-Note that although the documentation uses custom Flow types (e.g. `HolidayType`) you are _not_ required to use Flow in your code (see "Usage in Node.js").
+
 
 ## Feedback and Questions
 

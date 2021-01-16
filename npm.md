@@ -1,6 +1,5 @@
 # How to release an update
 
-
  modifiy package.json
   
     npm run build
