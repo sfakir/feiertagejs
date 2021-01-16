@@ -112,7 +112,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 Returns **([Holiday](#holiday) | void)** 
 
-### isSpecificHoliday
+### isSpecificHoliday()
 
 **Parameters**
 
@@ -122,7 +122,7 @@ Returns **([Holiday](#holiday) | void)**
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-### getHolidays
+### getHolidays()
 
 Returns all holidays of a year in a [Region](#region).
 
