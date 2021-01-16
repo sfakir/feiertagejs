@@ -234,6 +234,8 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
   addWeltkindertag(year, region, holidays);
   addWeltfrauenTag(year, region, holidays);
 
+  addRegionalHolidays(year, region, holidays);
+
   return holidays.sort(
     (a: Holiday, b: Holiday) => a.date.getTime() - b.date.getTime(),
   );
@@ -248,7 +250,17 @@ function getCommonHolidays(year: number): Holiday[] {
     newHoliday('ZWEITERWEIHNACHTSFEIERTAG', makeDate(year, 12, 26)),
   ];
 }
-
+function addRegionalHolidays(
+  year: number,
+  region: Region,
+  feiertageObjects: Holiday[],
+) {
+  if (region === 'AUGSBURG') {
+    feiertageObjects.push(
+      newHoliday('AUGSBURGER_FRIEDENSFEST', makeDate(year, 8, 8)),
+    );
+  }
+}
 function addHeiligeDreiKoenige(
   year: number,
   region: Region,
@@ -379,7 +391,6 @@ function addWeltkindertag(
   }
 }
 
-
 function addWeltfrauenTag(
   year: number,
   region: Region,
@@ -391,11 +402,8 @@ function addWeltfrauenTag(
   if (year < 2018) {
     return;
   }
-  feiertageObjects.push(
-    newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)),
-  );
+  feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
 }
-
 
 /**
  * Calculates the Easter date of a given year.
@@ -415,8 +423,8 @@ function getEasterDate(year: number): Date {
     Math.floor(I / 28) *
     (1 -
       Math.floor(I / 28) *
-      Math.floor(29 / (I + 1)) *
-      Math.floor((21 - N) / 11));
+        Math.floor(29 / (I + 1)) *
+        Math.floor((21 - N) / 11));
   let J = year + Math.floor(year / 4) + I + 2 - C + Math.floor(C / 4);
   J -= 7 * Math.floor(J / 7);
   const L = I - J;
@@ -487,8 +495,10 @@ function newHoliday(name: HolidayType, date: Date): Holiday {
     date,
     dateString: localeDateObjectToDateString(date),
     trans(lang: string = currentLanguage): string | undefined {
-      console.warn('FeiertageJs: You are using "Holiday.trans() method. This will be replaced in the next major version with translate()"');
-      return this.translate(lang)
+      console.warn(
+        'FeiertageJs: You are using "Holiday.trans() method. This will be replaced in the next major version with translate()"',
+      );
+      return this.translate(lang);
     },
     translate(lang: string = currentLanguage): string | undefined {
       return lang === undefined || lang === null
