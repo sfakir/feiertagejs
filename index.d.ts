@@ -21,7 +21,8 @@ declare type Region =
 declare type Holiday = {
   name: HolidayType;
   date: Date;
-  trans: (lang: string | undefined) => string;
+  trans?: (lang: string | undefined) => string; // deprecated;
+  translate: (lang?: string | undefined) => string;
   dateString: string;
   equals: (date: Date) => boolean;
 };

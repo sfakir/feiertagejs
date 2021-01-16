@@ -17,15 +17,18 @@
 -   [isSpecificHoliday](#isspecificholiday)
 -   [getHolidays](#getholidays)
 
-## HolidayType
+
+## Types
+
+### HolidayType
 
 Type: (`"NEUJAHRSTAG"` \| `"HEILIGEDREIKOENIGE"` \| `"KARFREITAG"` \| `"OSTERSONNTAG"` \| `"OSTERMONTAG"` \| `"TAG_DER_ARBEIT"` \| `"CHRISTIHIMMELFAHRT"` \| `"MARIAHIMMELFAHRT"` \| `"PFINGSTSONNTAG"` \| `"PFINGSTMONTAG"` \| `"FRONLEICHNAM"` \| `"DEUTSCHEEINHEIT"` \| `"REFORMATIONSTAG"` \| `"ALLERHEILIGEN"` \| `"BUBETAG"` \| `"ERSTERWEIHNACHTSFEIERTAG"` \| `"ZWEITERWEIHNACHTSFEIERTAG"`)
 
-## Region
+### Region
 
 Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"ALL"`)
 
-## Holiday
+### Holiday
 
 Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), trans: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)}
 
@@ -37,21 +40,23 @@ Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla
 -   `dateString` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `equals` **function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## allHolidays
+### allHolidays
 
 Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[HolidayType](#holidaytype)>
 
-## allRegions
+### allRegions
 
 Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Region](#region)>
 
-## TranslationTable
+### TranslationTable
 
 Map of [HolidayType](#holidaytype) to translation string.
 
 Type: {}
 
-## addTranslation
+
+## API
+### addTranslation()
 
 adds a translation for the holidays (e.g. english).
 This also allows to override the German names.
@@ -62,7 +67,7 @@ Hint: Interpolates German for missing translations
 -   `isoCode` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** of the new language
 -   `newTranslation` **[TranslationTable](#translationtable)** map of {HolidayType} to translation stringg
 
-## setLanguage
+### setLanguage()
 
 Set a language to default language
 
@@ -70,13 +75,13 @@ Set a language to default language
 
 -   `isoCode` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-## getLanguage
+### getLanguage()
 
 Get currently set language
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-## isSunOrHoliday
+### isSunOrHoliday()
 
 Checks if a specific date is sunday or holiday.
 
@@ -87,7 +92,7 @@ Checks if a specific date is sunday or holiday.
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## isHoliday
+### isHoliday()
 
 Check is specific date is holiday.
 
@@ -98,7 +103,7 @@ Check is specific date is holiday.
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## getHolidayByDate
+### getHolidayByDate()
 
 **Parameters**
 
@@ -107,7 +112,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 Returns **([Holiday](#holiday) | void)** 
 
-## isSpecificHoliday
+### isSpecificHoliday
 
 **Parameters**
 
@@ -117,7 +122,7 @@ Returns **([Holiday](#holiday) | void)**
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## getHolidays
+### getHolidays
 
 Returns all holidays of a year in a [Region](#region).
 

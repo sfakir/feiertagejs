@@ -16,6 +16,8 @@ export type Region =
   | 'SH' // Schleswig-Holstein
   | 'TH' // Thüringen
   | 'BUND' // Gesamt-Deutschland
+  // Custom regions with local holidays (incompelte) !
+  | 'AUGSBURG'
   | 'ALL';
 
 export const allRegions: Region[] = [
@@ -36,5 +38,6 @@ export const allRegions: Region[] = [
   'SH',
   'TH',
   'BUND',
+  'AUGSBURG',
   'ALL',
 ];

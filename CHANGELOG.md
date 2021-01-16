@@ -1,5 +1,12 @@
 # Changelog
 
+Version 1.3.0 // 16th January 2021
+
+* Typescript first
+* Test for Augsburgfeiertag added
+
+
+
 Version 1.2.7 // 27th October 2019
 
 * issue #33 added  'Reformationstag' for Hamburg and Bremen.
