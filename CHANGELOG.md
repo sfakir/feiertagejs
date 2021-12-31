@@ -1,5 +1,9 @@
 # Changelog
 
+Version 1.3.1 // 31st December 2021
+
+* [Bugfix] For specific holiday as mentioned in Issue #46
+
 Version 1.3.0 // 16th January 2021
 
 * Typescript first implementation
