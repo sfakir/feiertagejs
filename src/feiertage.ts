@@ -168,7 +168,11 @@ export function isSpecificHoliday(
   checkRegion(region);
   checkHolidayType(holidayName);
   const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  return holidays.find(holiday => holiday.equals(date)) !== undefined;
+  const foundHoliday = holidays.find(holiday => holiday.equals(date));
+  if (!foundHoliday) {
+    return false;
+  }
+  return foundHoliday.name === holidayName;
 }
 
 /**
