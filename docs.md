@@ -32,6 +32,8 @@ Type: (`"NEUJAHRSTAG"` \| `"HEILIGEDREIKOENIGE"` \| `"KARFREITAG"` \| `"OSTERSON
 
 Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"ALL"`)
 
+Erklärung der Kürzel: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
+
 ### Holiday
 
 Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), trans: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)}
