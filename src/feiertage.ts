@@ -323,7 +323,7 @@ function addMariaeHimmelfahrt(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (region === 'SL' || region === 'BY' || region === 'AUGSBURG') {
+  if (region === 'SL' || region === 'BY' || region === 'AUGSBURG' || region === 'ALL') {
     holidays.push(newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15)));
   }
 }

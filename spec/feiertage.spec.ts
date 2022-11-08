@@ -50,6 +50,13 @@ describe('Holidays 2016 in BW:', () => {
   });
 });
 
+describe('Holidays ALL', () => {
+  it('Mariae Himmelfahrt should be a holiday if region type is set to ALL', () => {
+    const himmelfahrt = new Date(2022, 8, 15)
+    expect(isHoliday(himmelfahrt, 'ALL')).toBe(true)
+  })
+})
+
 describe('Holidays 2016 in NW:', () => {
   it('Heilige Drei Könige should not be available', () => {
     const result = getHolidays(2016, 'NW');
