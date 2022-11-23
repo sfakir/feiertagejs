@@ -32,7 +32,12 @@ Type: (`"NEUJAHRSTAG"` \| `"HEILIGEDREIKOENIGE"` \| `"KARFREITAG"` \| `"OSTERSON
 
 Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"ALL"`)
 
-Erklärung der Kürzel: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
+As defined here: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
+
+With the difference between BUND and ALL defined as:
+* "BUND" refers to holidays which are valid in every region ("bundesweit"). So a holiday which only applies to one state will not be incldued.
+* "ALL" refers to every holiday in any region. So a holiday which only applies to one state will be included.
+
 
 ### Holiday
 

@@ -10,15 +10,8 @@ Feiertage.js is a small *typescript* npm module without dependencies to calculat
 
 - [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
-- [bower](https://bower.io/): `bower install feiertagejs`
+- [bower](https://bower.io/): `bower install feiertagejs`  *outdated!*
 - [Plain Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) *outdated!*
-
-
-This package provides two bundles:
-
-* **Typescript** This is the prefered way!
-* an **UMD bundle** (_default_, for Node.js and direct usage in the browser)
-* **ES Modules** (automatically picked up by ES module-aware tools like Webpack, Rollup)
 
 ## Quick Examples
 
@@ -81,10 +74,10 @@ The full API doc can be found [here](docs.md).
 
 ## Feedback and Questions
 
-You have two options two give feedback:
+You have two options two give feedback or ask questions:
 
-* Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
 * Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunately in German.
+* Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
 
 
 ## Contributors
