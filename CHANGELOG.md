@@ -1,5 +1,9 @@
 # Changelog
 
+Version 1.3.3 // 23rd November 2022
+
+* [Enhancement] Added Reformationstag for SH
+
 Version 1.3.1 // 31st December 2021
 
 * [Bugfix] For specific holiday as mentioned in Issue #46
