@@ -343,6 +343,7 @@ function addReformationstag(
     region === 'SN' ||
     region === 'ST' ||
     region === 'TH' ||
+    region === 'SH' ||
     region === 'ALL'
   ) {
     holidays.push(newHoliday('REFORMATIONSTAG', makeDate(year, 10, 31)));

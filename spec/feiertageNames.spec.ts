@@ -37,7 +37,7 @@ describe('Check Feiertage by Name', () => {
     const holidays: Holiday[] = getHolidays(somedate.getFullYear(), 'ALL');
 
     for (const holiday of holidays) {
-      const translation = holiday.trans();
+      const translation = holiday.translate();
       expect(translation).toBeTruthy();
     }
   });

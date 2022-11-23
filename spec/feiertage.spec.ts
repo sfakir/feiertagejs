@@ -51,8 +51,9 @@ describe('Holidays 2016 in BW:', () => {
 });
 
 describe('Holidays ALL', () => {
-  it('Mariae Himmelfahrt should be a holiday if region type is set to ALL', () => {
-    const himmelfahrt = new Date(2022, 8, 15)
+  it('Maria Himmelfahrt should be a holiday if region type is set to ALL', () => {
+    const himmelfahrt = new Date(2022, 7, 15); // 15.08.2022
+
     expect(isHoliday(himmelfahrt, 'ALL')).toBe(true)
   })
 })

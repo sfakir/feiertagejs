@@ -35,7 +35,7 @@ Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"M
 As defined here: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
 
 With the difference between BUND and ALL defined as:
-* "BUND" refers to holidays which are valid in every region ("bundesweit"). So a holiday which only applies to one state will not be incldued.
+* "BUND" refers to holidays which are valid in every region ("bundesweit"). So a holiday which only applies to one state will not be included.
 * "ALL" refers to every holiday in any region. So a holiday which only applies to one state will be included.
 
 
