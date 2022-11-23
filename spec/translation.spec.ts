@@ -32,9 +32,9 @@ describe('set Custom Translations', () => {
     const holidays = getHolidays(2016, 'BUND');
     const newYearsEve = holidays[0];
 
-    expect(newYearsEve.trans()).toEqual('New Years Eve');
-    expect(newYearsEve.trans('en')).toEqual('New Years Eve');
-    expect(newYearsEve.trans('de')).toEqual('Neujahrstag');
+    expect(newYearsEve.translate()).toEqual('New Years Eve');
+    expect(newYearsEve.translate('en')).toEqual('New Years Eve');
+    expect(newYearsEve.translate('de')).toEqual('Neujahrstag');
   });
 
   it('German Fallback for missing translations', () => {
@@ -47,6 +47,6 @@ describe('set Custom Translations', () => {
     const threeKings = holidays[3];
 
     // fallback
-    expect(threeKings.trans()).toEqual('Tag der Arbeit');
+    expect(threeKings.translate()).toEqual('Tag der Arbeit');
   });
 });
