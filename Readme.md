@@ -76,7 +76,7 @@ The full API doc can be found [here](docs.md).
 
 You have two options two give feedback or ask questions:
 
-* Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunately in German.
+* Comment the official release [post](https://fakir.tech/de/feiertage-js-deutsche-feiertage-fuer-node-js-und-browser-javascript/)
 * Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
 
 
