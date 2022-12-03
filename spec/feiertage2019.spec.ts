@@ -23,6 +23,14 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
+  it('find Weltfrauentag >2019 8th or March in Mecklenburg-Vorpommenr', () => {
+    const WELTFRAUENTAG = new Date(2024, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'MV')).toEqual(
+      expect.objectContaining({
+        name: 'WELTFRAUENTAG',
+      }),
+    );
+  });
   it('find Weltfrauentag >2019 8th or March should not be a holiday in BY', () => {
     const WELTFRAUENTAG = new Date(2020, 2, 8);
     expect(getHolidayByDate(WELTFRAUENTAG, 'BY')).toEqual(undefined);

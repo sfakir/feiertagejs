@@ -407,7 +407,7 @@ function addWeltfrauenTag(
   if (year <= 2018) {
     return;
   }
-  if (region === 'BB' || region === 'ALL') {
+  if (region === 'BE' || region === 'ALL') {
     // in Berlin ist der Weltfrauentag ein Feiertag seit 2018
     feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
   }
