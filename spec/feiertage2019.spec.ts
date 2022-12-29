@@ -1,5 +1,6 @@
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
+import { describe, it, expect } from 'vitest';
 import { getHolidayByDate } from '../src/feiertage';
 
 /**

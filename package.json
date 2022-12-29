@@ -2,12 +2,13 @@
   "name": "feiertagejs",
   "version": "1.3.5",
   "description": "A module to calculate German holidays made for node.js",
+  "type": "module",
   "main": "build/feiertage.umd.js",
   "module": "build/feiertage.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "jest --runInBand",
-    "test:w": "jest --watch",
+    "test": "vitest run --coverage",
+    "test:w": "vitest watch",
     "lint": "tslint -p tsconfig.json -t stylish",
     "format": "prettier --write '{**/*,*}.{ts,json}' '!coverage/**' '!build/**' '!package.json'",
     "build": "rollup -c"
@@ -32,27 +33,16 @@
   },
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "jest": "^27.4.5",
+    "@vitest/coverage-c8": "^0.26.2",
     "prettier": "^2.5.1",
     "rollup": "^2.62.0",
     "rollup-plugin-typescript": "^1.0.0",
-    "ts-jest": "^27.1.2",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
-    "typescript": "^4.5.4"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "coverageReporters": [
-      "html",
-      "text",
-      "lcov"
-    ]
+    "typescript": "^4.5.4",
+    "vitest": "^0.26.2"
   },
   "files": [
     "build",

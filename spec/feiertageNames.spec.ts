@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { getHolidays, isSpecificHoliday } from '../src/feiertage';
 import { Holiday } from '../src/holiday';
 
