@@ -10,7 +10,7 @@
     "test": "vitest run --coverage",
     "test:w": "vitest watch",
     "lint": "tslint -p tsconfig.json -t stylish",
-    "format": "prettier --write '{**/*,*}.{ts,json}' '!coverage/**' '!build/**' '!package.json'",
+    "format": "prettier --write \"{**/*,*}.{ts,json}\" \"!coverage/**\" \"!build/**\" \"!package.json\" \"!package-lock.json\" --cache",
     "build": "rollup -c"
   },
   "repository": {
@@ -34,14 +34,14 @@
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
     "@vitest/coverage-c8": "^0.26.2",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.1",
     "rollup": "^2.62.0",
     "rollup-plugin-typescript": "^1.0.0",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
-    "typescript": "^4.5.4",
+    "typescript": "^4.9.4",
     "vitest": "^0.26.2"
   },
   "files": [
