@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 
 export default [
   // build ES modules for bundlers (webpack, rollup, ...)
