@@ -9,7 +9,7 @@ describe('set Custom Translations', () => {
   it('dont allow missing language', () => {
     setLanguage('de');
     expect(getLanguage()).toEqual('de');
-    expect(() => setLanguage('it')).toThrowError(TypeError);
+    expect(() => setLanguage('it')).toThrow(TypeError);
     expect(getLanguage()).toEqual('de');
   });
 

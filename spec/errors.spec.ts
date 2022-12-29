@@ -3,25 +3,25 @@ import { getHolidays, isHoliday, isSpecificHoliday } from '../src/feiertage';
 describe('Throw errors:', () => {
   it('should throw an invalid region error', () => {
     // $FlowFixMe: test wrong region arg
-    expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrowError();
+    expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrow();
   });
   it('should throw an undefined Region error', () => {
-    expect(() => isHoliday(new Date(), undefined as any)).toThrowError();
+    expect(() => isHoliday(new Date(), undefined as any)).toThrow();
   });
   it('should throw an null Region error', () => {
-    expect(() => isHoliday(new Date(), null as any)).toThrowError();
+    expect(() => isHoliday(new Date(), null as any)).toThrow();
   });
   it('should throw an invalid holiday error', () => {
     // $FlowFixMe: test wrong holiday arg
-    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrowError();
+    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrow();
   });
   it('should throw an undefined Holiday error', () => {
     expect(() =>
       isSpecificHoliday(new Date(), undefined as any),
-    ).toThrowError();
+    ).toThrow();
   });
   it('should throw an null Holiday error', () => {
-    expect(() => isSpecificHoliday(new Date(), null as any)).toThrowError();
+    expect(() => isSpecificHoliday(new Date(), null as any)).toThrow();
   });
 
   it('New Year should be a holiday', () => {
