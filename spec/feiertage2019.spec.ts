@@ -56,7 +56,6 @@ describe('get Specific holiday by Date', () => {
     );
   });
 
-
   /**
    * Neu:
    *  Reformationstag am 31. Oktober in
@@ -91,5 +90,4 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
-
 });

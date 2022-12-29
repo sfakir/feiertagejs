@@ -20,5 +20,5 @@ export const germanTranslations: TranslationTable = {
   ZWEITERWEIHNACHTSFEIERTAG: '2. Weihnachtstag',
   WELTKINDERTAG: 'Weltkindertag',
   WELTFRAUENTAG: 'Weltfrauentag',
-  AUGSBURGER_FRIEDENSFEST: 'Augsburger Friedensfest'
+  AUGSBURGER_FRIEDENSFEST: 'Augsburger Friedensfest',
 };

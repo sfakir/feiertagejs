@@ -7,6 +7,6 @@ export type Holiday = {
   translate(lang?: string): string | undefined;
   dateString: string;
   equals(date: Date): boolean;
-  
+
   getNormalizedDate(): number;
 };

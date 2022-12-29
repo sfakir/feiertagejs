@@ -55,20 +55,20 @@ describe('Holidays ALL', () => {
   it('Maria Himmelfahrt should be a holiday if region type is set to ALL', () => {
     const himmelfahrt = new Date(2022, 7, 15); // 15.08.2022
 
-    expect(isHoliday(himmelfahrt, 'ALL')).toBe(true)
-  })
-})
+    expect(isHoliday(himmelfahrt, 'ALL')).toBe(true);
+  });
+});
 
 describe('Holidays 2016 in NW:', () => {
   it('Heilige Drei Könige should not be available', () => {
     const result = getHolidays(2016, 'NW');
-    const hkoenige = result.find(f => f.name === 'HEILIGEDREIKOENIGE');
+    const hkoenige = result.find((f) => f.name === 'HEILIGEDREIKOENIGE');
     expect(hkoenige).toBeUndefined();
   });
   it('Tag der Arbeit should be on first may', () => {
     const result = getHolidays(2016, 'NW');
     const firstMay: Holiday | void = result.find(
-      f => f.name === 'TAG_DER_ARBEIT',
+      (f) => f.name === 'TAG_DER_ARBEIT',
     );
 
     if (firstMay !== undefined) {

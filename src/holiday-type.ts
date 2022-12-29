@@ -18,8 +18,7 @@ export type HolidayType =
   | 'ZWEITERWEIHNACHTSFEIERTAG'
   | 'WELTKINDERTAG'
   | 'WELTFRAUENTAG'
-  | 'AUGSBURGER_FRIEDENSFEST'
-  ;
+  | 'AUGSBURGER_FRIEDENSFEST';
 
 export const allHolidays: HolidayType[] = [
   'NEUJAHRSTAG',
