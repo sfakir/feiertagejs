@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { Holiday } from '../src/Holiday';
 import { getHolidays, isHoliday, isSunOrHoliday } from '../src/feiertage';
 
 describe('Holidays 2015 in Bavaria:', () => {
@@ -66,7 +67,7 @@ describe('Holidays 2016 in NW:', () => {
   });
   it('Tag der Arbeit should be on first may', () => {
     const result = getHolidays(2016, 'NW');
-    const firstMay: Holiday | void = result.find(
+    const firstMay: Holiday | undefined = result.find(
       (f) => f.name === 'TAG_DER_ARBEIT',
     );
     expect(firstMay).toBeDefined();

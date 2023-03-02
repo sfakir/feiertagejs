@@ -1,7 +1,3 @@
-# Run specific test
-
-  jest --runInBand
-
 
 
 # How to release an update
