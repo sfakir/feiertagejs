@@ -20,7 +20,7 @@ import { allRegions, Region } from './regions';
 
 // translations
 
-const defaultLanguage: string = 'de';
+const defaultLanguage = 'de';
 let currentLanguage: string = defaultLanguage;
 
 /**
@@ -195,9 +195,9 @@ export function getHolidays(year: number | string, region: Region): Holiday[] {
 
 /**
  *
- * @param year
+ * @param {number} year
  * @param region
- * @returns {*}
+ * @returns {number[]}
  * @private
  */
 function getHolidaysAsUtcTimestamps(year: number, region: Region): number[] {
@@ -207,7 +207,7 @@ function getHolidaysAsUtcTimestamps(year: number, region: Region): number[] {
 
 /**
  *
- * @param year
+ * @param {number} year
  * @param region
  * @returns {{objects: Array.<Holiday>, integers}}
  * @private
