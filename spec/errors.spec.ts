@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { getHolidays, isHoliday, isSpecificHoliday } from '../src/feiertage';
 
 describe('Throw errors:', () => {
@@ -64,13 +65,13 @@ describe('Throw errors:', () => {
   it('in 2017 we have REFORMATIONSTAG in whole Germany', () => {
     const result = getHolidays(2017, 'BUND');
     expect(result).toHaveLength(10);
-    const reftag = result.find(r => r.name === 'REFORMATIONSTAG');
+    const reftag = result.find((r) => r.name === 'REFORMATIONSTAG');
     expect(reftag).toBeDefined();
   });
   it('in 2016 we do not have REFORMATIONSTAG in whole Germany', () => {
     const result = getHolidays(2016, 'BUND');
     expect(result).toHaveLength(9);
-    const ref = result.find(r => r.name === 'REFORMATIONSTAG');
+    const ref = result.find((r) => r.name === 'REFORMATIONSTAG');
     expect(ref).toBeUndefined();
   });
 });

@@ -1,5 +1,6 @@
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
+import { describe, it, expect } from 'vitest';
 import { getHolidayByDate } from '../src/feiertage';
 
 /**
@@ -55,7 +56,6 @@ describe('get Specific holiday by Date', () => {
     );
   });
 
-
   /**
    * Neu:
    *  Reformationstag am 31. Oktober in
@@ -90,5 +90,4 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
-
 });

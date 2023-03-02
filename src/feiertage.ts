@@ -120,7 +120,7 @@ export function getHolidayByDate(
 ): Holiday | void {
   checkRegion(region);
   const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  return holidays.find(holiday => holiday.equals(date));
+  return holidays.find((holiday) => holiday.equals(date));
 }
 
 // additional runtime checks
@@ -168,7 +168,7 @@ export function isSpecificHoliday(
   checkRegion(region);
   checkHolidayType(holidayName);
   const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  const foundHoliday = holidays.find(holiday => holiday.equals(date));
+  const foundHoliday = holidays.find((holiday) => holiday.equals(date));
   if (!foundHoliday) {
     return false;
   }
@@ -202,7 +202,7 @@ export function getHolidays(year: number | string, region: Region): Holiday[] {
  */
 function getHolidaysAsUtcTimestamps(year: number, region: Region): number[] {
   const holidays = getHolidaysOfYear(year, region);
-  return holidays.map(holiday => toUtcTimestamp(holiday.date));
+  return holidays.map((holiday) => toUtcTimestamp(holiday.date));
 }
 
 /**
@@ -323,7 +323,12 @@ function addMariaeHimmelfahrt(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (region === 'SL' || region === 'BY' || region === 'AUGSBURG' || region === 'ALL') {
+  if (
+    region === 'SL' ||
+    region === 'BY' ||
+    region === 'AUGSBURG' ||
+    region === 'ALL'
+  ) {
     holidays.push(newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15)));
   }
 }
