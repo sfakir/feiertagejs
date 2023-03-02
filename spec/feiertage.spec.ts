@@ -1,5 +1,4 @@
 import { getHolidays, isHoliday, isSunOrHoliday } from '../src/feiertage';
-import { Holiday } from '../src/holiday';
 
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {
@@ -66,15 +65,10 @@ describe('Holidays 2016 in NW:', () => {
   });
   it('Tag der Arbeit should be on first may', () => {
     const result = getHolidays(2016, 'NW');
-    const firstMay: Holiday | void = result.find(
+    const firstMay = result.find(
       f => f.name === 'TAG_DER_ARBEIT',
     );
-
-    if (firstMay !== undefined) {
-      const realDate = new Date(2016, 4, 1);
-      expect(firstMay.equals(realDate)).toBe(true);
-    } else {
-      throw new Error('firstMay must not be null');
-    }
+    expect(firstMay).toBeDefined();
+    expect(firstMay!.equals(new Date(2016, 4,1))).toBe(true);
   });
 });
