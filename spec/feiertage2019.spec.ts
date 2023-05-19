@@ -1,5 +1,6 @@
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
+import { describe, it, expect } from 'vitest';
 import { getHolidayByDate } from '../src/feiertage';
 
 /**
@@ -18,6 +19,14 @@ describe('get Specific holiday by Date', () => {
   it('find Weltfrauentag >2019 8th or March in Berlin', () => {
     const WELTFRAUENTAG = new Date(2020, 2, 8);
     expect(getHolidayByDate(WELTFRAUENTAG, 'BE')).toEqual(
+      expect.objectContaining({
+        name: 'WELTFRAUENTAG',
+      }),
+    );
+  });
+  it('find Weltfrauentag >2019 8th or March in Mecklenburg-Vorpommenr', () => {
+    const WELTFRAUENTAG = new Date(2024, 2, 8);
+    expect(getHolidayByDate(WELTFRAUENTAG, 'MV')).toEqual(
       expect.objectContaining({
         name: 'WELTFRAUENTAG',
       }),
@@ -46,7 +55,6 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
-
 
   /**
    * Neu:
@@ -82,5 +90,4 @@ describe('get Specific holiday by Date', () => {
       }),
     );
   });
-
 });

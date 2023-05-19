@@ -34,13 +34,13 @@ console.log(isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT','ALL'));
 
 // get all holiday for a single year: getHolidays()
 // returns an array of "Holiday" Objects. Please see the docs.md for all properties.
-const holidays2018 = getHolidays('2018','BUND');
+const holidays2023 = getHolidays('2023','BUND');
 
 
-console.log('date', holidays2018[0].date); // = Date("2018-01-01");
-console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant) 
-console.log('translation', holidays2018[0].trans('de')); // German translation: Neujahrstag
-console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
+console.log('date', holidays2023[0].date); // = Date("2023-01-01");
+console.log('name', holidays2023[0].name); // 'NEUJAHRSTAG' (constant) 
+console.log('translation', holidays2023[0].trans('de')); // German translation: Neujahrstag
+console.log('equals?', holidays2023[0].equals(date)); // Compare days only (ignore time)
 ```
 
 ### Usage in Node.js
@@ -59,12 +59,12 @@ console.log(feiertagejs.isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
 // get all holiday for a single year: getHolidays()
 // returns an array of "Holiday" Objects. Please see the docs.md for all properties.
 
-var holidays2018 = feiertagejs.getHolidays('2018', 'BUND');
+var holidays2023 = feiertagejs.getHolidays('2023', 'BUND');
 
-console.log('date', holidays2018[0].date); // = Date("2018-01-01");
-console.log('name', holidays2018[0].name); // 'NEUJAHRSTAG' (constant)
-console.log('translation', holidays2018[0].translate()); // German translation: Neujahrstag
-console.log('equals?', holidays2018[0].equals(date)); // Compare days only (ignore time)
+console.log('date', holidays2023[0].date); // = Date("2023-01-01");
+console.log('name', holidays2023[0].name); // 'NEUJAHRSTAG' (constant)
+console.log('translation', holidays2023[0].translate()); // German translation: Neujahrstag
+console.log('equals?', holidays2023[0].equals(date)); // Compare days only (ignore time)
 ```
 
 ## API doc
@@ -76,7 +76,7 @@ The full API doc can be found [here](docs.md).
 
 You have two options two give feedback or ask questions:
 
-* Comment the official release [post](http://www.fakir.it/feiertage-js-feiertage-fuer-node-js-und-im-browser/), unfortunately in German.
+* Comment the official release [post](https://fakir.tech/de/feiertage-js-deutsche-feiertage-fuer-node-js-und-browser-javascript/)
 * Open issues or pullrequests on [github](https://github.com/sfakir/feiertagejs)
 
 

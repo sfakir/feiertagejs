@@ -1,5 +1,6 @@
 // https://de.wikipedia.org/wiki/Feiertage_in_Deutschland
 
+import { describe, it, expect } from 'vitest';
 import { isSpecificHoliday } from '../src/feiertage';
 
 /**
@@ -7,10 +8,10 @@ import { isSpecificHoliday } from '../src/feiertage';
  */
 describe('get Specific holiday by Date', () => {
   it('Christi Himmelfahrt is not the second christmas holiday', () => {
-    const secondChristmasDay  = new Date('2021-12-25T09:30:00.000+01:00'); 
+    const secondChristmasDay = new Date('2021-12-25T09:30:00.000+01:00');
 
-
-    expect(isSpecificHoliday(secondChristmasDay, 'CHRISTIHIMMELFAHRT', 'ALL')).toBeFalsy();
+    expect(
+      isSpecificHoliday(secondChristmasDay, 'CHRISTIHIMMELFAHRT', 'ALL'),
+    ).toBeFalsy();
   });
-
 });

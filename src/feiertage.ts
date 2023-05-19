@@ -20,7 +20,7 @@ import { allRegions, Region } from './regions';
 
 // translations
 
-const defaultLanguage: string = 'de';
+const defaultLanguage = 'de';
 let currentLanguage: string = defaultLanguage;
 
 /**
@@ -120,7 +120,7 @@ export function getHolidayByDate(
 ): Holiday | void {
   checkRegion(region);
   const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  return holidays.find(holiday => holiday.equals(date));
+  return holidays.find((holiday) => holiday.equals(date));
 }
 
 // additional runtime checks
@@ -168,7 +168,7 @@ export function isSpecificHoliday(
   checkRegion(region);
   checkHolidayType(holidayName);
   const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  const foundHoliday = holidays.find(holiday => holiday.equals(date));
+  const foundHoliday = holidays.find((holiday) => holiday.equals(date));
   if (!foundHoliday) {
     return false;
   }
@@ -195,19 +195,19 @@ export function getHolidays(year: number | string, region: Region): Holiday[] {
 
 /**
  *
- * @param year
+ * @param {number} year
  * @param region
- * @returns {*}
+ * @returns {number[]}
  * @private
  */
 function getHolidaysAsUtcTimestamps(year: number, region: Region): number[] {
   const holidays = getHolidaysOfYear(year, region);
-  return holidays.map(holiday => toUtcTimestamp(holiday.date));
+  return holidays.map((holiday) => toUtcTimestamp(holiday.date));
 }
 
 /**
  *
- * @param year
+ * @param {number} year
  * @param region
  * @returns {{objects: Array.<Holiday>, integers}}
  * @private
@@ -323,7 +323,12 @@ function addMariaeHimmelfahrt(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (region === 'SL' || region === 'BY' || region === 'AUGSBURG' || region === 'ALL') {
+  if (
+    region === 'SL' ||
+    region === 'BY' ||
+    region === 'AUGSBURG' ||
+    region === 'ALL'
+  ) {
     holidays.push(newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15)));
   }
 }
@@ -404,13 +409,17 @@ function addWeltfrauenTag(
   region: Region,
   feiertageObjects: Holiday[],
 ): void {
-  if (region !== 'BE') {
+  if (year <= 2018) {
     return;
   }
-  if (year < 2018) {
-    return;
+  if (region === 'BE' || region === 'ALL') {
+    // in Berlin ist der Weltfrauentag ein Feiertag seit 2018
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
   }
-  feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
+  if (region === 'MV' && year >= 2023) {
+    // in MV wird der Weltfrauentag erst ab 2023 eingeführt
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
+  }
 }
 
 /**

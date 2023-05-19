@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 
 export default [
   // build ES modules for bundlers (webpack, rollup, ...)
@@ -16,7 +16,7 @@ export default [
   {
     input: 'src/feiertage.ts',
     output: {
-      file: 'build/feiertage.umd.js',
+      file: 'build/feiertage.umd.cjs',
       name: 'feiertagejs',
       format: 'umd',
       noConflict: true,
@@ -24,4 +24,17 @@ export default [
     },
     plugins: [typescript()],
   },
+  // .. esm
+  {
+    input: 'src/feiertage.ts',
+    output: {
+      file: 'build/feiertage.esm.js',
+      name: 'feiertagejs',
+      format: 'esm',
+      noConflict: true,
+      sourcemap: true,
+    },
+    plugins: [typescript()],
+  },
+
 ];

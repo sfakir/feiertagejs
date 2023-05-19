@@ -4,6 +4,7 @@
     "noEmit": true,
     "target": "es2016",
     "strict": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "moduleResolution": "Node"
   }
 }

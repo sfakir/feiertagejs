@@ -1,27 +1,28 @@
+import { describe, it, expect } from 'vitest';
 import { getHolidays, isHoliday, isSpecificHoliday } from '../src/feiertage';
 
 describe('Throw errors:', () => {
   it('should throw an invalid region error', () => {
     // $FlowFixMe: test wrong region arg
-    expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrowError();
+    expect(() => isHoliday(new Date(), 'SWISS' as any)).toThrow();
   });
   it('should throw an undefined Region error', () => {
-    expect(() => isHoliday(new Date(), undefined as any)).toThrowError();
+    expect(() => isHoliday(new Date(), undefined as any)).toThrow();
   });
   it('should throw an null Region error', () => {
-    expect(() => isHoliday(new Date(), null as any)).toThrowError();
+    expect(() => isHoliday(new Date(), null as any)).toThrow();
   });
   it('should throw an invalid holiday error', () => {
     // $FlowFixMe: test wrong holiday arg
-    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrowError();
+    expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrow();
   });
   it('should throw an undefined Holiday error', () => {
     expect(() =>
       isSpecificHoliday(new Date(), undefined as any),
-    ).toThrowError();
+    ).toThrow();
   });
   it('should throw an null Holiday error', () => {
-    expect(() => isSpecificHoliday(new Date(), null as any)).toThrowError();
+    expect(() => isSpecificHoliday(new Date(), null as any)).toThrow();
   });
 
   it('New Year should be a holiday', () => {
@@ -64,13 +65,13 @@ describe('Throw errors:', () => {
   it('in 2017 we have REFORMATIONSTAG in whole Germany', () => {
     const result = getHolidays(2017, 'BUND');
     expect(result).toHaveLength(10);
-    const reftag = result.find(r => r.name === 'REFORMATIONSTAG');
+    const reftag = result.find((r) => r.name === 'REFORMATIONSTAG');
     expect(reftag).toBeDefined();
   });
   it('in 2016 we do not have REFORMATIONSTAG in whole Germany', () => {
     const result = getHolidays(2016, 'BUND');
     expect(result).toHaveLength(9);
-    const ref = result.find(r => r.name === 'REFORMATIONSTAG');
+    const ref = result.find((r) => r.name === 'REFORMATIONSTAG');
     expect(ref).toBeUndefined();
   });
 });

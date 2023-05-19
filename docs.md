@@ -34,10 +34,9 @@ Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"M
 
 As defined here: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
 
-With the difference between BUND and ALL defined as:
-* "BUND" refers to holidays which are valid in every region ("bundesweit"). So a holiday which only applies to one state will not be included.
-* "ALL" refers to every holiday in any region. So a holiday which only applies to one state will be included.
-
+The difference between BUND and ALL is defined as follows:
+* "ALL" refers to every holiday which is valid in **at least** one region. So a holiday that only applies to one state will be included.
+* "BUND" refers to holidays that are valid in every region ("bundesweit"). So a holiday that only applies to one state will not be included.
 
 ### Holiday
 
@@ -69,8 +68,8 @@ Type: {}
 ## API
 ### addTranslation()
 
-adds a translation for the holidays (e.g. english).
-This also allows to override the German names.
+Adds a translation for the holidays (e.g. English).
+This also allows overriding the German names.
 Hint: Interpolates German for missing translations
 
 **Parameters**
