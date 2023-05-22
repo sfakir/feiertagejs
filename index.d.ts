@@ -16,6 +16,7 @@ declare type Region =
   | 'SH' // Schleswig-Holstein
   | 'TH' // Thüringen
   | 'BUND' // Gesamt-Deutschland
+  | 'AUGSBURG'
   | 'ALL';
 
 declare type Holiday = {
