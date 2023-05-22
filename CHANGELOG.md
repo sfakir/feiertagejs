@@ -1,6 +1,10 @@
 # Changelog
 
-Version 1.4.0 // 19th May 2023
+Version 1.3.9 // 22th May 2023
+
+* [Bugfix] Added Augsburg to index.d.ts
+
+Version 1.3.8 // 19th May 2023
 
 * [Enhancement] Upgraded to ESM and commonjs package
 
