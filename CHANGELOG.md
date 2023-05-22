@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.4.0 // 19th May 2023
+
+* [Enhancement] Upgraded to ESM and commonjs package
+
+
 Version 1.3.3 // 23rd November 2022
 
 * [Enhancement] Added Reformationstag for SH
