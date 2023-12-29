@@ -522,7 +522,7 @@ function newHoliday(name: HolidayType, date: Date): Holiday {
         ? undefined
         : translations[lang][this.name];
     },
-    getNormalizedDate(): number {
+      getNormalizedDate(): number {
       return toUtcTimestamp(this.date);
     },
     equals(otherDate: Date): boolean {
