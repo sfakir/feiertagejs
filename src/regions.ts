@@ -16,7 +16,7 @@ export type Region =
   | 'SH' // Schleswig-Holstein
   | 'TH' // Thüringen
   | 'BUND' // Gesamt-Deutschland
-  // Custom regions with local holidays (incompelte) !
+  // Custom regions with local holidays (incomplete) !
   | 'AUGSBURG'
   | 'ALL';
 
