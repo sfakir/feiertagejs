@@ -39,7 +39,7 @@ const holidays2023 = getHolidays('2023','BUND');
 
 console.log('date', holidays2023[0].date); // = Date("2023-01-01");
 console.log('name', holidays2023[0].name); // 'NEUJAHRSTAG' (constant) 
-console.log('translation', holidays2023[0].trans('de')); // German translation: Neujahrstag
+console.log('translation', holidays2023[0].translate('de')); // German translation: Neujahrstag
 console.log('equals?', holidays2023[0].equals(date)); // Compare days only (ignore time)
 ```
 

@@ -362,7 +362,7 @@ function addBussUndBetttag(
   region: Region,
   holidays: Holiday[],
 ): void {
-  const validRegions: Regions[] = ['SN'];
+  const validRegions: Region[] = ['SN'];
   if (region === 'SN' || region === 'ALL') {
     // @todo write test
     const bussbettag = getBussBettag(year);

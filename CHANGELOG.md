@@ -1,4 +1,9 @@
 # Changelog
+Version 1.4.0 // 29th Dec 2023
+
+* [Enhancement] Added regions field to holday entity
+* [Migration] Depreacted trans() method, merged to translate()
+* [Migration] Updated depencenies
 
 Version 1.3.9 // 22th May 2023
 
