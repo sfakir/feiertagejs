@@ -45,7 +45,7 @@ One entry of the array contains:
 ```javascript
 [{
     name: 'CHRISTIHIMMELFAHRT',
-    date: 2023-05-17T22:00:00.000Z,
+    date: new Date('2023-05-17T22:00:00.000Z'),
     dateString: '2023-05-18',
     regions: [
       'BW',  'BY',   'BE',
@@ -59,33 +59,9 @@ One entry of the array contains:
     translate: [Function: translate],
     getNormalizedDate: [Function: getNormalizedDate],
     equals: [Function: equals]
-  },...
+  }
 ]
 
-```
-
-### Usage in Node.js
-
-```javascript
-var feiertagejs = require('feiertagejs');
-
-var today = new Date();
-
-console.log(feiertagejs.isHoliday(today, 'BW'));
-// probably false, because you are working ;)
-
-// check if a day is a specific holiday:
-console.log(feiertagejs.isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT'));
-
-// get all holiday for a single year: getHolidays()
-// returns an array of "Holiday" Objects. Please see the docs.md for all properties.
-
-var holidays2023 = feiertagejs.getHolidays('2023', 'BUND');
-
-console.log('date', holidays2023[0].date); // = Date("2023-01-01");
-console.log('name', holidays2023[0].name); // 'NEUJAHRSTAG' (constant)
-console.log('translation', holidays2023[0].translate()); // German translation: Neujahrstag
-console.log('equals?', holidays2023[0].equals(date)); // Compare days only (ignore time)
 ```
 
 ## API doc
