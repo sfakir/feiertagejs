@@ -222,10 +222,10 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
 
   const holidays: Holiday[] = [
     ...getCommonHolidays(year),
-    newHoliday('KARFREITAG', karfreitag),
-    newHoliday('OSTERMONTAG', ostermontag),
-    newHoliday('CHRISTIHIMMELFAHRT', christiHimmelfahrt),
-    newHoliday('PFINGSTMONTAG', pfingstmontag),
+    newHoliday('KARFREITAG', karfreitag, ['ALL']),
+    newHoliday('OSTERMONTAG', ostermontag, ['ALL']),
+    newHoliday('CHRISTIHIMMELFAHRT', christiHimmelfahrt, ['ALL']),
+    newHoliday('PFINGSTMONTAG', pfingstmontag, ['ALL']),
   ];
 
   addHeiligeDreiKoenige(year, region, holidays);
@@ -247,11 +247,11 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
 
 function getCommonHolidays(year: number): Holiday[] {
   return [
-    newHoliday('NEUJAHRSTAG', makeDate(year, 1, 1)),
-    newHoliday('TAG_DER_ARBEIT', makeDate(year, 5, 1)),
-    newHoliday('DEUTSCHEEINHEIT', makeDate(year, 10, 3)),
-    newHoliday('ERSTERWEIHNACHTSFEIERTAG', makeDate(year, 12, 25)),
-    newHoliday('ZWEITERWEIHNACHTSFEIERTAG', makeDate(year, 12, 26)),
+    newHoliday('NEUJAHRSTAG', makeDate(year, 1, 1), ['ALL']),
+    newHoliday('TAG_DER_ARBEIT', makeDate(year, 5, 1), ['ALL']),
+    newHoliday('DEUTSCHEEINHEIT', makeDate(year, 10, 3), ['ALL']),
+    newHoliday('ERSTERWEIHNACHTSFEIERTAG', makeDate(year, 12, 25), ['ALL']),
+    newHoliday('ZWEITERWEIHNACHTSFEIERTAG', makeDate(year, 12, 26), ['ALL']),
   ];
 }
 function addRegionalHolidays(
@@ -261,7 +261,7 @@ function addRegionalHolidays(
 ) {
   if (region === 'AUGSBURG') {
     feiertageObjects.push(
-      newHoliday('AUGSBURGER_FRIEDENSFEST', makeDate(year, 8, 8)),
+      newHoliday('AUGSBURGER_FRIEDENSFEST', makeDate(year, 8, 8), ['ALL']),
     );
   }
 }
@@ -270,15 +270,10 @@ function addHeiligeDreiKoenige(
   region: Region,
   feiertageObjects: Holiday[],
 ): void {
-  if (
-    region === 'BW' ||
-    region === 'BY' ||
-    region === 'AUGSBURG' ||
-    region === 'ST' ||
-    region === 'ALL'
-  ) {
+  const validRegions: Region[] = ['BW', 'BY', 'AUGSBURG', 'ST'];
+  if (validRegions.includes(region) || region === 'ALL') {
     feiertageObjects.push(
-      newHoliday('HEILIGEDREIKOENIGE', makeDate(year, 1, 6)),
+      newHoliday('HEILIGEDREIKOENIGE', makeDate(year, 1, 6), validRegions),
     );
   }
 }
@@ -290,10 +285,11 @@ function addEasterAndPfingsten(
   pfingstsonntag: Date,
   feiertageObjects: Holiday[],
 ): void {
-  if (region === 'BB' || region === 'ALL') {
+  const validRegions: Region[] = ['BB'];
+  if (validRegions.includes(region) || region === 'ALL') {
     feiertageObjects.push(
-      newHoliday('OSTERSONNTAG', easterDate),
-      newHoliday('PFINGSTSONNTAG', pfingstsonntag),
+      newHoliday('OSTERSONNTAG', easterDate, validRegions),
+      newHoliday('PFINGSTSONNTAG', pfingstsonntag, validRegions),
     );
   }
 }
@@ -303,18 +299,10 @@ function addFronleichnam(
   easterDate: Date,
   holidays: Holiday[],
 ): void {
-  if (
-    region === 'BW' ||
-    region === 'BY' ||
-    region === 'AUGSBURG' ||
-    region === 'HE' ||
-    region === 'NW' ||
-    region === 'RP' ||
-    region === 'SL' ||
-    region === 'ALL'
-  ) {
+  const validRegions: Region[] = ['BW', 'BY', 'AUGSBURG', 'HE', 'NW', 'RP', 'SL'];
+  if (validRegions.includes(region) || region === 'ALL') {
     const fronleichnam = addDays(new Date(easterDate.getTime()), 60);
-    holidays.push(newHoliday('FRONLEICHNAM', fronleichnam));
+    holidays.push(newHoliday('FRONLEICHNAM', fronleichnam, validRegions));
   }
 }
 
@@ -323,13 +311,12 @@ function addMariaeHimmelfahrt(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (
-    region === 'SL' ||
-    region === 'BY' ||
-    region === 'AUGSBURG' ||
-    region === 'ALL'
-  ) {
-    holidays.push(newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15)));
+  const validRegions: Region[] = ['SL', 'BY', 'AUGSBURG'];
+
+  if (validRegions.includes(region) || region === 'ALL') {
+    holidays.push(
+      newHoliday('MARIAHIMMELFAHRT', makeDate(year, 8, 15), validRegions),
+    );
   }
 }
 
@@ -338,20 +325,22 @@ function addReformationstag(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (
-    year === 2017 ||
-    region === 'NI' ||
-    region === 'BB' ||
-    region === 'HB' ||
-    region === 'HH' ||
-    region === 'MV' ||
-    region === 'SN' ||
-    region === 'ST' ||
-    region === 'TH' ||
-    region === 'SH' ||
-    region === 'ALL'
-  ) {
-    holidays.push(newHoliday('REFORMATIONSTAG', makeDate(year, 10, 31)));
+  const validRegions: Region[] = [
+    'NI',
+    'BB',
+    'MV',
+    'SN',
+    'ST',
+    'TH',
+    'HB',
+    'HH',
+    'NI',
+    'SH',
+  ];
+  if (year === 2017 || validRegions.includes(region) || region === 'ALL') {
+    holidays.push(
+      newHoliday('REFORMATIONSTAG', makeDate(year, 10, 31), validRegions),
+    );
   }
 }
 
@@ -360,16 +349,11 @@ function addAllerheiligen(
   region: Region,
   holidays: Holiday[],
 ): void {
-  if (
-    region === 'BW' ||
-    region === 'BY' ||
-    region === 'AUGSBURG' ||
-    region === 'NW' ||
-    region === 'RP' ||
-    region === 'SL' ||
-    region === 'ALL'
-  ) {
-    holidays.push(newHoliday('ALLERHEILIGEN', makeDate(year, 11, 1)));
+  const validRegions: Region[] = ['BW', 'BY', 'NW', 'RP', 'SL', 'AUGSBURG'];
+  if (validRegions.includes(region) || region === 'ALL') {
+    holidays.push(
+      newHoliday('ALLERHEILIGEN', makeDate(year, 11, 1), validRegions),
+    );
   }
 }
 
@@ -378,6 +362,7 @@ function addBussUndBetttag(
   region: Region,
   holidays: Holiday[],
 ): void {
+  const validRegions: Regions[] = ['SN'];
   if (region === 'SN' || region === 'ALL') {
     // @todo write test
     const bussbettag = getBussBettag(year);
@@ -389,6 +374,7 @@ function addBussUndBetttag(
           bussbettag.getUTCMonth() + 1,
           bussbettag.getUTCDate(),
         ),
+        validRegions,
       ),
     );
   }
@@ -400,7 +386,7 @@ function addWeltkindertag(
   holidays: Holiday[],
 ): void {
   if (year >= 2019 && (region === 'TH' || region === 'ALL')) {
-    holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20)));
+    holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20), ['ALL']));
   }
 }
 
@@ -414,11 +400,11 @@ function addWeltfrauenTag(
   }
   if (region === 'BE' || region === 'ALL') {
     // in Berlin ist der Weltfrauentag ein Feiertag seit 2018
-    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['ALL']));
   }
   if (region === 'MV' && year >= 2023) {
     // in MV wird der Weltfrauentag erst ab 2023 eingeführt
-    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8)));
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['ALL']));
   }
 }
 
@@ -506,16 +492,18 @@ function makeDate(year: number, naturalMonth: number, day: number): Date {
  * @returns {Holiday}
  * @private
  */
-function newHoliday(name: HolidayType, date: Date): Holiday {
+function newHoliday(name: HolidayType, date: Date, regions: Region[]): Holiday {
+  if (regions.length === 1 && regions[0] === 'ALL') {
+    regions = allRegions;
+  }
+
   return {
     name,
     date,
     dateString: localeDateObjectToDateString(date),
+    regions,
     trans(lang: string = currentLanguage): string | undefined {
-      console.warn(
-        'FeiertageJs: You are using "Holiday.trans() method. This will be replaced in the next major version with translate()"',
-      );
-      return this.translate(lang);
+      throw new Error('Method deprecated. Please replace trans() with translate(). This method will be removed in the next major release.');
     },
     translate(lang: string = currentLanguage): string | undefined {
       return lang === undefined || lang === null
