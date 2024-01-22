@@ -12,6 +12,10 @@ Feiertage.js is a small _typescript_ npm module without dependencies to calculat
 - [bower](https://bower.io/): `bower install feiertagejs` _outdated!_
 - [Plain Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) _outdated!_
 
+
+If you are looking for a day.js plugin find it in [this repository](https://github.com/fakir-tech/dayjs-feiertage).
+
+
 ## Quick Examples
 
 ### ES Modules (Typescript/Javasript)
