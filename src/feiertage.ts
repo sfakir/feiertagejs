@@ -261,7 +261,7 @@ function addRegionalHolidays(
 ) {
   if (region === 'AUGSBURG') {
     feiertageObjects.push(
-      newHoliday('AUGSBURGER_FRIEDENSFEST', makeDate(year, 8, 8), ['ALL']),
+      newHoliday('AUGSBURGER_FRIEDENSFEST', makeDate(year, 8, 8), ['AUGSBURG']),
     );
   }
 }
@@ -334,7 +334,6 @@ function addReformationstag(
     'TH',
     'HB',
     'HH',
-    'NI',
     'SH',
   ];
   if (year === 2017 || validRegions.includes(region) || region === 'ALL') {
@@ -386,7 +385,7 @@ function addWeltkindertag(
   holidays: Holiday[],
 ): void {
   if (year >= 2019 && (region === 'TH' || region === 'ALL')) {
-    holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20), ['ALL']));
+    holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20), ['TH']));
   }
 }
 
@@ -400,11 +399,11 @@ function addWeltfrauenTag(
   }
   if (region === 'BE' || region === 'ALL') {
     // in Berlin ist der Weltfrauentag ein Feiertag seit 2018
-    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['ALL']));
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['MV', 'BE']));
   }
   if (region === 'MV' && year >= 2023) {
     // in MV wird der Weltfrauentag erst ab 2023 eingeführt
-    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['ALL']));
+    feiertageObjects.push(newHoliday('WELTFRAUENTAG', makeDate(year, 3, 8), ['MV', 'BE']));
   }
 }
 
