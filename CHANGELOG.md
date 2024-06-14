@@ -1,4 +1,8 @@
 # Changelog
+Version 1.4.1 // 14th Jun 2024
+* [Bugfix] Weltfrauentag, Reformationstag validity
+* [Enhancement] Unittests for field values added
+
 Version 1.4.0 // 29th Dec 2023
 
 * [Enhancement] Added regions field to holday entity

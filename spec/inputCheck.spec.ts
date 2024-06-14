@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   getHolidayByDate,
-  getHolidays,
-  getHolidaysByDate,
+  getHolidays
 } from '../src/feiertage';
 
 describe('Wrong Inputs', () => {
