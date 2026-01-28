@@ -45,7 +45,10 @@ declare type HolidayType =
   | 'ALLERHEILIGEN'
   | 'BUBETAG'
   | 'ERSTERWEIHNACHTSFEIERTAG'
-  | 'ZWEITERWEIHNACHTSFEIERTAG';
+  | 'ZWEITERWEIHNACHTSFEIERTAG'
+  | 'WELTKINDERTAG'
+  | 'WELTFRAUENTAG'
+  | 'AUGSBURGER_FRIEDENSFEST';
 
 /**
  * Map of {@link HolidayType} to translation string.
