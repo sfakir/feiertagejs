@@ -20,7 +20,7 @@ If you are looking for a day.js plugin find it in [this repository](https://gith
 
 ### ES Modules (Typescript/Javasript)
 
-The prefered whay is to directly import the typescript module. However, you can also use .js.
+The prefered way is to directly import the typescript module. However, you can also use .js.
 Please find here some examples and full api [here](docs.md).
 
 ```javascript
@@ -38,7 +38,8 @@ isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT', 'ALL'); // true | false
 // returns an array of "Holiday" Objects. Please see the docs.md for all properties.
 const holidays2023 = getHolidays('2023', 'BUND');
 
-holidays2023[0].date // === Date("2023-01-01");
+holidays2023[0].date // Date object
+holidays2023[0].dateString // '2023-01-01' (in German timezone)
 holidays2023[0].name // 'NEUJAHRSTAG' (constant)
 holidays2023[0].translate('de') // German translation: Neujahrstag
 holidays2023[0].equals(date) // Compare days only (ignore time)
@@ -49,7 +50,7 @@ One entry of the array contains:
 ```javascript
 [{
     name: 'CHRISTIHIMMELFAHRT',
-    date: new Date('2023-05-17T22:00:00.000Z'),
+    date: new Date('2023-05-18T10:00:00.000Z'),
     dateString: '2023-05-18',
     regions: [
       'BW',  'BY',   'BE',
@@ -67,6 +68,32 @@ One entry of the array contains:
 ]
 
 ```
+
+## Timezone Handling
+
+**All dates are interpreted in German timezone (Europe/Berlin).**
+
+This means:
+- `new Date('2025-05-28T23:00:00Z')` (UTC) is `2025-05-29 01:00` in Germany → recognized as **May 29th**
+- The library correctly handles CET (UTC+1) and CEST (UTC+2) daylight saving time
+
+### Creating Dates
+
+You can pass dates in several ways:
+
+```javascript
+// Option 1: Regular Date object (interpreted in German timezone)
+isHoliday(new Date(), 'BY');
+
+// Option 2: ISO string with timezone (recommended for specific dates)
+isHoliday(new Date('2025-12-25T00:00:00+01:00'), 'BY'); // Christmas in CET
+
+// Option 3: UTC date at noon (timezone-safe for any server location)
+const christmas = new Date(Date.UTC(2025, 11, 25, 12, 0, 0));
+isHoliday(christmas, 'BY');
+```
+
+**Best Practice:** When running code on servers in different timezones, use UTC dates at noon or ISO strings with explicit timezone to avoid ambiguity.
 
 ## API doc
 

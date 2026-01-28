@@ -13,7 +13,8 @@
 // - the right javascript date: http://stackoverflow.com/questions/10286204/the-right-json-date-format
 //
 
-import { germanTranslations } from './german-translations';
+import { englishTranslations } from './translations/english-translations';
+import { germanTranslations } from './translations/german-translations';
 import { Holiday } from './holiday';
 import { allHolidays, HolidayType } from './holiday-type';
 import { allRegions, Region } from './regions';
@@ -30,6 +31,7 @@ export type TranslationTable = { [key in HolidayType]?: string };
 
 const translations: { [key: string]: TranslationTable } = {
   de: germanTranslations,
+  en: englishTranslations,
 };
 
 /**
@@ -88,14 +90,40 @@ export function getLanguage(): string {
 // holidays api
 
 /**
- * Checks if a specific date is sunday or holiday.
+ * Checks if a specific date is sunday or holiday in German timezone.
  * @param date
  * @param region
  * @returns {boolean}
  */
 export function isSunOrHoliday(date: Date, region: Region): boolean {
   checkRegion(region);
-  return date.getDay() === 0 || isHoliday(date, region);
+  // Use German timezone to determine the day of week
+  const dayOfWeek = getDayOfWeekInGermanTimezone(date);
+  return dayOfWeek === 0 || isHoliday(date, region);
+}
+
+/**
+ * Gets the day of week (0-6, Sunday-Saturday) in German timezone.
+ * @param date
+ * @returns {number} Day of week (0 = Sunday, 6 = Saturday)
+ * @private
+ */
+function getDayOfWeekInGermanTimezone(date: Date): number {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Berlin',
+    weekday: 'short',
+  });
+  const dayStr = formatter.format(date);
+  const days: { [key: string]: number } = {
+    Sun: 0,
+    Mon: 1,
+    Tue: 2,
+    Wed: 3,
+    Thu: 4,
+    Fri: 5,
+    Sat: 6,
+  };
+  return days[dayStr] ?? 0;
 }
 
 /**
@@ -107,9 +135,11 @@ export function isSunOrHoliday(date: Date, region: Region): boolean {
 export function isHoliday(date: Date, region: Region): boolean {
   checkRegion(region);
 
-  const year = date.getFullYear();
-  const internalDate = toUtcTimestamp(date);
-  const holidays = getHolidaysAsUtcTimestamps(year, region);
+  // Get the year in German timezone, not local timezone
+  const year = getYearInGermanTimezone(date);
+  // Convert input date to German timezone for comparison
+  const internalDate = toGermanTimezoneTimestamp(date);
+  const holidays = getHolidaysAsGermanTimezoneTimestamps(year, region);
 
   return holidays.indexOf(internalDate) !== -1;
 }
@@ -119,8 +149,15 @@ export function getHolidayByDate(
   region: Region = 'ALL',
 ): Holiday | void {
   checkRegion(region);
-  const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  return holidays.find((holiday) => holiday.equals(date));
+  // Get the year in German timezone, not local timezone
+  const year = getYearInGermanTimezone(date);
+  const holidays = getHolidaysOfYear(year, region);
+  // Use German timezone conversion for accurate date comparison
+  const dateInGermanTz = toGermanTimezoneTimestamp(date);
+  return holidays.find((holiday) => {
+    const holidayInGermanTz = toGermanTimezoneTimestamp(holiday.date);
+    return holidayInGermanTz === dateInGermanTz;
+  });
 }
 
 // additional runtime checks
@@ -167,8 +204,15 @@ export function isSpecificHoliday(
 ): boolean {
   checkRegion(region);
   checkHolidayType(holidayName);
-  const holidays = getHolidaysOfYear(date.getFullYear(), region);
-  const foundHoliday = holidays.find((holiday) => holiday.equals(date));
+  // Get the year in German timezone, not local timezone
+  const year = getYearInGermanTimezone(date);
+  const holidays = getHolidaysOfYear(year, region);
+  // Use German timezone conversion for accurate date comparison
+  const dateInGermanTz = toGermanTimezoneTimestamp(date);
+  const foundHoliday = holidays.find((holiday) => {
+    const holidayInGermanTz = toGermanTimezoneTimestamp(holiday.date);
+    return holidayInGermanTz === dateInGermanTz;
+  });
   if (!foundHoliday) {
     return false;
   }
@@ -194,7 +238,22 @@ export function getHolidays(year: number | string, region: Region): Holiday[] {
 }
 
 /**
- *
+ * Gets all holidays for a year as timestamps normalized to midnight in German timezone.
+ * @param {number} year
+ * @param region
+ * @returns {number[]}
+ * @private
+ */
+function getHolidaysAsGermanTimezoneTimestamps(
+  year: number,
+  region: Region,
+): number[] {
+  const holidays = getHolidaysOfYear(year, region);
+  return holidays.map((holiday) => toGermanTimezoneTimestamp(holiday.date));
+}
+
+/**
+ * @deprecated Use getHolidaysAsGermanTimezoneTimestamps instead
  * @param {number} year
  * @param region
  * @returns {number[]}
@@ -410,7 +469,7 @@ function addWeltfrauenTag(
 /**
  * Calculates the Easter date of a given year.
  * @param year {number}
- * @returns {Date} Easter date
+ * @returns {Date} Easter date at noon UTC
  * @private
  */
 function getEasterDate(year: number): Date {
@@ -433,19 +492,21 @@ function getEasterDate(year: number): Date {
   const M = 3 + Math.floor((L + 40) / 44);
   const D = L + 28 - 31 * Math.floor(M / 4);
   // tslint:enable:binary-expression-operand-order
-  return new Date(year, M - 1, D);
+  // Use noon UTC to ensure timezone independence
+  return new Date(Date.UTC(year, M - 1, D, 12, 0, 0, 0));
 }
 
 /**
  * Computes the "Buss- und Bettag"'s date.
  * @param jahr {number}
- * @returns {Date} the year's "Buss- und Bettag" date
+ * @returns {Date} the year's "Buss- und Bettag" date at noon UTC
  * @private
  */
 function getBussBettag(jahr: number): Date {
-  const weihnachten = new Date(jahr, 11, 25, 12, 0, 0);
+  // Use noon UTC to ensure timezone independence
+  const weihnachten = new Date(Date.UTC(jahr, 11, 25, 12, 0, 0, 0));
   const ersterAdventOffset = 32;
-  let wochenTagOffset = weihnachten.getDay() % 7;
+  let wochenTagOffset = weihnachten.getUTCDay() % 7;
 
   if (wochenTagOffset === 0) {
     wochenTagOffset = 7;
@@ -461,6 +522,7 @@ function getBussBettag(jahr: number): Date {
 
 /**
  * Adds {@code days} days to the given {@link Date}.
+ * Uses UTC methods to ensure timezone independence.
  * @param date
  * @param days
  * @returns {Date}
@@ -468,12 +530,17 @@ function getBussBettag(jahr: number): Date {
  */
 function addDays(date: Date, days: number): Date {
   const changedDate = new Date(date);
-  changedDate.setDate(date.getDate() + days);
+  changedDate.setUTCDate(date.getUTCDate() + days);
   return changedDate;
 }
 
 /**
- * Creates a new {@link Date}.
+ * Creates a new {@link Date} for a holiday.
+ * 
+ * Uses noon UTC to ensure the date is unambiguous across all timezones.
+ * Noon UTC is always the same calendar day in German timezone (UTC+1/+2),
+ * regardless of the server's local timezone.
+ * 
  * @param year
  * @param naturalMonth month (1-12)
  * @param day
@@ -481,7 +548,9 @@ function addDays(date: Date, days: number): Date {
  * @private
  */
 function makeDate(year: number, naturalMonth: number, day: number): Date {
-  return new Date(year, naturalMonth - 1, day);
+  // Use noon UTC to ensure the date is timezone-independent
+  // Noon UTC = 13:00 CET or 14:00 CEST, always the same calendar day in Germany
+  return new Date(Date.UTC(year, naturalMonth - 1, day, 12, 0, 0, 0));
 }
 
 /**
@@ -534,9 +603,69 @@ function localeDateObjectToDateString(date: Date): string {
 }
 
 /**
+ * Gets the year of a date in German timezone (Europe/Berlin).
+ * @param date
+ * @returns {number} Year in German timezone
+ * @private
+ */
+function getYearInGermanTimezone(date: Date): number {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Berlin',
+    year: 'numeric',
+  });
+  const parts = formatter.formatToParts(date);
+  return parseInt(parts.find((p) => p.type === 'year')!.value, 10);
+}
+
+/**
+ * Converts a date to German timezone (CET/CEST) and returns the UTC timestamp
+ * representing midnight in German timezone for that date.
+ * 
+ * This ensures dates are compared correctly regardless of the server's timezone.
+ * 
+ * Algorithm:
+ * 1. Get the current time in German timezone using Intl.DateTimeFormat
+ * 2. Calculate how many milliseconds have passed since midnight in German timezone
+ * 3. Subtract that from the UTC timestamp to get midnight in German timezone
+ * 
+ * @param date The date to convert
+ * @returns {number} UTC timestamp representing midnight in German timezone
+ * @private
+ */
+function toGermanTimezoneTimestamp(date: Date): number {
+  // Get the time components in German timezone (Europe/Berlin)
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Berlin',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(date);
+  const hour = parseInt(parts.find((p) => p.type === 'hour')!.value, 10);
+  const minute = parseInt(parts.find((p) => p.type === 'minute')!.value, 10);
+  const second = parseInt(parts.find((p) => p.type === 'second')!.value, 10);
+
+  // Calculate milliseconds from midnight in German timezone
+  const millisecondsFromMidnight =
+    hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;
+
+  // Subtract from UTC timestamp to get midnight in German timezone
+  // This works because:
+  // - date.getTime() is the UTC timestamp (same regardless of server timezone)
+  // - hour/minute/second are the German timezone values
+  // - Subtracting gives us the UTC timestamp for midnight in German timezone
+  return date.getTime() - millisecondsFromMidnight;
+}
+
+/**
  * Returns the UTC timestamp of the given date with hours, minutes, seconds, and milliseconds set to zero.
+ * This function is used for holiday creation and maintains backward compatibility.
+ * For date comparisons, use toGermanTimezoneTimestamp instead.
  * @param date
  * @returns {number} UTC timestamp
+ * @private
  */
 function toUtcTimestamp(date: Date): number {
   const internalDate = new Date(date);

@@ -1,0 +1,24 @@
+import { TranslationTable } from '../feiertage';
+
+export const englishTranslations: TranslationTable = {
+  NEUJAHRSTAG: 'New Year\'s Day',
+  HEILIGEDREIKOENIGE: 'Epiphany',
+  KARFREITAG: 'Good Friday',
+  OSTERSONNTAG: 'Easter Sunday',
+  OSTERMONTAG: 'Easter Monday',
+  TAG_DER_ARBEIT: 'Labour Day',
+  CHRISTIHIMMELFAHRT: 'Ascension Day',
+  PFINGSTSONNTAG: 'Whit Sunday',
+  PFINGSTMONTAG: 'Whit Monday',
+  FRONLEICHNAM: 'Corpus Christi',
+  MARIAHIMMELFAHRT: 'Assumption of Mary',
+  DEUTSCHEEINHEIT: 'German Unity Day',
+  REFORMATIONSTAG: 'Reformation Day',
+  ALLERHEILIGEN: 'All Saints\' Day',
+  BUBETAG: 'Day of Repentance and Prayer',
+  ERSTERWEIHNACHTSFEIERTAG: 'Christmas Day',
+  ZWEITERWEIHNACHTSFEIERTAG: 'Boxing Day',
+  WELTKINDERTAG: 'World Children\'s Day',
+  WELTFRAUENTAG: 'International Women\'s Day',
+  AUGSBURGER_FRIEDENSFEST: 'Augsburg Peace Festival',
+};

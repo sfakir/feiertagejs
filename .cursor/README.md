@@ -49,9 +49,15 @@ feiertagejs/
 
 ### Date Handling
 
-- Holidays are stored as JavaScript `Date` objects
-- Dates are created using local timezone (via `new Date(year, month, day)`)
-- **Known Issue**: There's a timezone conversion bug where UTC dates are not properly converted to German timezone before checking holidays (see `spec/timezone.spec.ts`)
+- **All dates are interpreted in German timezone (Europe/Berlin)**
+- Holidays are stored as JavaScript `Date` objects at noon UTC
+- The library uses `Intl.DateTimeFormat` with `timeZone: 'Europe/Berlin'` to convert dates
+- This ensures correct behavior regardless of the server's timezone setting
+
+**Best practices for creating dates:**
+- For current date: `new Date()` works fine
+- For specific dates: Use `new Date(Date.UTC(year, month, day, 12, 0, 0))` for timezone independence
+- Or use ISO strings with timezone: `new Date('2025-12-25T12:00:00+01:00')`
 
 ### Holiday Calculation
 
@@ -95,9 +101,9 @@ feiertagejs/
 
 ## Important Notes
 
-1. **Timezone Bug**: The library has a known bug where UTC dates are not converted to German timezone before checking holidays. This affects `isHoliday()`, `isSpecificHoliday()`, and `getHolidayByDate()` functions.
+1. **Timezone Handling**: All dates are converted to German timezone (Europe/Berlin) before checking holidays. This works correctly regardless of the server's timezone.
 
-2. **Date Comparisons**: The `equals()` method on Holiday objects compares only the date part (ignoring time), using `dateString` comparison.
+2. **Date Comparisons**: The `equals()` method on Holiday objects compares dates in German timezone, ignoring time.
 
 3. **Region 'ALL' vs 'BUND'**:
    - `'ALL'`: Returns holidays valid in **at least** one region

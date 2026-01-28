@@ -1,4 +1,4 @@
-import { TranslationTable } from './feiertage';
+import { TranslationTable } from '../feiertage';
 
 export const germanTranslations: TranslationTable = {
   NEUJAHRSTAG: 'Neujahrstag',
