@@ -628,6 +628,7 @@ function toGermanTimezoneTimestamp(date: Date): number {
     minute: '2-digit',
     second: '2-digit',
     hour12: false,
+    hourCycle: 'h23', // Explicitly use 0-23 hour cycle (midnight = 00:00, not 24:00)
   });
 
   const parts = formatter.formatToParts(date);
