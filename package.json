@@ -9,7 +9,7 @@
   "scripts": {
     "test": "vitest run --coverage",
     "test:w": "vitest watch",
-    "format": "prettier --write \"{**/*,*}.{ts,json}\" \"!coverage/**\" \"!build/**\" \"!package.json\" \"!package-lock.json\" --cache",
+    "format": "prettier --write \"{**/*,*}.{ts,json}\" \"!coverage/**\" \"!build/**\" \"!package.json\" \"!pnpm-lock.yaml\" --cache",
     "lint": "eslint \"src\" \"spec\"",
     "build": "rollup -c"
   },

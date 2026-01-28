@@ -65,7 +65,7 @@ The difference between BUND and ALL is defined as follows:
 
 ### Holiday
 
-Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), trans: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)}
+Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), regions: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Region](#region)>, translate: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| undefined, equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), getNormalizedDate: function (): [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)}
 
 **Properties**
 
@@ -73,8 +73,9 @@ Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla
 -   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - The date (at noon UTC)
 -   `dateString` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** - The date as string in German timezone (YYYY-MM-DD format)
 -   `regions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Region](#region)>** - Regions where this holiday is valid
--   `translate` **function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** - Get translated name
+-   `translate` **function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| undefined** - Get translated name
 -   `equals` **function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** - Compare with another date (in German timezone)
+-   `getNormalizedDate` **function (): [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** - Get UTC timestamp normalized to midnight
 
 ### allHolidays
 
