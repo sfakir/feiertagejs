@@ -1,0 +1,110 @@
+# Cursor Rules for Feiertage.js
+
+## Code Style & Formatting
+
+- **Formatting**: Use Prettier with project settings (80 char width, 2 spaces, single quotes, trailing commas)
+- **Linting**: Follow ESLint rules (TypeScript recommended rules)
+- **TypeScript**: Use strict mode, no unused locals
+- **Line length**: Maximum 80 characters per line
+
+## TypeScript Best Practices
+
+- **Type Safety**: Always use explicit types for function parameters and return values
+- **Type Imports**: Use type imports when importing only types: `import type { Holiday } from './holiday'`
+- **Union Types**: Use union types for constants (e.g., `HolidayType`, `Region`)
+- **No `any`**: Avoid `any` type - use `unknown` if type is truly unknown
+- **Strict Mode**: All TypeScript strict checks are enabled
+
+## Function Organization
+
+- **Public Functions**: Must have JSDoc comments with `@param` and `@returns` tags
+- **Private Functions**: Mark with `@private` in JSDoc, use descriptive camelCase names
+- **Validation**: Always validate inputs using `checkRegion()` and `checkHolidayType()` before processing
+- **Error Messages**: Use descriptive error messages prefixed with `[feiertagejs]` for library errors
+
+## Date Handling
+
+- **Date Creation**: Always use `makeDate(year, naturalMonth, day)` helper for creating dates (naturalMonth is 1-12)
+- **Date Arithmetic**: Use `addDays(date, days)` helper for date calculations
+- **Date Comparison**: Use `toUtcTimestamp(date)` for comparing dates (normalizes to midnight local time)
+- **Date Strings**: Use `localeDateObjectToDateString(date)` for creating ISO date strings (YYYY-MM-DD)
+- **Timezone Awareness**: ⚠️ **Known Bug**: UTC dates should be converted to German timezone (CET/CEST) before checking holidays, but currently they are not. This needs to be fixed.
+
+## Holiday Creation
+
+- **Factory Function**: Always use `newHoliday(name, date, regions)` to create holiday objects
+- **Regions Array**: Use `['ALL']` to indicate all regions, or specific region codes
+- **Holiday Sorting**: Holidays should be sorted by date before returning from `getHolidaysOfYear()`
+
+## Code Comments
+
+- **JSDoc**: All public functions must have JSDoc comments
+- **Inline Comments**: Use comments to explain complex calculations (e.g., Easter calculation algorithm)
+- **TODO Comments**: Mark incomplete features with `@todo` in comments
+
+## Testing
+
+- **Test Files**: Place tests in `spec/` directory with `.spec.ts` extension
+- **Test Structure**: Use Vitest `describe()` and `it()` blocks
+- **Test Names**: Use descriptive test names that explain what is being tested
+- **Test Coverage**: Maintain high test coverage (aim for 100% for new code)
+- **Edge Cases**: Test edge cases, especially around timezone boundaries and date transitions
+
+## Error Handling
+
+- **Input Validation**: Always validate inputs at function entry points
+- **Error Types**: Use appropriate error types (`TypeError` for type errors, `Error` for logic errors)
+- **Error Messages**: Include context in error messages (e.g., invalid region name, missing translation)
+
+## Naming Conventions
+
+- **Functions**: Use camelCase, descriptive names (e.g., `getHolidaysOfYear`, `addHeiligeDreiKoenige`)
+- **Types**: Use PascalCase (e.g., `Holiday`, `HolidayType`, `Region`)
+- **Constants**: Use UPPER_SNAKE_CASE for holiday names and constants
+- **Variables**: Use camelCase for variables
+
+## File Organization
+
+- **Source Files**: Keep source files in `src/` directory
+- **One Type Per File**: Keep type definitions in separate files when they're used across multiple files
+- **Exports**: Export only public API functions and types from main files
+- **Imports**: Group imports: external libraries, then internal modules
+
+## Holiday Calculation Logic
+
+- **Easter Calculation**: Use the existing `getEasterDate()` function for Easter-based holidays
+- **Regional Holidays**: Add regional holidays using helper functions (e.g., `addHeiligeDreiKoenige()`, `addFronleichnam()`)
+- **Year-based Rules**: Some holidays have year-based rules (e.g., Reformationstag in 2017, Weltfrauentag since 2019)
+- **Region Filtering**: Check if region is in valid regions array or is 'ALL' before adding holidays
+
+## Deprecation
+
+- **Deprecated Methods**: Mark deprecated methods with `@deprecated` JSDoc tag
+- **Migration Path**: Provide clear migration path in deprecation message
+- **Backward Compatibility**: Maintain backward compatibility when possible
+
+## Performance
+
+- **Zero Dependencies**: Maintain zero runtime dependencies
+- **Efficient Calculations**: Cache expensive calculations when possible
+- **Date Operations**: Minimize date object creation and manipulation
+
+## Documentation
+
+- **API Documentation**: Keep `docs.md` updated (generated from JSDoc)
+- **README**: Keep main README.md updated with usage examples
+- **CHANGELOG**: Update CHANGELOG.md for all user-facing changes
+
+## Code Review Checklist
+
+When reviewing or writing code, ensure:
+- [ ] All public functions have JSDoc comments
+- [ ] Input validation is performed
+- [ ] Error messages are descriptive
+- [ ] Types are explicit and correct
+- [ ] Tests cover new functionality
+- [ ] Code follows Prettier formatting
+- [ ] No ESLint errors
+- [ ] Date handling considers timezone issues
+- [ ] Regional holiday logic is correct
+- [ ] No hardcoded values that should be constants
