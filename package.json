@@ -33,17 +33,17 @@
   },
   "homepage": "https://github.com/sfakir/feiertagejs",
   "devDependencies": {
-    "@vitest/coverage-c8": "^0.26.2",
-    "prettier": "^2.8.1",
-    "rollup": "^3.9.0",
     "@rollup/plugin-typescript": "^10.0.1",
-    "typescript": "^4.9.4",
-    "vitest": "^0.26.2",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
+    "@vitest/coverage-c8": "^0.33.0",
     "eslint": "^8.30.0",
-    "eslint-config-prettier": "^8.5.0"
-    },
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.8.1",
+    "rollup": "^3.9.0",
+    "typescript": "^4.9.4",
+    "vitest": "^4.0.18"
+  },
   "files": [
     "build",
     "docs.md",
