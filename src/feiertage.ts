@@ -253,18 +253,6 @@ function getHolidaysAsGermanTimezoneTimestamps(
 }
 
 /**
- * @deprecated Use getHolidaysAsGermanTimezoneTimestamps instead
- * @param {number} year
- * @param region
- * @returns {number[]}
- * @private
- */
-function getHolidaysAsUtcTimestamps(year: number, region: Region): number[] {
-  const holidays = getHolidaysOfYear(year, region);
-  return holidays.map((holiday) => toUtcTimestamp(holiday.date));
-}
-
-/**
  *
  * @param {number} year
  * @param region
