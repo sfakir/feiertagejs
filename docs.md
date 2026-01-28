@@ -55,7 +55,7 @@ Type: (`"NEUJAHRSTAG"` \| `"HEILIGEDREIKOENIGE"` \| `"KARFREITAG"` \| `"OSTERSON
 
 ### Region
 
-Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"ALL"`)
+Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"AUGSBURG"` \| `"ALL"`)
 
 As defined here: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
 
