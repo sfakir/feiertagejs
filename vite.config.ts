@@ -4,13 +4,8 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     coverage: {
+      provider: 'v8',
       reporter: ['text', 'lcov', 'html'],
-    },
-    // Fix "Failed to load url local-pkg" with pnpm: inline so Vite resolves it
-    server: {
-      deps: {
-        inline: ['local-pkg'],
-      },
     },
   },
 });
