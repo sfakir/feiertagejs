@@ -22,10 +22,13 @@ declare type Region =
 declare type Holiday = {
   name: HolidayType;
   date: Date;
-  trans?: (lang: string | undefined) => string; // deprecated;
-  translate: (lang?: string | undefined) => string;
   dateString: string;
+  regions: Region[];
+  /** @deprecated Use translate() instead */
+  trans?: (lang?: string) => string | undefined;
+  translate: (lang?: string) => string | undefined;
   equals: (date: Date) => boolean;
+  getNormalizedDate: () => number;
 };
 
 declare type HolidayType =

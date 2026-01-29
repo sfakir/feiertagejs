@@ -21,7 +21,9 @@ feiertagejs/
 │   ├── holiday.ts          # Holiday type definition
 │   ├── holiday-type.ts     # HolidayType enum and constants
 │   ├── regions.ts          # Region type and constants
-│   └── german-translations.ts  # German translations for holidays
+│   └── translations/       # Translation files
+│       ├── german-translations.ts   # German translations
+│       └── english-translations.ts  # English translations
 ├── spec/                   # Test files (Vitest)
 │   ├── feiertage.spec.ts   # Main test suite
 │   ├── timezone.spec.ts    # Timezone conversion bug tests
@@ -113,10 +115,10 @@ feiertagejs/
 
 ## Build & Test
 
-- **Build**: `npm run build` (uses Rollup)
-- **Test**: `npm test` (Vitest with coverage)
-- **Lint**: `npm run lint` (ESLint)
-- **Format**: `npm run format` (Prettier)
+- **Build**: `pnpm run build` (uses Rollup)
+- **Test**: `pnpm test` (Vitest with coverage)
+- **Lint**: `pnpm run lint` (ESLint)
+- **Format**: `pnpm run format` (Prettier)
 
 ## Dependencies
 

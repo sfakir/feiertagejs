@@ -7,10 +7,9 @@ Feiertage.js is a small _typescript_ npm module without dependencies to calculat
 
 ## Installation
 
-- [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
+- [pnpm](https://pnpm.io/): `pnpm add feiertagejs`
 - [npm](https://www.npmjs.com/): `npm install feiertagejs`
-- [bower](https://bower.io/): `bower install feiertagejs` _outdated!_
-- [Plain Javascript](http://extern.fakir.it/feiertagejs/feiertagejs.zip) _outdated!_
+- [yarn](https://yarnpkg.com/en/): `yarn add feiertagejs`
 
 
 If you are looking for a day.js plugin find it in [this repository](https://github.com/fakir-tech/dayjs-feiertage).
