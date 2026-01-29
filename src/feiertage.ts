@@ -592,60 +592,133 @@ function localeDateObjectToDateString(date: Date): string {
 
 /**
  * Gets the year of a date in German timezone (Europe/Berlin).
+ * Uses Intl when available; otherwise DST-based fallback for small-icu / CI.
  * @param date
  * @returns {number} Year in German timezone
  * @private
  */
 function getYearInGermanTimezone(date: Date): number {
-  const formatter = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Europe/Berlin',
-    year: 'numeric',
-  });
-  const parts = formatter.formatToParts(date);
-  return parseInt(parts.find((p) => p.type === 'year')!.value, 10);
+  try {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Berlin',
+      year: 'numeric',
+    });
+    const parts = formatter.formatToParts(date);
+    const yearPart = parts.find((p) => p.type === 'year');
+    if (yearPart) {
+      const year = parseInt(yearPart.value, 10);
+      const fallbackYear = getYearInGermanTimezoneFallback(date);
+      if (!Number.isNaN(year) && year === fallbackYear) return year;
+    }
+  } catch {
+    /* Intl failed or timezone not available */
+  }
+  return getYearInGermanTimezoneFallback(date);
+}
+
+/**
+ * Year in Europe/Berlin using DST rules only (no Intl).
+ * @private
+ */
+function getYearInGermanTimezoneFallback(date: Date): number {
+  const utcMidnight = toGermanTimezoneTimestampFallback(date);
+  const offsetMs = getBerlinOffsetMs(utcMidnight);
+  const localMs = utcMidnight + offsetMs;
+  return new Date(localMs).getUTCFullYear();
+}
+
+/** MS per hour for DST offset. */
+const MS_PER_HOUR = 3600 * 1000;
+
+/** CET (winter): UTC+1. CEST (summer): UTC+2. */
+const OFFSET_CET_MS = 1 * MS_PER_HOUR;
+const OFFSET_CEST_MS = 2 * MS_PER_HOUR;
+
+/**
+ * Returns the last Sunday of a month (1-based) in UTC.
+ * @private
+ */
+function getLastSundayUtc(year: number, month: number): number {
+  const lastDay = new Date(Date.UTC(year, month, 0));
+  const dayOfWeek = lastDay.getUTCDay();
+  return lastDay.getUTCDate() - dayOfWeek;
+}
+
+/**
+ * UTC offset for Europe/Berlin at a given UTC timestamp (ms).
+ * DST: last Sun Mar 01:00 UTC -> CEST (+2); last Sun Oct 01:00 UTC -> CET (+1).
+ * @private
+ */
+function getBerlinOffsetMs(utcMs: number): number {
+  const d = new Date(utcMs);
+  const y = d.getUTCFullYear();
+  const lastSunMar = getLastSundayUtc(y, 3);
+  const lastSunOct = getLastSundayUtc(y, 10);
+  const marTransition = Date.UTC(y, 2, lastSunMar, 1, 0, 0, 0);
+  const octTransition = Date.UTC(y, 9, lastSunOct, 1, 0, 0, 0);
+  if (utcMs < marTransition) return OFFSET_CET_MS;
+  if (utcMs < octTransition) return OFFSET_CEST_MS;
+  return OFFSET_CET_MS;
+}
+
+/**
+ * Converts a date to the UTC timestamp of midnight on that calendar day in
+ * Europe/Berlin, using DST rules only (no Intl). Works on small-icu / CI.
+ * @private
+ */
+function toGermanTimezoneTimestampFallback(date: Date): number {
+  const utcMs = date.getTime();
+  let offsetMs = getBerlinOffsetMs(utcMs);
+  let localMs = utcMs + offsetMs;
+  const dayMs = 24 * MS_PER_HOUR;
+  const localDayStartMs = Math.floor(localMs / dayMs) * dayMs;
+  for (let i = 0; i < 3; i++) {
+    const utcMidnight = localDayStartMs - offsetMs;
+    const offsetAtMidnight = getBerlinOffsetMs(utcMidnight);
+    if (offsetAtMidnight === offsetMs) return utcMidnight;
+    offsetMs = offsetAtMidnight;
+  }
+  return localDayStartMs - offsetMs;
 }
 
 /**
  * Converts a date to German timezone (CET/CEST) and returns the UTC timestamp
  * representing midnight in German timezone for that date.
- * 
- * This ensures dates are compared correctly regardless of the server's timezone.
- * 
- * Algorithm:
- * 1. Get the current time in German timezone using Intl.DateTimeFormat
- * 2. Calculate how many milliseconds have passed since midnight in German timezone
- * 3. Subtract that from the UTC timestamp to get midnight in German timezone
- * 
+ * Uses Intl when Europe/Berlin is available; otherwise DST-based fallback.
  * @param date The date to convert
  * @returns {number} UTC timestamp representing midnight in German timezone
  * @private
  */
 function toGermanTimezoneTimestamp(date: Date): number {
-  // Get the time components in German timezone (Europe/Berlin)
-  const formatter = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Europe/Berlin',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    hourCycle: 'h23', // Explicitly use 0-23 hour cycle (midnight = 00:00, not 24:00)
-  });
-
-  const parts = formatter.formatToParts(date);
-  const hour = parseInt(parts.find((p) => p.type === 'hour')!.value, 10);
-  const minute = parseInt(parts.find((p) => p.type === 'minute')!.value, 10);
-  const second = parseInt(parts.find((p) => p.type === 'second')!.value, 10);
-
-  // Calculate milliseconds from midnight in German timezone
-  const millisecondsFromMidnight =
-    hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;
-
-  // Subtract from UTC timestamp to get midnight in German timezone
-  // This works because:
-  // - date.getTime() is the UTC timestamp (same regardless of server timezone)
-  // - hour/minute/second are the German timezone values
-  // - Subtracting gives us the UTC timestamp for midnight in German timezone
-  return date.getTime() - millisecondsFromMidnight;
+  try {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Berlin',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+      hourCycle: 'h23',
+    });
+    const parts = formatter.formatToParts(date);
+    const hourPart = parts.find((p) => p.type === 'hour');
+    const minutePart = parts.find((p) => p.type === 'minute');
+    const secondPart = parts.find((p) => p.type === 'second');
+    if (hourPart && minutePart && secondPart) {
+      const hour = parseInt(hourPart.value, 10);
+      const minute = parseInt(minutePart.value, 10);
+      const second = parseInt(secondPart.value, 10);
+      if (!Number.isNaN(hour) && !Number.isNaN(minute) && !Number.isNaN(second)) {
+        const millisecondsFromMidnight =
+          hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;
+        const result = date.getTime() - millisecondsFromMidnight;
+        const fallback = toGermanTimezoneTimestampFallback(date);
+        if (Math.abs(result - fallback) < 60000) return result;
+      }
+    }
+  } catch {
+    /* Intl failed or timezone not available, use fallback */
+  }
+  return toGermanTimezoneTimestampFallback(date);
 }
 
 /**
