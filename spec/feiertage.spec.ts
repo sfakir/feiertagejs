@@ -2,45 +2,49 @@ import { describe, it, expect } from 'vitest';
 import { Holiday } from '../src/Holiday';
 import { getHolidays, isHoliday, isSunOrHoliday } from '../src/feiertage';
 
+// Helper to create timezone-independent dates (at noon UTC)
+const dateUTC = (year: number, month: number, day: number) =>
+  new Date(Date.UTC(year, month, day, 12, 0, 0, 0));
+
 describe('Holidays 2015 in Bavaria:', () => {
   it('should be an array', () => {
     expect(getHolidays(2015, 'BY')).toHaveLength(13);
   });
 
   it('Maria Himmelfahrt not be a holiday', () => {
-    const mariaHimemlfahrt = new Date(2015, 9, 15);
+    const mariaHimemlfahrt = dateUTC(2015, 9, 15);
     expect(isHoliday(mariaHimemlfahrt, 'BY')).toBe(false);
   });
 
   it('Simons Birthday is not a holiday', () => {
-    const feiertag = new Date(2015, 4, 31);
+    const feiertag = dateUTC(2015, 4, 31);
     expect(isHoliday(feiertag, 'BY')).toBe(false);
   });
   it('Maria HeiligeDreiKönige  be a holiday', () => {
-    const heiligeDreiKoenige = new Date(2015, 0, 6);
+    const heiligeDreiKoenige = dateUTC(2015, 0, 6);
     expect(isHoliday(heiligeDreiKoenige, 'BY')).toBe(true);
   });
 
   it('First May to be a holiday', () => {
-    const heiligeDreiKoenige = new Date(2015, 0, 6);
-    expect(isHoliday(heiligeDreiKoenige, 'BY')).toBe(true);
+    const firstMay = dateUTC(2015, 4, 1);
+    expect(isHoliday(firstMay, 'BY')).toBe(true);
   });
 
   it('check is Sun Or Holiday Method', () => {
-    const sunday = new Date(2015, 0, 6);
-    sunday.setDate(sunday.getDate() + ((7 - sunday.getDay()) % 7));
-
+    // Find a Sunday in January 2015
+    const sunday = dateUTC(2015, 0, 11); // Jan 11, 2015 is a Sunday
     expect(isSunOrHoliday(sunday, 'BY')).toBe(true);
 
-    sunday.setDate(sunday.getDate() + ((1 + 7 - sunday.getDay()) % 7));
-    expect(isSunOrHoliday(sunday, 'BY')).toBe(false);
+    // Monday is not a Sunday or holiday
+    const monday = dateUTC(2015, 0, 12); // Jan 12, 2015 is a Monday
+    expect(isSunOrHoliday(monday, 'BY')).toBe(false);
   });
 
   it('Christmas to be a holiday', () => {
-    const christmas1 = new Date(2015, 11, 25);
+    const christmas1 = dateUTC(2015, 11, 25);
     expect(isHoliday(christmas1, 'BY')).toEqual(true);
 
-    const christmas2 = new Date(2015, 11, 26);
+    const christmas2 = dateUTC(2015, 11, 26);
     expect(isHoliday(christmas2, 'BY')).toBe(true);
   });
 });
@@ -53,7 +57,7 @@ describe('Holidays 2016 in BW:', () => {
 
 describe('Holidays ALL', () => {
   it('Maria Himmelfahrt should be a holiday if region type is set to ALL', () => {
-    const himmelfahrt = new Date(2022, 7, 15); // 15.08.2022
+    const himmelfahrt = dateUTC(2022, 7, 15); // 15.08.2022
 
     expect(isHoliday(himmelfahrt, 'ALL')).toBe(true);
   });
@@ -71,6 +75,6 @@ describe('Holidays 2016 in NW:', () => {
       (f) => f.name === 'TAG_DER_ARBEIT',
     );
     expect(firstMay).toBeDefined();
-    expect(firstMay!.equals(new Date(2016, 4,1))).toBe(true);
+    expect(firstMay!.equals(dateUTC(2016, 4, 1))).toBe(true);
   });
 });

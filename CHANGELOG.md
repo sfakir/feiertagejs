@@ -1,5 +1,16 @@
 # Changelog
+Version 1.5.0 // 28th January 2026
+
+* [Bugfix] Fixed timezone handling - dates are now correctly interpreted in German timezone (Europe/Berlin) regardless of server timezone
+* [Enhancement] All date functions now use `Intl.DateTimeFormat` with `timeZone: 'Europe/Berlin'` for consistent behavior
+* [Enhancement] Holiday dates are now stored at noon UTC to avoid timezone ambiguity
+* [Enhancement] `isSunOrHoliday()` now correctly determines Sunday in German timezone
+* [Docs] Added timezone handling documentation to README and docs.md
+* [Tests] Added comprehensive timezone tests (`spec/timezone.spec.ts`, `spec/germanTimezone.spec.ts`)
+* [Tests] Updated all test files to use timezone-independent date creation
+
 Version 1.4.1 // 14th Jun 2024
+
 * [Bugfix] Weltfrauentag, Reformationstag validity
 * [Enhancement] Unittests for field values added
 

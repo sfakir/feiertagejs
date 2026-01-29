@@ -20,7 +20,32 @@
 -   [setLanguage(lng)](#setlanguage)
 -   [getLanguage()](#getlanguage)
 
+## Timezone Handling
 
+**All dates are interpreted in German timezone (Europe/Berlin).**
+
+The library automatically converts any `Date` object to German timezone before checking holidays. This ensures correct behavior regardless of your server's timezone setting.
+
+### Examples
+
+```javascript
+// All of these correctly identify May 29, 2025 as Christi Himmelfahrt:
+
+// UTC timestamp that is May 29 in German timezone
+isHoliday(new Date('2025-05-28T23:00:00Z'), 'ALL'); // true (01:00 May 29 in Germany)
+
+// Explicit German timezone
+isHoliday(new Date('2025-05-29T00:00:00+02:00'), 'ALL'); // true
+
+// UTC date at noon (timezone-safe)
+isHoliday(new Date(Date.UTC(2025, 4, 29, 12, 0, 0)), 'ALL'); // true
+```
+
+### Best Practices
+
+1. **For current date checks:** `new Date()` works perfectly
+2. **For specific dates:** Use ISO strings with timezone or `Date.UTC()` at noon
+3. **For server-side code:** Use `Date.UTC(year, month, day, 12, 0, 0)` for guaranteed timezone independence
 
 ## Types
 
@@ -30,7 +55,7 @@ Type: (`"NEUJAHRSTAG"` \| `"HEILIGEDREIKOENIGE"` \| `"KARFREITAG"` \| `"OSTERSON
 
 ### Region
 
-Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"ALL"`)
+Type: (`"BW"` \| `"BY"` \| `"BE"` \| `"BB"` \| `"HB"` \| `"HE"` \| `"HH"` \| `"MV"` \| `"NI"` \| `"NW"` \| `"RP"` \| `"SL"` \| `"SN"` \| `"ST"` \| `"SH"` \| `"TH"` \| `"BUND"` \| `"AUGSBURG"` \| `"ALL"`)
 
 As defined here: https://de.wikipedia.org/wiki/Land_(Deutschland)#Amtliche_bzw._Eigenbezeichnungen
 
@@ -40,15 +65,17 @@ The difference between BUND and ALL is defined as follows:
 
 ### Holiday
 
-Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), trans: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)}
+Type: {name: [HolidayType](#holidaytype), date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), dateString: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), regions: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Region](#region)>, translate: function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| undefined, equals: function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), getNormalizedDate: function (): [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)}
 
 **Properties**
 
--   `name` **[HolidayType](#holidaytype)** 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
--   `trans` **function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `dateString` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `equals` **function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+-   `name` **[HolidayType](#holidaytype)** - The holiday identifier
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - The date (at noon UTC)
+-   `dateString` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** - The date as string in German timezone (YYYY-MM-DD format)
+-   `regions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Region](#region)>** - Regions where this holiday is valid
+-   `translate` **function (lang: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?): [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| undefined** - Get translated name
+-   `equals` **function (date: [Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)): [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** - Compare with another date (in German timezone)
+-   `getNormalizedDate` **function (): [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** - Get UTC timestamp normalized to midnight
 
 ### allHolidays
 
@@ -93,44 +120,76 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### isSunOrHoliday()
 
-Checks if a specific date is sunday or holiday.
+Checks if a specific date is sunday or holiday in German timezone.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
 -   `region` **[Region](#region)** 
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
+**Example**
+```javascript
+// Check if today is Sunday or a holiday in Bavaria
+isSunOrHoliday(new Date(), 'BY');
+```
+
 ### isHoliday()
 
-Check is specific date is holiday.
+Check if a specific date is a holiday in German timezone.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
 -   `region` **[Region](#region)** two character [Region](#region) code
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
+**Example**
+```javascript
+// Check if Christmas is a holiday
+isHoliday(new Date(Date.UTC(2025, 11, 25, 12)), 'BY'); // true
+
+// Check with ISO string
+isHoliday(new Date('2025-12-25T12:00:00+01:00'), 'BY'); // true
+```
+
 ### getHolidayByDate()
+
+Get the holiday object for a specific date (in German timezone).
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
 -   `region` **[Region](#region)**  (optional, default `'ALL'`)
 
 Returns **([Holiday](#holiday) | void)** 
 
+**Example**
+```javascript
+const holiday = getHolidayByDate(new Date(Date.UTC(2025, 11, 25, 12)), 'BY');
+console.log(holiday?.name); // 'ERSTERWEIHNACHTSFEIERTAG'
+console.log(holiday?.translate('de')); // 'Erster Weihnachtsfeiertag'
+```
+
 ### isSpecificHoliday()
+
+Check if a date is a specific holiday.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** 
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
 -   `holidayName` **[HolidayType](#holidaytype)** 
 -   `region` **[Region](#region)**  (optional, default `'ALL'`)
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+**Example**
+```javascript
+// Check if May 29, 2025 is Christi Himmelfahrt
+isSpecificHoliday(new Date(Date.UTC(2025, 4, 29, 12)), 'CHRISTIHIMMELFAHRT'); // true
+```
 
 ### getHolidays()
 
@@ -142,3 +201,11 @@ Returns all holidays of a year in a [Region](#region).
 -   `region` **[Region](#region)** 
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Holiday](#holiday)>** 
+
+**Example**
+```javascript
+const holidays = getHolidays(2025, 'BY');
+holidays.forEach(h => {
+  console.log(`${h.dateString}: ${h.translate('de')}`);
+});
+```

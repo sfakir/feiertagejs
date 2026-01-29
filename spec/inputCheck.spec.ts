@@ -1,8 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   getHolidayByDate,
-  getHolidays
+  getHolidays,
 } from '../src/feiertage';
+
+// Helper to create timezone-independent dates (at noon UTC)
+const dateUTC = (year: number, month: number, day: number) =>
+  new Date(Date.UTC(year, month, day, 12, 0, 0, 0));
 
 describe('Wrong Inputs', () => {
   it.each([[2017], [2018]])(
@@ -14,8 +18,8 @@ describe('Wrong Inputs', () => {
     },
   );
 });
-describe.only('Check if holiday properties are set', () => {
-  const holiday = getHolidayByDate(new Date(2024, (12 - 1), 25), 'BUND'); // Christmas
+describe('Check if holiday properties are set', () => {
+  const holiday = getHolidayByDate(dateUTC(2024, 11, 25), 'BUND'); // Christmas (December = month 11)
 
   it('should have a name', () => {
     expect(holiday?.name).toBeDefined();

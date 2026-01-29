@@ -3,12 +3,16 @@
 import { describe, it, expect } from 'vitest';
 import { getHolidayByDate, getHolidays } from '../src/feiertage';
 
+// Helper to create timezone-independent dates (at noon UTC)
+const dateUTC = (year: number, month: number, day: number) =>
+  new Date(Date.UTC(year, month, day, 12, 0, 0, 0));
+
 /**
  * Test for this comment https://github.com/sfakir/feiertagejs/commit/fefa9958b7105df9f7f964d27661bc775995871b
  */
 describe('find the regions of a holiday', () => {
   it('find WELTKINDERTAG 2019', () => {
-    const weltkindertag = new Date(2020, 8, 20);
+    const weltkindertag = dateUTC(2020, 8, 20);
     const holiday = getHolidayByDate(weltkindertag, 'TH');
     if (!holiday) {
       throw new Error('Holiday not found');

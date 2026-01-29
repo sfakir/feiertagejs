@@ -1,10 +1,15 @@
 language: node_js
 node_js:
-  - "19"
+  - "20"
   - "18"
-  - "16"
-  - "14"
-# keep the npm cache around to speed up installs
+
+before_install:
+  - corepack enable
+  - corepack prepare pnpm@latest --activate
+
+install:
+  - pnpm install --frozen-lockfile
+
 cache:
   directories:
-  - "$HOME/.npm"
+    - "$HOME/.local/share/pnpm/store"
