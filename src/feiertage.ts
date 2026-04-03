@@ -319,6 +319,7 @@ function getHolidaysOfYear(year: number, region: Region): Holiday[] {
   addReformationstag(year, region, holidays);
   addAllerheiligen(year, region, holidays);
   addBussUndBetttag(year, region, holidays);
+  addTagDerBefreiung(year, region, holidays);
   addWeltkindertag(year, region, holidays);
   addWeltfrauenTag(year, region, holidays);
 
@@ -470,6 +471,16 @@ function addWeltkindertag(
 ): void {
   if (year >= 2019 && (region === 'TH' || region === 'ALL')) {
     holidays.push(newHoliday('WELTKINDERTAG', makeDate(year, 9, 20), ['TH']));
+  }
+}
+
+function addTagDerBefreiung(
+  year: number,
+  region: Region,
+  holidays: Holiday[],
+): void {
+  if ((year === 2020 || year === 2025) && (region === 'BE' || region === 'ALL')) {
+    holidays.push(newHoliday('TAGDERBEFREIUNG', makeDate(year, 5, 8), ['BE']));
   }
 }
 

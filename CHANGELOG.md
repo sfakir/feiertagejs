@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.5.2 // 3rd April 2026
+
+* [Enhancement] Added Berlin's `Tag der Befreiung` on May 8 for the one-off public holidays in 2020 and 2025
+* [Tests] Added coverage to ensure the holiday exists only in Berlin and only in the valid years
+
 Version 1.5.1 // 3rd April 2026
 
 * [Bugfix] Restored an ergonomic backward-compatible path for date-only holiday checks after the timezone changes in `1.5.0`
@@ -135,4 +140,3 @@ Version 1.1.0 // 23rd May 2016
 * addded constants for every holiday
 * improved interal cache
 * added all as region
-

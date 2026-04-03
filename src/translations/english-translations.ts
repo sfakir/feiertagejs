@@ -18,6 +18,7 @@ export const englishTranslations: TranslationTable = {
   BUBETAG: 'Day of Repentance and Prayer',
   ERSTERWEIHNACHTSFEIERTAG: 'Christmas Day',
   ZWEITERWEIHNACHTSFEIERTAG: 'Boxing Day',
+  TAGDERBEFREIUNG: 'Liberation Day',
   WELTKINDERTAG: 'World Children\'s Day',
   WELTFRAUENTAG: 'International Women\'s Day',
   AUGSBURGER_FRIEDENSFEST: 'Augsburg Peace Festival',
