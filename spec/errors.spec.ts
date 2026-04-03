@@ -20,6 +20,9 @@ describe('Throw errors:', () => {
     // $FlowFixMe: test wrong holiday arg
     expect(() => isSpecificHoliday(new Date(), 'RANDOM' as any)).toThrow();
   });
+  it('should throw an invalid date string error', () => {
+    expect(() => isHoliday('not-a-date' as any, 'BUND')).toThrow(TypeError);
+  });
   it('should throw an undefined Holiday error', () => {
     expect(() =>
       isSpecificHoliday(new Date(), undefined as any),

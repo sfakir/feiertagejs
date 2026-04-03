@@ -1,4 +1,13 @@
 # Changelog
+
+Version 1.5.1 // 3rd April 2026
+
+* [Bugfix] Restored an ergonomic backward-compatible path for date-only holiday checks after the timezone changes in `1.5.0`
+* [Enhancement] `isHoliday()`, `isSpecificHoliday()` and `getHolidayByDate()` now accept plain `YYYY-MM-DD` strings
+* [Enhancement] `YYYY-MM-DD` string input is interpreted as a German calendar date and avoids server-timezone ambiguity
+* [Docs] Added README guidance for when to use plain date strings versus `Date` objects
+* [Tests] Added regression coverage for legacy plain-date scenarios and the new string input path
+
 Version 1.5.0 // 28th January 2026
 
 * [Bugfix] Fixed timezone handling - dates are now correctly interpreted in German timezone (Europe/Berlin) regardless of server timezone
@@ -126,5 +135,4 @@ Version 1.1.0 // 23rd May 2016
 * addded constants for every holiday
 * improved interal cache
 * added all as region
-
 

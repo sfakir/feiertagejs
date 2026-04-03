@@ -26,9 +26,14 @@
 
 The library automatically converts any `Date` object to German timezone before checking holidays. This ensures correct behavior regardless of your server's timezone setting.
 
+For date-only checks, you can also pass a plain `YYYY-MM-DD` string. This is treated as a German calendar date.
+
 ### Examples
 
 ```javascript
+// Plain date string (recommended for date-only checks)
+isHoliday('2025-12-25', 'ALL'); // true
+
 // All of these correctly identify May 29, 2025 as Christi Himmelfahrt:
 
 // UTC timestamp that is May 29 in German timezone
@@ -43,9 +48,10 @@ isHoliday(new Date(Date.UTC(2025, 4, 29, 12, 0, 0)), 'ALL'); // true
 
 ### Best Practices
 
-1. **For current date checks:** `new Date()` works perfectly
-2. **For specific dates:** Use ISO strings with timezone or `Date.UTC()` at noon
-3. **For server-side code:** Use `Date.UTC(year, month, day, 12, 0, 0)` for guaranteed timezone independence
+1. **For date-only checks:** Use `YYYY-MM-DD` strings
+2. **For current date checks:** `new Date()` works perfectly
+3. **For exact timestamps:** Use ISO strings with timezone or `Date.UTC()` at noon
+4. **For server-side code:** Use `Date.UTC(year, month, day, 12, 0, 0)` for guaranteed timezone independence
 
 ## Types
 
@@ -141,7 +147,7 @@ Check if a specific date is a holiday in German timezone.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
+-   `date` **([Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** - A `Date` object or a `YYYY-MM-DD` string
 -   `region` **[Region](#region)** two character [Region](#region) code
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
@@ -150,6 +156,9 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 ```javascript
 // Check if Christmas is a holiday
 isHoliday(new Date(Date.UTC(2025, 11, 25, 12)), 'BY'); // true
+
+// Check a plain German calendar date
+isHoliday('2025-12-25', 'BY'); // true
 
 // Check with ISO string
 isHoliday(new Date('2025-12-25T12:00:00+01:00'), 'BY'); // true
@@ -161,7 +170,7 @@ Get the holiday object for a specific date (in German timezone).
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
+-   `date` **([Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** - A `Date` object or a `YYYY-MM-DD` string
 -   `region` **[Region](#region)**  (optional, default `'ALL'`)
 
 Returns **([Holiday](#holiday) | void)** 
@@ -171,6 +180,9 @@ Returns **([Holiday](#holiday) | void)**
 const holiday = getHolidayByDate(new Date(Date.UTC(2025, 11, 25, 12)), 'BY');
 console.log(holiday?.name); // 'ERSTERWEIHNACHTSFEIERTAG'
 console.log(holiday?.translate('de')); // 'Erster Weihnachtsfeiertag'
+
+const holidayByString = getHolidayByDate('2025-12-25', 'BY');
+console.log(holidayByString?.name); // 'ERSTERWEIHNACHTSFEIERTAG'
 ```
 
 ### isSpecificHoliday()
@@ -179,7 +191,7 @@ Check if a date is a specific holiday.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** - Any Date object (will be converted to German timezone)
+-   `date` **([Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) | [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String))** - A `Date` object or a `YYYY-MM-DD` string
 -   `holidayName` **[HolidayType](#holidaytype)** 
 -   `region` **[Region](#region)**  (optional, default `'ALL'`)
 
@@ -189,6 +201,9 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 ```javascript
 // Check if May 29, 2025 is Christi Himmelfahrt
 isSpecificHoliday(new Date(Date.UTC(2025, 4, 29, 12)), 'CHRISTIHIMMELFAHRT'); // true
+
+// Check a plain German calendar date
+isSpecificHoliday('2025-12-25', 'ERSTERWEIHNACHTSFEIERTAG'); // true
 ```
 
 ### getHolidays()

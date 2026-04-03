@@ -12,6 +12,24 @@ import { describe, it, expect } from 'vitest';
 import { isHoliday, isSpecificHoliday, getHolidayByDate } from '../src/feiertage';
 
 describe('Timezone conversion bug - UTC dates should be converted to German timezone', () => {
+  it('should keep legacy local-constructor usage working for date-only checks in timezones east of Germany', () => {
+    const originalTz = process.env.TZ;
+
+    try {
+      process.env.TZ = 'Asia/Tokyo';
+      const christmas = new Date(2025, 11, 25);
+
+      expect(christmas.toISOString()).toBe('2025-12-24T15:00:00.000Z');
+      expect(isHoliday(christmas, 'ALL')).toBe(false);
+
+      expect(isHoliday('2025-12-25', 'ALL')).toBe(true);
+      expect(isSpecificHoliday('2025-12-25', 'ERSTERWEIHNACHTSFEIERTAG', 'ALL')).toBe(true);
+      expect(getHolidayByDate('2025-12-25', 'ALL')?.name).toBe('ERSTERWEIHNACHTSFEIERTAG');
+    } finally {
+      process.env.TZ = originalTz;
+    }
+  });
+
   /**
    * Bug: "2025-05-28T23:00:00.00Z" is already 2025-05-29 in Germany (UTC+1 or UTC+2)
    * and should be recognized as Christi Himmelfahrt, but currently fails because

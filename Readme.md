@@ -30,8 +30,12 @@ const today = new Date();
 // is today a holiday?
 isHoliday(today, 'BW'); // false --  probably false, because you are working ;)
 
+// date-only checks without timezone handling
+isHoliday('2025-12-25', 'BW'); // true
+
 // check if a day is a specific holiday
 isSpecificHoliday(today, 'CHRISTIHIMMELFAHRT', 'ALL'); // true | false
+isSpecificHoliday('2025-12-25', 'ERSTERWEIHNACHTSFEIERTAG', 'ALL'); // true
 
 // get all holiday for a single year: getHolidays()
 // returns an array of "Holiday" Objects. Please see the docs.md for all properties.
@@ -81,18 +85,27 @@ This means:
 You can pass dates in several ways:
 
 ```javascript
-// Option 1: Regular Date object (interpreted in German timezone)
+// Option 1: Plain date string (recommended if you only care about YYYY-MM-DD)
+isHoliday('2025-12-25', 'BY');
+
+// Option 2: Regular Date object (interpreted in German timezone)
 isHoliday(new Date(), 'BY');
 
-// Option 2: ISO string with timezone (recommended for specific dates)
+// Option 3: ISO string with timezone for exact timestamps
 isHoliday(new Date('2025-12-25T00:00:00+01:00'), 'BY'); // Christmas in CET
 
-// Option 3: UTC date at noon (timezone-safe for any server location)
+// Option 4: UTC date at noon (timezone-safe for any server location)
 const christmas = new Date(Date.UTC(2025, 11, 25, 12, 0, 0));
 isHoliday(christmas, 'BY');
 ```
 
-**Best Practice:** When running code on servers in different timezones, use UTC dates at noon or ISO strings with explicit timezone to avoid ambiguity.
+### Recommendation
+
+- If you want to check whether a calendar date like `YYYY-MM-DD` is a holiday and do not care about timestamp semantics, pass a string such as `isHoliday('2025-12-25', 'BY')`.
+- If you are working with real timestamps, continue passing `Date` objects. They are interpreted in German timezone (`Europe/Berlin`).
+- For server-side code that constructs `Date` objects manually, prefer UTC dates at noon or ISO strings with explicit timezone to avoid ambiguity.
+
+This string form was added to keep the API ergonomic and backward-compatible for applications that only care about the German calendar date.
 
 ## API doc
 

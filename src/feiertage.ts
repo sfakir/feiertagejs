@@ -29,6 +29,8 @@ let currentLanguage: string = defaultLanguage;
  */
 export type TranslationTable = { [key in HolidayType]?: string };
 
+type DateInput = Date | string;
+
 const translations: { [key: string]: TranslationTable } = {
   de: germanTranslations,
   en: englishTranslations,
@@ -132,28 +134,30 @@ function getDayOfWeekInGermanTimezone(date: Date): number {
  * @param {Region} region two character {@link Region} code
  * @returns {boolean}
  */
-export function isHoliday(date: Date, region: Region): boolean {
+export function isHoliday(date: DateInput, region: Region): boolean {
   checkRegion(region);
+  const inputDate = normalizeDateInput(date);
 
   // Get the year in German timezone, not local timezone
-  const year = getYearInGermanTimezone(date);
+  const year = getYearInGermanTimezone(inputDate);
   // Convert input date to German timezone for comparison
-  const internalDate = toGermanTimezoneTimestamp(date);
+  const internalDate = toGermanTimezoneTimestamp(inputDate);
   const holidays = getHolidaysAsGermanTimezoneTimestamps(year, region);
 
   return holidays.indexOf(internalDate) !== -1;
 }
 
 export function getHolidayByDate(
-  date: Date,
+  date: DateInput,
   region: Region = 'ALL',
 ): Holiday | void {
   checkRegion(region);
+  const inputDate = normalizeDateInput(date);
   // Get the year in German timezone, not local timezone
-  const year = getYearInGermanTimezone(date);
+  const year = getYearInGermanTimezone(inputDate);
   const holidays = getHolidaysOfYear(year, region);
   // Use German timezone conversion for accurate date comparison
-  const dateInGermanTz = toGermanTimezoneTimestamp(date);
+  const dateInGermanTz = toGermanTimezoneTimestamp(inputDate);
   return holidays.find((holiday) => {
     const holidayInGermanTz = toGermanTimezoneTimestamp(holiday.date);
     return holidayInGermanTz === dateInGermanTz;
@@ -198,17 +202,18 @@ function checkHolidayType(holidayName?: HolidayType): void {
 }
 
 export function isSpecificHoliday(
-  date: Date,
+  date: DateInput,
   holidayName: HolidayType,
   region: Region = 'ALL',
 ): boolean {
   checkRegion(region);
   checkHolidayType(holidayName);
+  const inputDate = normalizeDateInput(date);
   // Get the year in German timezone, not local timezone
-  const year = getYearInGermanTimezone(date);
+  const year = getYearInGermanTimezone(inputDate);
   const holidays = getHolidaysOfYear(year, region);
   // Use German timezone conversion for accurate date comparison
-  const dateInGermanTz = toGermanTimezoneTimestamp(date);
+  const dateInGermanTz = toGermanTimezoneTimestamp(inputDate);
   const foundHoliday = holidays.find((holiday) => {
     const holidayInGermanTz = toGermanTimezoneTimestamp(holiday.date);
     return holidayInGermanTz === dateInGermanTz;
@@ -250,6 +255,38 @@ function getHolidaysAsGermanTimezoneTimestamps(
 ): number[] {
   const holidays = getHolidaysOfYear(year, region);
   return holidays.map((holiday) => toGermanTimezoneTimestamp(holiday.date));
+}
+
+/**
+ * Normalizes public date input.
+ *
+ * `YYYY-MM-DD` strings are treated as plain German calendar dates to keep the
+ * public API ergonomic and backward-compatible for date-only checks.
+ *
+ * @param date
+ * @returns {Date}
+ * @private
+ */
+function normalizeDateInput(date: DateInput): Date {
+  if (date instanceof Date) {
+    return date;
+  }
+
+  const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (dateOnlyMatch) {
+    const year = parseInt(dateOnlyMatch[1], 10);
+    const month = parseInt(dateOnlyMatch[2], 10);
+    const day = parseInt(dateOnlyMatch[3], 10);
+    return makeDate(year, month, day);
+  }
+
+  const parsedDate = new Date(date);
+  if (Number.isNaN(parsedDate.getTime())) {
+    throw new TypeError(
+      `Invalid date input: ${date}. Expected a Date or a string like YYYY-MM-DD.`,
+    );
+  }
+  return parsedDate;
 }
 
 /**

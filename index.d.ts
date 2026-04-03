@@ -100,12 +100,15 @@ declare function isSunOrHoliday(date: Date, region: Region): boolean;
  * @param {Region} region two character {@link Region} code
  * @returns {boolean}
  */
-declare function isHoliday(date: Date, region: Region): boolean;
+declare function isHoliday(date: Date | string, region: Region): boolean;
 
-declare function getHolidayByDate(date: Date, region: Region): Holiday | void;
+declare function getHolidayByDate(
+  date: Date | string,
+  region: Region,
+): Holiday | void;
 
 declare function isSpecificHoliday(
-  date: Date,
+  date: Date | string,
   holidayName: HolidayType,
   region: Region,
 ): boolean;
