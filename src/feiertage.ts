@@ -709,8 +709,8 @@ function toGermanTimezoneTimestamp(date: Date): number {
       const second = parseInt(secondPart.value, 10);
       if (!Number.isNaN(hour) && !Number.isNaN(minute) && !Number.isNaN(second)) {
         const millisecondsFromMidnight =
-          hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;
-        const result = date.getTime() - millisecondsFromMidnight;
+          hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;        
+        const result = new Date(date).setMilliseconds(0) - millisecondsFromMidnight;
         const fallback = toGermanTimezoneTimestampFallback(date);
         if (Math.abs(result - fallback) < 60000) return result;
       }

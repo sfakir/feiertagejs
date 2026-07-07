@@ -3,7 +3,7 @@
 // regardless of the server's timezone setting.
 
 import { describe, it, expect } from 'vitest';
-import { isHoliday, getHolidayByDate } from '../src/feiertage';
+import { isHoliday, getHolidayByDate, isSpecificHoliday } from '../src/feiertage';
 
 describe('German timezone conversion', () => {
   /**
@@ -178,4 +178,13 @@ describe('German timezone conversion', () => {
       expect(holiday?.name).toBe('ERSTERWEIHNACHTSFEIERTAG');
     });
   });
+
+  describe('Dates created with milliseconds', () => {
+   it('should recognize UTC date "2025-05-28T23:00:00.500Z" as holiday even with non-zero milliseconds', () => {
+    const date = new Date('2025-05-28T23:00:00.500Z');
+    expect(isHoliday(date, 'ALL')).toBe(true);
+    expect(isSpecificHoliday(date, 'CHRISTIHIMMELFAHRT', 'ALL')).toBe(true);
+    });
+  });
+
 });
